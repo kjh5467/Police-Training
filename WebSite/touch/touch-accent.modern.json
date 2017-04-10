@@ -1,0 +1,113 @@
+﻿{
+  "name": "Modern",
+  "color": "#38c",
+  "header": {
+    "background": "#FFFFFF",
+    "border": null,
+    "paddingTop": 0,
+    "icon": {
+      "default": "#38c",
+      "hover": null,
+      "selected": null,
+      "backgroundOpacity": null
+    },
+    "text": {
+      "default": null,
+      "hover": null,
+      "logo": null,
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.08)"
+    },
+    "split": {
+      "background": null,
+      "icon": { "default": null }
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#38c",
+      "hover": null,
+      "selected": null
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent", 
+      "border": "transparent"
+    }
+  },
+  "buttons": {
+    "promo": {
+      "background": "#38c",
+      "icon": { "default": null }
+    },
+    "form": {
+      "header": {
+        "background": "transparent",
+        "border": "transparent"
+      },
+      "text": {
+        "default": "#38c",
+        "hover": "#38c",
+        "active": null
+      }
+    },
+    "menu": {
+      "border": null
+    },
+    "wizard": {
+      "text": {
+        "default": "#000"
+      }
+    }
+  },
+  "sidebar": {
+    "full": {
+      "background": "#fff",
+      "border": null,
+      "selectedColor": null,
+      "icon": {
+        "default": "#38c",
+        "hover": "#3ad",
+        "active": null
+      },
+      "toolbar": {
+        "background": "#38c",
+        "border": "#38c",
+        "selectedColor": "#fff",
+        "icon": {
+          "default": "#fff",
+          "hover": "#fff",
+          "active": null
+        }
+      }
+    },
+    "mini": {
+      "background": "#38c",
+      "border": "#38c",
+      "selectedColor": "#fff",
+      "icon": {
+        "default": "#fff",
+        "hover": "#e5e5e5",
+        "active": "#ccc"
+      },
+      "toolbar": {
+        "background": "#38c",
+        "border": "#38c",
+        "selectedColor": "#fff",
+        "icon": {
+          "default": "#fff",
+          "hover": "#fff",
+          "active": null
+        }
+      }
+    }
+  },
+  "actionBar": {
+    "background": "#fff"
+  }
+  //,"system": {
+  //  "selected": null,
+  //  "active": null
+  //}
+}

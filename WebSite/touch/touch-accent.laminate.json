@@ -1,0 +1,95 @@
+﻿{
+  "name": "Laminate",
+  "color": "#e0ca9f",
+  "header": {
+    "background": "#e0ca9f",
+    "border": "#bbb",
+    "divider": "#e0ca9f",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#896C49",
+      "hover": "#222",
+      "selected": null,
+      "backgroundOpacity": null
+    },
+    "text": {
+      "default": "#333",
+      "hover": "#222",
+      "logo": null,
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.1)"
+    },
+    "split": {
+      "background": null,
+      "icon": { "default": null }
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#896C49",
+      "hover": null,
+      "selected": null
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent",
+      "divider": "#bbb"
+    }
+  },
+  "buttons": {
+    "promo": {
+      "background": "#e0ca9f",
+      "icon": {
+        "default": "#896C49"
+      }
+    },
+    "menu": {
+      "background": "#e0ca9f",
+      "border": "#bbb"
+    }
+  },
+  "sidebar": {
+    "full": {
+      "background": null,
+      "border": null,
+      "icon": {
+        "default": "#896C49",
+        "hover": null,
+        "active": null
+      },
+      "toolbar": {
+        "background": null,
+        "icon": {
+          "default": "#896C49",
+          "hover": null,
+          "active": null
+        },
+        "border": null
+      }
+    },
+    "mini": {
+      "background": null,
+      "border": null,
+      "icon": {
+        "default": "#896C49",
+        "hover": null,
+        "active": null
+      },
+      "toolbar": {
+        "background": null,
+        "icon": {
+          "default": "#896C49",
+          "hover": null,
+          "active": null
+        },
+        "border": null
+      }
+    }
+  }
+  //,"system": {
+  //  "selected": null,
+  //  "active": null
+  //}
+}

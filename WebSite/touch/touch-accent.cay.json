@@ -1,0 +1,120 @@
+﻿{
+  "name": "Cay",
+  "color": "#C3DBE9",
+  "header": {
+    "background": "#C3DBE9",
+    "border": "#bbb",
+    "divider": "#206090",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#10222D",
+      "hover": "#306688",
+      "selected": null,
+      "backgroundOpacity": null
+    },
+    "text": {
+      "default": "#10222D",
+      "hover": "#306688",
+      "logo": "#000",
+      "hoverBackground": "rgba(255,255,255,0.15)",
+      "selectedBackground": "rgba(255,255,255,0.3)"
+    },
+    "split": {
+      "background": null,
+      "icon": { "default": null }
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#4188B4",
+      "hover": "#316687",
+      "selected": null
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent",
+      "divider": "#bbb"
+    }
+  },
+  "buttons": {
+    "promo": {
+      "background": "#206090",
+      "icon": {
+        "default": null
+      }
+    },
+    "menu": {
+      "background": "#206090",
+      "border": "#206090",
+      "text": {
+        "default": "#fff"
+      },
+      "icon": {
+        "default": "#fff",
+        "hover": "#ccc",
+        "active": null
+      }
+    }
+  },
+  "sidebar": {
+    "full": {
+      "background": "#206090",
+      "border": "#206090",
+      "selectedColor": "#fff",
+      "icon": {
+        "default": "#fff",
+        "hover": "#ccc",
+        "active": null
+      },
+      "text": {
+        "default": "#fff",
+        "hover": "#ccc",
+        "active": null,
+        "static": "#C3DBE9"
+      },
+      "toolbar": {
+        "background": null,
+        "icon": {
+          "default": null,
+          "hover": null,
+          "active": null
+        },
+        "border": null
+      }
+    },
+    "mini": {
+      "background": "#206090",
+      "border": "#206090",
+      "selectedColor": "#fff",
+      "icon": {
+        "default": "#fff",
+        "hover": "#ccc",
+        "active": null
+      },
+      "text": {
+        "default": "#fff",
+        "hover": "#ccc",
+        "active": null,
+        "static": "#555"
+      },
+      "toolbar": {
+        "background": null,
+        "icon": {
+          "default": null,
+          "hover": null,
+          "active": null
+        },
+        "border": null
+      }
+    }
+  },
+  "actionBar": {
+    "background": null
+  }
+  //,"system": {
+  //  "selected": null,
+  //  "active": null
+  //}
+}

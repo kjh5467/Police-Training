@@ -1,0 +1,92 @@
+﻿{
+  "name": "Viewpoint",
+  "color": "#d1c484",
+  "header": {
+    "background": "#d1c484",
+    "border": "#bbb",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#333",
+      "hover": "#000",
+      "selected": null,
+      "backgroundOpacity": null
+    },
+    "text": {
+      "default": "#333",
+      "hover": "#000",
+      "logo": null,
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.1)"
+    },
+    "split": {
+      "background": null,
+      "icon": { "default": null }
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#71B800",
+      "hover": "#65A300",
+      "selected": null
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent",
+      "divider": "#bbb"
+    }
+  },
+  "buttons": {
+    "promo": {
+      "background": "#d1c484",
+      "icon": {
+        "default": "#000"
+      }
+    }
+  },
+  "sidebar": {
+    "full": {
+      "background": null,
+      "border": null,
+      "icon": {
+        "default": "#7ECC00",
+        "hover": "#65A300",
+        "active": null
+      },
+      "toolbar": {
+        "background": null,
+        "icon": {
+          "default": "#7ECC00",
+          "hover": "#65A300",
+          "active": null
+        },
+        "border": null
+      }
+    },
+    "mini": {
+      "background": null,
+      "border": null,
+      "icon": {
+        "default": "#7ECC00",
+        "hover": "#65A300",
+        "active": null
+      },
+      "contentBackground": null,
+      "toolbar": {
+        "background": null,
+        "icon": {
+          "default": "#7ECC00",
+          "hover": "#65A300",
+          "active": null
+        },
+        "border": null
+      }
+    }
+  }
+}
+  //,"system": {
+  //  "selected": null,
+  //  "active": null
+  //}
+}
