@@ -9,9 +9,8 @@ select
 	,"Training"."Score" "Score"
 	,"Training"."Date" "Date"
 	,"Training"."Train_Location" "TrainLocation"
-	,"Training"."Officers_BadgeID" "OfficersBadgeid"
+	,"Officers_Badge"."LastName" "OfficersBadgelastname"
 	,"Officers_Badge"."FirstName" "OfficersBadgefirstname"
-	,"Officers_Badge"."BadgeID" "OfficersBadgebadgeid"
 from "dbo"."Training" "Training"
 	left join "dbo"."Officers" "Officers_Badge" on "Training"."Officers_BadgeID" = "Officers_Badge"."BadgeID"
 ]]></text>
@@ -29,11 +28,8 @@ from "dbo"."Training" "Training"
     <field name="Score" type="Int32" label="Score" showInSummary="true" />
     <field name="Date" type="DateTime" dataFormatString="g" label="Date" showInSummary="true" />
     <field name="TrainLocation" type="String" label="Training Location" length="50" showInSummary="true" />
-    <field name="OfficersBadgeid" type="Int32" label="Officers Badge ID" showInSummary="true">
-      <items style="Lookup" dataController="Officers" newDataView="createForm1" dataValueField="BadgeID" dataTextField="FirstName" copy="OfficersBadgebadgeid=BadgeID" />
-    </field>
+    <field name="OfficersBadgelastname" type="String" readOnly="true" label="Officers Last Name" length="50" />
     <field name="OfficersBadgefirstname" type="String" readOnly="true" label="Officer First Name" length="50" />
-    <field name="OfficersBadgebadgeid" type="Int32" readOnly="true" label="Officer Badge Number" />
   </fields>
   <views>
     <view id="grid1" type="Grid" commandId="command1" label="Training">
@@ -43,8 +39,8 @@ from "dbo"."Training" "Training"
         <dataField fieldName="Score" columns="15" />
         <dataField fieldName="Date" columns="20" />
         <dataField fieldName="TrainLocation" columns="50" />
-        <dataField fieldName="OfficersBadgeid" aliasFieldName="OfficersBadgefirstname" />
-        <dataField fieldName="OfficersBadgebadgeid" columns="15" />
+        <dataField fieldName="OfficersBadgelastname" columns="50" />
+        <dataField fieldName="OfficersBadgefirstname" columns="50" />
       </dataFields>
     </view>
     <view id="editForm1" type="Form" commandId="command1" label="Review Training">
@@ -57,8 +53,8 @@ from "dbo"."Training" "Training"
             <dataField fieldName="Score" columns="15" />
             <dataField fieldName="Date" columns="20" />
             <dataField fieldName="TrainLocation" columns="50" />
-            <dataField fieldName="OfficersBadgeid" aliasFieldName="OfficersBadgefirstname" />
-            <dataField fieldName="OfficersBadgebadgeid" columns="15" />
+            <dataField fieldName="OfficersBadgelastname" columns="50" />
+            <dataField fieldName="OfficersBadgefirstname" columns="50" />
           </dataFields>
         </category>
       </categories>
@@ -73,8 +69,8 @@ from "dbo"."Training" "Training"
             <dataField fieldName="Score" columns="15" />
             <dataField fieldName="Date" columns="20" />
             <dataField fieldName="TrainLocation" columns="50" />
-            <dataField fieldName="OfficersBadgeid" aliasFieldName="OfficersBadgefirstname" />
-            <dataField fieldName="OfficersBadgebadgeid" columns="15" />
+            <dataField fieldName="OfficersBadgelastname" columns="50" />
+            <dataField fieldName="OfficersBadgefirstname" columns="50" />
           </dataFields>
         </category>
       </categories>
