@@ -4,5 +4,7 @@
     <siteMapNode title="^HomePath^Home^HomePath^" description="^HomeDesc^Application home page^HomeDesc^" url="~/pages/home" cssClass="Wide" />
     <siteMapNode title="Officers" description="View Officers" url="~/pages/officers" />
     <siteMapNode title="Training" description="View Training" url="~/pages/training" />
+    <siteMapNode title="Weapons" description="View Weapons" url="~/pages/weapons" />
+    <siteMapNode title="Maintenance" description="View Maintenance" url="~/pages/maintenance" />
   </siteMapNode>
 </siteMap>

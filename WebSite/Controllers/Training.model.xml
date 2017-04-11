@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dataModel baseSchema="dbo" baseTable="Training" alias="Training" created="2017-04-10T17:06:35" modified="2017-04-10T17:06:54" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+<dataModel baseSchema="dbo" baseTable="Training" alias="Training" created="2017-04-10T17:06:35" modified="2017-04-10T21:17:59" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
   <foreignKeys>
     <foreignKey id="Officers_Badge" parentTableSchema="dbo" parentTableName="Officers" x="331" y="20">
       <foreignKeyColumn columnName="Officers_BadgeID" parentColumnName="BadgeID" />
@@ -7,12 +7,12 @@
   </foreignKeys>
   <columns>
     <column name="CourseID" fieldName="CourseID" label="Course ID" />
-    <column name="CourseName" fieldName="CourseName" label="Course Name" />
+    <column name="CourseName" fieldName="CourseName" label="Course of Fire" />
     <column name="Score" fieldName="Score" label="Score" />
     <column name="Date" fieldName="Date" label="Date" format="g" />
-    <column name="Train_Location" fieldName="TrainLocation" label="Train Location" />
+    <column name="Train_Location" fieldName="TrainLocation" label="Training Location" />
     <column name="Officers_BadgeID" fieldName="OfficersBadgeid" label="Officers Badge ID" aliasColumnName="FirstName" aliasForeignKey="Officers_Badge" />
-    <column name="FirstName" fieldName="OfficersBadgefirstname" label="Officers Badge First Name" foreignKey="Officers_Badge" />
-    <column name="BadgeID" fieldName="OfficersBadgebadgeid" label="Officers Badgebadgeid" foreignKey="Officers_Badge" />
+    <column name="FirstName" fieldName="OfficersBadgefirstname" label="Officer First Name" foreignKey="Officers_Badge" />
+    <column name="BadgeID" fieldName="OfficersBadgebadgeid" label="Officer Badge Number" foreignKey="Officers_Badge" />
   </columns>
 </dataModel>

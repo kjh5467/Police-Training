@@ -1,80 +1,76 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dataController name="Training" conflictDetection="overwriteChanges" label="Training" xmlns="urn:schemas-codeontime-com:data-aquarium">
+<dataController name="Maintenance" conflictDetection="overwriteChanges" label="Maintenance" xmlns="urn:schemas-codeontime-com:data-aquarium">
   <commands>
     <command id="command1" type="Text">
       <text><![CDATA[
 select
-	"Training"."CourseID" "CourseID"
-	,"Training"."CourseName" "CourseName"
-	,"Training"."Score" "Score"
-	,"Training"."Date" "Date"
-	,"Training"."Train_Location" "TrainLocation"
-	,"Training"."Officers_BadgeID" "OfficersBadgeid"
-	,"Officers_Badge"."FirstName" "OfficersBadgefirstname"
-	,"Officers_Badge"."BadgeID" "OfficersBadgebadgeid"
-from "dbo"."Training" "Training"
-	left join "dbo"."Officers" "Officers_Badge" on "Training"."Officers_BadgeID" = "Officers_Badge"."BadgeID"
+	"Maintenance"."RecordID" "RecordID"
+	,"Maintenance"."Maint_Info" "MaintInfo"
+	,"Maintenance"."Date_Completed" "DateCompleted"
+	,"Maintenance"."Maint_Performed" "MaintPerformed"
+	,"Maintenance"."Weapons_SerialID" "WeaponsSerialid"
+	,"Weapons_Serial"."Make" "WeaponsSerialmake"
+	,"Maintenance_Tech_Technician"."TechLast" "MaintenanceTechTechniciantechlast"
+from "dbo"."Maintenance" "Maintenance"
+	left join "dbo"."Weapons" "Weapons_Serial" on "Maintenance"."Weapons_SerialID" = "Weapons_Serial"."SerialID"
+	left join "dbo"."Maintenance_Tech" "Maintenance_Tech_Technician" on "Maintenance"."Maintenance_Tech_TechnicianID" = "Maintenance_Tech_Technician"."TechnicianID"
 ]]></text>
     </command>
-    <command id="CourseIDIdentityCommand" type="Text" event="Inserted">
+    <command id="RecordIDIdentityCommand" type="Text" event="Inserted">
       <text><![CDATA[select @@identity]]></text>
       <output>
-        <fieldOutput fieldName="CourseID" />
+        <fieldOutput fieldName="RecordID" />
       </output>
     </command>
   </commands>
   <fields>
-    <field name="CourseID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Course ID" readOnly="true" />
-    <field name="CourseName" type="String" allowNulls="false" label="Course of Fire" length="100" showInSummary="true" />
-    <field name="Score" type="Int32" label="Score" showInSummary="true" />
-    <field name="Date" type="DateTime" dataFormatString="g" label="Date" showInSummary="true" />
-    <field name="TrainLocation" type="String" label="Training Location" length="50" showInSummary="true" />
-    <field name="OfficersBadgeid" type="Int32" label="Officers Badge ID" showInSummary="true">
-      <items style="Lookup" dataController="Officers" newDataView="createForm1" dataValueField="BadgeID" dataTextField="FirstName" copy="OfficersBadgebadgeid=BadgeID" />
+    <field name="RecordID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Maintainence Record ID" readOnly="true" />
+    <field name="MaintInfo" type="String" label="Maintenance Info" length="250" showInSummary="true" />
+    <field name="DateCompleted" type="DateTime" dataFormatString="g" label="Date Completed" showInSummary="true" />
+    <field name="MaintPerformed" type="String" label="Maintenance Performed" length="250" showInSummary="true" />
+    <field name="WeaponsSerialid" type="Int32" allowNulls="false" label="Weapon Serial ID" showInSummary="true">
+      <items style="Lookup" dataController="Weapons" newDataView="createForm1" dataValueField="SerialID" dataTextField="Make" />
     </field>
-    <field name="OfficersBadgefirstname" type="String" readOnly="true" label="Officer First Name" length="50" />
-    <field name="OfficersBadgebadgeid" type="Int32" readOnly="true" label="Officer Badge Number" />
+    <field name="WeaponsSerialmake" type="String" readOnly="true" label="Weapon Make" length="50" />
+    <field name="MaintenanceTechTechniciantechlast" type="String" readOnly="true" label="Maintenance Tech Last Name" length="50" />
   </fields>
   <views>
-    <view id="grid1" type="Grid" commandId="command1" label="Training">
+    <view id="grid1" type="Grid" commandId="command1" label="Maintenance">
       <headerText>$DefaultGridViewDescription</headerText>
       <dataFields>
-        <dataField fieldName="CourseName" />
-        <dataField fieldName="Score" columns="15" />
-        <dataField fieldName="Date" columns="20" />
-        <dataField fieldName="TrainLocation" columns="50" />
-        <dataField fieldName="OfficersBadgeid" aliasFieldName="OfficersBadgefirstname" />
-        <dataField fieldName="OfficersBadgebadgeid" columns="15" />
+        <dataField fieldName="MaintInfo" />
+        <dataField fieldName="DateCompleted" columns="20" />
+        <dataField fieldName="MaintPerformed" />
+        <dataField fieldName="WeaponsSerialid" aliasFieldName="WeaponsSerialmake" />
+        <dataField fieldName="MaintenanceTechTechniciantechlast" columns="50" />
       </dataFields>
     </view>
-    <view id="editForm1" type="Form" commandId="command1" label="Review Training">
+    <view id="editForm1" type="Form" commandId="command1" label="Review Maintenance">
       <headerText>$DefaultEditViewDescription</headerText>
       <categories>
-        <category id="c1" headerText="Training" flow="NewColumn">
+        <category id="c1" headerText="Maintenance" flow="NewColumn">
           <description><![CDATA[$DefaultEditDescription]]></description>
           <dataFields>
-            <dataField fieldName="CourseName" />
-            <dataField fieldName="Score" columns="15" />
-            <dataField fieldName="Date" columns="20" />
-            <dataField fieldName="TrainLocation" columns="50" />
-            <dataField fieldName="OfficersBadgeid" aliasFieldName="OfficersBadgefirstname" />
-            <dataField fieldName="OfficersBadgebadgeid" columns="15" />
+            <dataField fieldName="MaintInfo" />
+            <dataField fieldName="DateCompleted" columns="20" />
+            <dataField fieldName="MaintPerformed" />
+            <dataField fieldName="WeaponsSerialid" aliasFieldName="WeaponsSerialmake" />
+            <dataField fieldName="MaintenanceTechTechniciantechlast" columns="50" />
           </dataFields>
         </category>
       </categories>
     </view>
-    <view id="createForm1" type="Form" commandId="command1" label="New Training">
+    <view id="createForm1" type="Form" commandId="command1" label="New Maintenance">
       <headerText>$DefaultCreateViewDescription</headerText>
       <categories>
-        <category id="c1" headerText="New Training" flow="NewColumn">
+        <category id="c1" headerText="New Maintenance" flow="NewColumn">
           <description><![CDATA[$DefaultNewDescription]]></description>
           <dataFields>
-            <dataField fieldName="CourseName" />
-            <dataField fieldName="Score" columns="15" />
-            <dataField fieldName="Date" columns="20" />
-            <dataField fieldName="TrainLocation" columns="50" />
-            <dataField fieldName="OfficersBadgeid" aliasFieldName="OfficersBadgefirstname" />
-            <dataField fieldName="OfficersBadgebadgeid" columns="15" />
+            <dataField fieldName="MaintInfo" />
+            <dataField fieldName="DateCompleted" columns="20" />
+            <dataField fieldName="MaintPerformed" />
+            <dataField fieldName="WeaponsSerialid" aliasFieldName="WeaponsSerialmake" />
+            <dataField fieldName="MaintenanceTechTechniciantechlast" columns="50" />
           </dataFields>
         </category>
       </categories>
