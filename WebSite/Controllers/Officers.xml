@@ -8,6 +8,7 @@ select
 	,"Officers"."FirstName" "FirstName"
 	,"Officers"."LastName" "LastName"
 	,"Officers"."Department" "Department"
+	,"Officers"."Active" "Active"
 from "dbo"."Officers" "Officers"
 ]]></text>
     </command>
@@ -17,6 +18,7 @@ from "dbo"."Officers" "Officers"
     <field name="FirstName" type="String" allowNulls="false" label="First Name" length="50" showInSummary="true" />
     <field name="LastName" type="String" allowNulls="false" label="Last Name" length="50" showInSummary="true" />
     <field name="Department" type="String" allowNulls="false" label="Department" length="50" showInSummary="true" />
+    <field name="Active" type="Boolean" allowNulls="false" label="Active" showInSummary="true" />
   </fields>
   <views>
     <view id="grid1" type="Grid" commandId="command1" label="Officers">
@@ -26,6 +28,7 @@ from "dbo"."Officers" "Officers"
         <dataField fieldName="FirstName" columns="50" />
         <dataField fieldName="LastName" columns="50" />
         <dataField fieldName="Department" columns="50" />
+        <dataField fieldName="Active" />
       </dataFields>
     </view>
     <view id="editForm1" type="Form" commandId="command1" label="Review Officers">
@@ -38,6 +41,7 @@ from "dbo"."Officers" "Officers"
             <dataField fieldName="FirstName" columns="50" />
             <dataField fieldName="LastName" columns="50" />
             <dataField fieldName="Department" columns="50" />
+            <dataField fieldName="Active" />
           </dataFields>
         </category>
       </categories>
@@ -52,6 +56,7 @@ from "dbo"."Officers" "Officers"
             <dataField fieldName="FirstName" columns="50" />
             <dataField fieldName="LastName" columns="50" />
             <dataField fieldName="Department" columns="50" />
+            <dataField fieldName="Active" />
           </dataFields>
         </category>
       </categories>

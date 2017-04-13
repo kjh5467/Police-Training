@@ -1,75 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dataController name="Maintenance" conflictDetection="overwriteChanges" label="Maintenance" xmlns="urn:schemas-codeontime-com:data-aquarium">
+<dataController name="TrainingLocation" conflictDetection="overwriteChanges" label="Training Location" xmlns="urn:schemas-codeontime-com:data-aquarium">
   <commands>
     <command id="command1" type="Text">
       <text><![CDATA[
 select
-	"Maintenance"."RecordID" "RecordID"
-	,"Maintenance"."Date_Started" "DateStarted"
-	,"Maintenance"."Date_Completed" "DateCompleted"
-	,"Maintenance"."Maint_Performed" "MaintPerformed"
-	,"Maintenance"."Weapons_SerialID" "WeaponsSerialid"
-	,"Maintenance"."Maintenance_Tech_TechnicianID" "MaintenanceTechTechnicianid"
-	,"Maintenance_Tech_Technician"."TechnicianID" "MaintenanceTechTechniciantechnicianid"
-from "dbo"."Maintenance" "Maintenance"
-	left join "dbo"."Maintenance_Tech" "Maintenance_Tech_Technician" on "Maintenance"."Maintenance_Tech_TechnicianID" = "Maintenance_Tech_Technician"."TechnicianID"
+	"Course"."CourseName" "CourseCoursecoursename"
+	,"Location"."Address" "LocationLocationaddress"
+from "dbo"."Training Location" "TrainingLocation"
+	left join "dbo"."Training" "Course" on "TrainingLocation"."Course_CourseID" = "Course"."CourseID"
+	left join "dbo"."Location" "Location" on "TrainingLocation"."Location_LocationID" = "Location"."LocationID"
 ]]></text>
-    </command>
-    <command id="RecordIDIdentityCommand" type="Text" event="Inserted">
-      <text><![CDATA[select @@identity]]></text>
-      <output>
-        <fieldOutput fieldName="RecordID" />
-      </output>
     </command>
   </commands>
   <fields>
-    <field name="RecordID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Maintainence Record ID" readOnly="true" />
-    <field name="DateStarted" type="DateTime" allowNulls="false" dataFormatString="g" label="Date Started" showInSummary="true" />
-    <field name="DateCompleted" type="DateTime" dataFormatString="g" label="Date Completed" showInSummary="true" />
-    <field name="MaintPerformed" type="String" label="Maintenance Performed" length="250" showInSummary="true" />
-    <field name="WeaponsSerialid" type="Int32" allowNulls="false" label="Weapon Serial ID" showInSummary="true" />
-    <field name="MaintenanceTechTechnicianid" type="Int32" label="Tech ID" showInSummary="true">
-      <items style="Lookup" dataController="MaintenanceTech" newDataView="createForm1" dataValueField="TechnicianID" dataTextField="TechnicianID" />
-    </field>
-    <field name="MaintenanceTechTechniciantechnicianid" type="Int32" label="Tech Id" readOnly="true" />
+    <field name="CourseCoursecoursename" type="String" readOnly="true" label="Course Name" length="100" />
+    <field name="LocationLocationaddress" type="String" readOnly="true" label="Location Address" length="50" />
   </fields>
   <views>
-    <view id="grid1" type="Grid" commandId="command1" label="Maintenance">
+    <view id="grid1" type="Grid" commandId="command1" label="Training Location">
       <headerText>$DefaultGridViewDescription</headerText>
       <dataFields>
-        <dataField fieldName="DateStarted" columns="20" />
-        <dataField fieldName="DateCompleted" columns="20" />
-        <dataField fieldName="MaintPerformed" />
-        <dataField fieldName="WeaponsSerialid" aliasFieldName="CleanIdentifier-Error" />
-        <dataField fieldName="MaintenanceTechTechnicianid" aliasFieldName="MaintenanceTechTechniciantechnicianid" />
+        <dataField fieldName="CourseCoursecoursename" />
+        <dataField fieldName="LocationLocationaddress" columns="50" />
       </dataFields>
     </view>
-    <view id="editForm1" type="Form" commandId="command1" label="Review Maintenance">
+    <view id="editForm1" type="Form" commandId="command1" label="Review Training Location">
       <headerText>$DefaultEditViewDescription</headerText>
       <categories>
-        <category id="c1" headerText="Maintenance" flow="NewColumn">
+        <category id="c1" headerText="Training Location" flow="NewColumn">
           <description><![CDATA[$DefaultEditDescription]]></description>
           <dataFields>
-            <dataField fieldName="DateStarted" columns="20" />
-            <dataField fieldName="DateCompleted" columns="20" />
-            <dataField fieldName="MaintPerformed" />
-            <dataField fieldName="WeaponsSerialid" aliasFieldName="CleanIdentifier-Error" />
-            <dataField fieldName="MaintenanceTechTechnicianid" aliasFieldName="MaintenanceTechTechniciantechnicianid" />
+            <dataField fieldName="CourseCoursecoursename" />
+            <dataField fieldName="LocationLocationaddress" columns="50" />
           </dataFields>
         </category>
       </categories>
     </view>
-    <view id="createForm1" type="Form" commandId="command1" label="New Maintenance">
+    <view id="createForm1" type="Form" commandId="command1" label="New Training Location">
       <headerText>$DefaultCreateViewDescription</headerText>
       <categories>
-        <category id="c1" headerText="New Maintenance" flow="NewColumn">
+        <category id="c1" headerText="New Training Location" flow="NewColumn">
           <description><![CDATA[$DefaultNewDescription]]></description>
           <dataFields>
-            <dataField fieldName="DateStarted" columns="20" />
-            <dataField fieldName="DateCompleted" columns="20" />
-            <dataField fieldName="MaintPerformed" />
-            <dataField fieldName="WeaponsSerialid" aliasFieldName="CleanIdentifier-Error" />
-            <dataField fieldName="MaintenanceTechTechnicianid" aliasFieldName="MaintenanceTechTechniciantechnicianid" />
+            <dataField fieldName="CourseCoursecoursename" />
+            <dataField fieldName="LocationLocationaddress" columns="50" />
           </dataFields>
         </category>
       </categories>
@@ -110,8 +84,6 @@ from "dbo"."Maintenance" "Maintenance"
       <action id="a2" />
       <action id="a3" commandName="ExportRowset" />
       <action id="a4" commandName="ExportRss" />
-      <action id="a5" />
-      <action id="a6" commandName="Import" commandArgument="createForm1" />
       <action id="a7" commandName="DataSheet" />
       <action id="a8" commandName="Grid" />
     </actionGroup>

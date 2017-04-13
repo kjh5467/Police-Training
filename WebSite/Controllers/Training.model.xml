@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dataModel baseSchema="dbo" baseTable="Training" alias="Training" created="2017-04-10T17:06:35" modified="2017-04-13T16:20:28" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+<dataModel baseSchema="dbo" baseTable="Training" alias="Training" created="2017-04-10T17:06:35" modified="2017-04-13T17:16:43" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
   <foreignKeys>
     <foreignKey id="Officers_Badge" parentTableSchema="dbo" parentTableName="Officers" x="331" y="20">
       <foreignKeyColumn columnName="Officers_BadgeID" parentColumnName="BadgeID" />
@@ -11,7 +11,7 @@
     <column name="Score" fieldName="Score" label="Score" />
     <column name="Date" fieldName="Date" label="Date" format="g" />
     <column name="Train_Location" fieldName="TrainLocation" label="Training Location" />
-    <column name="LastName" fieldName="OfficersBadgelastname" label="Officers Last Name" foreignKey="Officers_Badge" />
-    <column name="FirstName" fieldName="OfficersBadgefirstname" label="Officer First Name" foreignKey="Officers_Badge" />
+    <column name="Officers_BadgeID" fieldName="OfficersBadgeid" label="Officers Badge ID" aliasColumnName="BadgeID" aliasForeignKey="Officers_Badge" />
+    <column name="BadgeID" fieldName="OfficersBadgebadgeid" label="Officers Badge ID" foreignKey="Officers_Badge" />
   </columns>
 </dataModel>

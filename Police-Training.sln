@@ -1,0 +1,14 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Police-Training", "WebSite\", "D1AE776B-B7DC-4E19-809E-FE5891B7C54F"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Code On Time Items", "Code On Time Items", "{A6CD76CA-26B5-41A4-A3FA-416BAE8F4ED6}"
+	ProjectSection(SolutionItems) = preProject
+		ClientLibrary.en-US.txt = ClientLibrary.en-US.txt
+		DataAquarium.Project.xml = DataAquarium.Project.xml
+		DataAquarium.Version.xml = DataAquarium.Version.xml
+		Sync.REMOTE157-KJH5467.xml = Sync.REMOTE157-KJH5467.xml
+	EndProjectSection
+EndProject

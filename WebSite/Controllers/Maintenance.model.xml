@@ -1,19 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dataModel baseSchema="dbo" baseTable="Maintenance" alias="Maintenance" created="2017-04-10T21:21:08" modified="2017-04-10T21:26:32" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+<dataModel baseSchema="dbo" baseTable="Maintenance" alias="Maintenance" created="2017-04-10T21:21:08" modified="2017-04-13T17:21:54" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
   <foreignKeys>
-    <foreignKey id="Weapons_Serial" parentTableSchema="dbo" parentTableName="Weapons" x="415" y="20">
-      <foreignKeyColumn columnName="Weapons_SerialID" parentColumnName="SerialID" />
-    </foreignKey>
-    <foreignKey id="Maintenance_Tech_Technician" parentTableSchema="dbo" parentTableName="Maintenance_Tech" x="415" y="181">
+    <foreignKey id="Maintenance_Tech_Technician" parentTableSchema="dbo" parentTableName="Maintenance_Tech" x="416" y="20">
       <foreignKeyColumn columnName="Maintenance_Tech_TechnicianID" parentColumnName="TechnicianID" />
     </foreignKey>
   </foreignKeys>
   <columns>
     <column name="RecordID" fieldName="RecordID" label="Maintainence Record ID" />
-    <column name="Maint_Info" fieldName="MaintInfo" label="Maintenance Info" />
+    <column name="Date_Started" fieldName="DateStarted" label="Date Started" format="g" />
     <column name="Date_Completed" fieldName="DateCompleted" label="Date Completed" format="g" />
     <column name="Maint_Performed" fieldName="MaintPerformed" label="Maintenance Performed" />
     <column name="Weapons_SerialID" fieldName="WeaponsSerialid" label="Weapon Serial ID" aliasColumnName="Make" aliasForeignKey="Weapons_Serial" />
-    <column name="TechLast" fieldName="MaintenanceTechTechniciantechlast" label="Maintenance Tech Last Name" foreignKey="Maintenance_Tech_Technician" />
+    <column name="Maintenance_Tech_TechnicianID" fieldName="MaintenanceTechTechnicianid" label="Tech ID" aliasColumnName="TechnicianID" aliasForeignKey="Maintenance_Tech_Technician" />
+    <column name="TechnicianID" fieldName="MaintenanceTechTechniciantechnicianid" label="Tech Id" foreignKey="Maintenance_Tech_Technician" />
   </columns>
 </dataModel>

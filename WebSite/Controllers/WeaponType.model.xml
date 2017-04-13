@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Weapon_Type" alias="Weapon_Type" created="2017-04-13T17:53:18" modified="2017-04-13T18:00:18" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="Weapon_Type_ID" fieldName="WeaponTypeID" label="Weapon Type ID" />
+  </columns>
+</dataModel>
