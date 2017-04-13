@@ -7,7 +7,6 @@
   </foreignKeys>
   <columns>
     <column name="RecordID" fieldName="RecordID" label="Maintainence Record ID" />
-    <column name="Maint_Info" fieldName="MaintInfo" label="Maintenance Info" />
     <column name="Date_Started" fieldName="DateStarted" label="Date Started" format="g" />
     <column name="Date_Completed" fieldName="DateCompleted" label="Date Completed" format="g" />
     <column name="Maint_Performed" fieldName="MaintPerformed" label="Maintenance Performed" />

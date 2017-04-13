@@ -4,13 +4,8 @@
     <command id="command1" type="Text">
       <text><![CDATA[
 select
-	"TrainingLocation"."Course_CourseID" "CourseCourseid"
-	,"Course"."CourseName" "CourseCoursecoursename"
+	"Course"."CourseName" "CourseCoursecoursename"
 	,"Location"."Address" "LocationLocationaddress"
-	,"Location"."City" "LocationCity"
-	,"Location"."State" "LocationState"
-	,"Location"."ZipCode" "LocationZipCode"
-	,"TrainingLocation"."Location_LocationID" "LocationLocationid"
 from "dbo"."Training Location" "TrainingLocation"
 	left join "dbo"."Training" "Course" on "TrainingLocation"."Course_CourseID" = "Course"."CourseID"
 	left join "dbo"."Location" "Location" on "TrainingLocation"."Location_LocationID" = "Location"."LocationID"
@@ -18,28 +13,15 @@ from "dbo"."Training Location" "TrainingLocation"
     </command>
   </commands>
   <fields>
-    <field name="CourseCourseid" type="Int32" allowNulls="false" isPrimaryKey="true" label="Course ID" showInSummary="true">
-      <items style="Lookup" dataController="Training" newDataView="createForm1" dataValueField="CourseID" dataTextField="CourseName" />
-    </field>
     <field name="CourseCoursecoursename" type="String" readOnly="true" label="Course Name" length="100" />
     <field name="LocationLocationaddress" type="String" readOnly="true" label="Location Address" length="50" />
-    <field name="LocationCity" type="String" readOnly="true" label="Location City" length="10" />
-    <field name="LocationState" type="String" readOnly="true" label="Location State" length="10" />
-    <field name="LocationZipCode" type="String" readOnly="true" label="Location Zip Code" length="10" />
-    <field name="LocationLocationid" type="Int32" allowNulls="false" isPrimaryKey="true" label="Location Locationid" showInSummary="true">
-      <items style="Lookup" dataController="Location" newDataView="createForm1" dataValueField="LocationID" dataTextField="LocationID" copy="LocationLocationaddress=Address, LocationCity=City, LocationState=State, LocationZipCode=ZipCode" />
-    </field>
   </fields>
   <views>
     <view id="grid1" type="Grid" commandId="command1" label="Training Location">
       <headerText>$DefaultGridViewDescription</headerText>
       <dataFields>
-        <dataField fieldName="CourseCourseid" aliasFieldName="CourseCoursecoursename" />
+        <dataField fieldName="CourseCoursecoursename" />
         <dataField fieldName="LocationLocationaddress" columns="50" />
-        <dataField fieldName="LocationCity" columns="10" />
-        <dataField fieldName="LocationState" columns="10" />
-        <dataField fieldName="LocationZipCode" columns="10" />
-        <dataField fieldName="LocationLocationid" columns="15" />
       </dataFields>
     </view>
     <view id="editForm1" type="Form" commandId="command1" label="Review Training Location">
@@ -48,12 +30,8 @@ from "dbo"."Training Location" "TrainingLocation"
         <category id="c1" headerText="Training Location" flow="NewColumn">
           <description><![CDATA[$DefaultEditDescription]]></description>
           <dataFields>
-            <dataField fieldName="CourseCourseid" aliasFieldName="CourseCoursecoursename" />
+            <dataField fieldName="CourseCoursecoursename" />
             <dataField fieldName="LocationLocationaddress" columns="50" />
-            <dataField fieldName="LocationCity" columns="10" />
-            <dataField fieldName="LocationState" columns="10" />
-            <dataField fieldName="LocationZipCode" columns="10" />
-            <dataField fieldName="LocationLocationid" columns="15" />
           </dataFields>
         </category>
       </categories>
@@ -64,12 +42,8 @@ from "dbo"."Training Location" "TrainingLocation"
         <category id="c1" headerText="New Training Location" flow="NewColumn">
           <description><![CDATA[$DefaultNewDescription]]></description>
           <dataFields>
-            <dataField fieldName="CourseCourseid" aliasFieldName="CourseCoursecoursename" />
+            <dataField fieldName="CourseCoursecoursename" />
             <dataField fieldName="LocationLocationaddress" columns="50" />
-            <dataField fieldName="LocationCity" columns="10" />
-            <dataField fieldName="LocationState" columns="10" />
-            <dataField fieldName="LocationZipCode" columns="10" />
-            <dataField fieldName="LocationLocationid" columns="15" />
           </dataFields>
         </category>
       </categories>
@@ -110,8 +84,6 @@ from "dbo"."Training Location" "TrainingLocation"
       <action id="a2" />
       <action id="a3" commandName="ExportRowset" />
       <action id="a4" commandName="ExportRss" />
-      <action id="a5" />
-      <action id="a6" commandName="Import" commandArgument="createForm1" />
       <action id="a7" commandName="DataSheet" />
       <action id="a8" commandName="Grid" />
     </actionGroup>

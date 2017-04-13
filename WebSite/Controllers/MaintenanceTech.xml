@@ -19,7 +19,7 @@ from "dbo"."Maintenance_Tech" "Maintenance_Tech"
   </commands>
   <fields>
     <field name="TechnicianID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Technician ID" readOnly="true" />
-    <field name="TechFirst" type="String" label="First Name" length="50" showInSummary="true" />
+    <field name="TechFirst" type="String" allowNulls="false" label="Tech First" length="50" showInSummary="true" />
     <field name="TechLast" type="String" allowNulls="false" label="Tech Last" length="50" showInSummary="true" />
   </fields>
   <views>

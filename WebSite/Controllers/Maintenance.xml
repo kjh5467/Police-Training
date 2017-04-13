@@ -5,7 +5,6 @@
       <text><![CDATA[
 select
 	"Maintenance"."RecordID" "RecordID"
-	,"Maintenance"."Maint_Info" "MaintInfo"
 	,"Maintenance"."Date_Started" "DateStarted"
 	,"Maintenance"."Date_Completed" "DateCompleted"
 	,"Maintenance"."Maint_Performed" "MaintPerformed"
@@ -25,12 +24,11 @@ from "dbo"."Maintenance" "Maintenance"
   </commands>
   <fields>
     <field name="RecordID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Maintainence Record ID" readOnly="true" />
-    <field name="MaintInfo" type="String" label="Maintenance Info" length="250" showInSummary="true" />
     <field name="DateStarted" type="DateTime" allowNulls="false" dataFormatString="g" label="Date Started" showInSummary="true" />
     <field name="DateCompleted" type="DateTime" dataFormatString="g" label="Date Completed" showInSummary="true" />
     <field name="MaintPerformed" type="String" label="Maintenance Performed" length="250" showInSummary="true" />
     <field name="WeaponsSerialid" type="Int32" allowNulls="false" label="Weapon Serial ID" showInSummary="true" />
-    <field name="MaintenanceTechTechnicianid" type="Int32" label="Tech ID">
+    <field name="MaintenanceTechTechnicianid" type="Int32" label="Tech ID" showInSummary="true">
       <items style="Lookup" dataController="MaintenanceTech" newDataView="createForm1" dataValueField="TechnicianID" dataTextField="TechnicianID" />
     </field>
     <field name="MaintenanceTechTechniciantechnicianid" type="Int32" label="Tech Id" readOnly="true" />
@@ -39,7 +37,6 @@ from "dbo"."Maintenance" "Maintenance"
     <view id="grid1" type="Grid" commandId="command1" label="Maintenance">
       <headerText>$DefaultGridViewDescription</headerText>
       <dataFields>
-        <dataField fieldName="MaintInfo" />
         <dataField fieldName="DateStarted" columns="20" />
         <dataField fieldName="DateCompleted" columns="20" />
         <dataField fieldName="MaintPerformed" />
@@ -53,7 +50,6 @@ from "dbo"."Maintenance" "Maintenance"
         <category id="c1" headerText="Maintenance" flow="NewColumn">
           <description><![CDATA[$DefaultEditDescription]]></description>
           <dataFields>
-            <dataField fieldName="MaintInfo" />
             <dataField fieldName="DateStarted" columns="20" />
             <dataField fieldName="DateCompleted" columns="20" />
             <dataField fieldName="MaintPerformed" />
@@ -69,7 +65,6 @@ from "dbo"."Maintenance" "Maintenance"
         <category id="c1" headerText="New Maintenance" flow="NewColumn">
           <description><![CDATA[$DefaultNewDescription]]></description>
           <dataFields>
-            <dataField fieldName="MaintInfo" />
             <dataField fieldName="DateStarted" columns="20" />
             <dataField fieldName="DateCompleted" columns="20" />
             <dataField fieldName="MaintPerformed" />

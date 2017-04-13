@@ -5,10 +5,10 @@
       <text><![CDATA[
 select
 	"Weapons"."SerialID" "SerialID"
-	,"Weapons"."Location" "Location"
 	,"Weapon_Type"."Make" "WeaponTypemake"
 	,"Weapon_Type"."Model" "WeaponTypemodel"
 	,"Weapon_Type"."Caliber" "WeaponTypecaliber"
+	,"Weapons"."Location" "Location"
 from "dbo"."Weapons" "Weapons"
 	left join "dbo"."Weapon_Type" "Weapon_Type" on "Weapons"."Weapon_Type_Weapon_Type_ID" = "Weapon_Type"."Weapon_Type_ID"
 ]]></text>
@@ -16,20 +16,20 @@ from "dbo"."Weapons" "Weapons"
   </commands>
   <fields>
     <field name="SerialID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Serial ID" />
-    <field name="Location" type="String" allowNulls="false" label="Location" length="50" showInSummary="true" />
     <field name="WeaponTypemake" type="String" readOnly="true" label="Weapon Make" length="50" />
     <field name="WeaponTypemodel" type="String" readOnly="true" label="Model" length="50" />
     <field name="WeaponTypecaliber" type="Int32" readOnly="true" label="Caliber" />
+    <field name="Location" type="String" allowNulls="false" label="Location" length="50" showInSummary="true" />
   </fields>
   <views>
     <view id="grid1" type="Grid" commandId="command1" label="Weapons">
       <headerText>$DefaultGridViewDescription</headerText>
       <dataFields>
         <dataField fieldName="SerialID" columns="15" />
-        <dataField fieldName="Location" columns="50" />
         <dataField fieldName="WeaponTypemake" columns="50" />
         <dataField fieldName="WeaponTypemodel" columns="50" />
         <dataField fieldName="WeaponTypecaliber" columns="15" />
+        <dataField fieldName="Location" columns="50" />
       </dataFields>
     </view>
     <view id="editForm1" type="Form" commandId="command1" label="Review Weapons">
@@ -39,10 +39,10 @@ from "dbo"."Weapons" "Weapons"
           <description><![CDATA[$DefaultEditDescription]]></description>
           <dataFields>
             <dataField fieldName="SerialID" columns="15" />
-            <dataField fieldName="Location" columns="50" />
             <dataField fieldName="WeaponTypemake" columns="50" />
             <dataField fieldName="WeaponTypemodel" columns="50" />
             <dataField fieldName="WeaponTypecaliber" columns="15" />
+            <dataField fieldName="Location" columns="50" />
           </dataFields>
         </category>
       </categories>
@@ -54,10 +54,10 @@ from "dbo"."Weapons" "Weapons"
           <description><![CDATA[$DefaultNewDescription]]></description>
           <dataFields>
             <dataField fieldName="SerialID" columns="15" />
-            <dataField fieldName="Location" columns="50" />
             <dataField fieldName="WeaponTypemake" columns="50" />
             <dataField fieldName="WeaponTypemodel" columns="50" />
             <dataField fieldName="WeaponTypecaliber" columns="15" />
+            <dataField fieldName="Location" columns="50" />
           </dataFields>
         </category>
       </categories>
