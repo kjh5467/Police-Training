@@ -1,63 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dataController name="Weapons" conflictDetection="overwriteChanges" label="Weapons" xmlns="urn:schemas-codeontime-com:data-aquarium">
+<dataController name="MaintenanceTech" conflictDetection="overwriteChanges" label="Maintenance Tech" xmlns="urn:schemas-codeontime-com:data-aquarium">
   <commands>
     <command id="command1" type="Text">
       <text><![CDATA[
 select
-	"Weapons"."SerialID" "SerialID"
-	,"Weapons"."Location" "Location"
-	,"Weapon_Type"."Make" "WeaponTypemake"
-	,"Weapon_Type"."Model" "WeaponTypemodel"
-	,"Weapon_Type"."Caliber" "WeaponTypecaliber"
-from "dbo"."Weapons" "Weapons"
-	left join "dbo"."Weapon_Type" "Weapon_Type" on "Weapons"."Weapon_Type_Weapon_Type_ID" = "Weapon_Type"."Weapon_Type_ID"
+	"Maintenance_Tech"."TechnicianID" "TechnicianID"
+	,"Maintenance_Tech"."TechFirst" "TechFirst"
+	,"Maintenance_Tech"."TechLast" "TechLast"
+from "dbo"."Maintenance_Tech" "Maintenance_Tech"
 ]]></text>
+    </command>
+    <command id="TechnicianIDIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="TechnicianID" />
+      </output>
     </command>
   </commands>
   <fields>
-    <field name="SerialID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Serial ID" />
-    <field name="Location" type="String" allowNulls="false" label="Location" length="50" showInSummary="true" />
-    <field name="WeaponTypemake" type="String" readOnly="true" label="Weapon Make" length="50" />
-    <field name="WeaponTypemodel" type="String" readOnly="true" label="Weapon Model" length="50" />
-    <field name="WeaponTypecaliber" type="Int32" readOnly="true" label="Weapon Typecaliber" />
+    <field name="TechnicianID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Technician ID" readOnly="true" />
+    <field name="TechFirst" type="String" label="First Name" length="50" showInSummary="true" />
+    <field name="TechLast" type="String" allowNulls="false" label="Tech Last" length="50" showInSummary="true" />
   </fields>
   <views>
-    <view id="grid1" type="Grid" commandId="command1" label="Weapons">
+    <view id="grid1" type="Grid" commandId="command1" label="Maintenance Tech">
       <headerText>$DefaultGridViewDescription</headerText>
       <dataFields>
-        <dataField fieldName="SerialID" columns="15" />
-        <dataField fieldName="Location" columns="50" />
-        <dataField fieldName="WeaponTypemake" columns="50" />
-        <dataField fieldName="WeaponTypemodel" columns="50" />
-        <dataField fieldName="WeaponTypecaliber" columns="15" />
+        <dataField fieldName="TechFirst" columns="50" />
+        <dataField fieldName="TechLast" columns="50" />
       </dataFields>
     </view>
-    <view id="editForm1" type="Form" commandId="command1" label="Review Weapons">
+    <view id="editForm1" type="Form" commandId="command1" label="Review Maintenance Tech">
       <headerText>$DefaultEditViewDescription</headerText>
       <categories>
-        <category id="c1" headerText="Weapons" flow="NewColumn">
+        <category id="c1" headerText="Maintenance Tech" flow="NewColumn">
           <description><![CDATA[$DefaultEditDescription]]></description>
           <dataFields>
-            <dataField fieldName="SerialID" columns="15" />
-            <dataField fieldName="Location" columns="50" />
-            <dataField fieldName="WeaponTypemake" columns="50" />
-            <dataField fieldName="WeaponTypemodel" columns="50" />
-            <dataField fieldName="WeaponTypecaliber" columns="15" />
+            <dataField fieldName="TechFirst" columns="50" />
+            <dataField fieldName="TechLast" columns="50" />
           </dataFields>
         </category>
       </categories>
     </view>
-    <view id="createForm1" type="Form" commandId="command1" label="New Weapons">
+    <view id="createForm1" type="Form" commandId="command1" label="New Maintenance Tech">
       <headerText>$DefaultCreateViewDescription</headerText>
       <categories>
-        <category id="c1" headerText="New Weapons" flow="NewColumn">
+        <category id="c1" headerText="New Maintenance Tech" flow="NewColumn">
           <description><![CDATA[$DefaultNewDescription]]></description>
           <dataFields>
-            <dataField fieldName="SerialID" columns="15" />
-            <dataField fieldName="Location" columns="50" />
-            <dataField fieldName="WeaponTypemake" columns="50" />
-            <dataField fieldName="WeaponTypemodel" columns="50" />
-            <dataField fieldName="WeaponTypecaliber" columns="15" />
+            <dataField fieldName="TechFirst" columns="50" />
+            <dataField fieldName="TechLast" columns="50" />
           </dataFields>
         </category>
       </categories>

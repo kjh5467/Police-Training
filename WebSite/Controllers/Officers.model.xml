@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dataModel baseSchema="dbo" baseTable="Officers" alias="Officers" created="2017-04-10T17:06:22" modified="2017-04-10T17:06:29" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+<dataModel baseSchema="dbo" baseTable="Officers" alias="Officers" created="2017-04-10T17:06:22" modified="2017-04-13T17:05:06" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
   <foreignKeys />
   <columns>
     <column name="BadgeID" fieldName="BadgeID" label="Badge ID" />
     <column name="FirstName" fieldName="FirstName" label="First Name" />
     <column name="LastName" fieldName="LastName" label="Last Name" />
     <column name="Department" fieldName="Department" label="Department" />
+    <column name="Active" fieldName="Active" label="Active" />
   </columns>
 </dataModel>

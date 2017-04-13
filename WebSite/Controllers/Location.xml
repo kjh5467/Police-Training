@@ -1,63 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dataController name="Weapons" conflictDetection="overwriteChanges" label="Weapons" xmlns="urn:schemas-codeontime-com:data-aquarium">
+<dataController name="Location" conflictDetection="overwriteChanges" label="Location" xmlns="urn:schemas-codeontime-com:data-aquarium">
   <commands>
     <command id="command1" type="Text">
       <text><![CDATA[
 select
-	"Weapons"."SerialID" "SerialID"
-	,"Weapons"."Location" "Location"
-	,"Weapon_Type"."Make" "WeaponTypemake"
-	,"Weapon_Type"."Model" "WeaponTypemodel"
-	,"Weapon_Type"."Caliber" "WeaponTypecaliber"
-from "dbo"."Weapons" "Weapons"
-	left join "dbo"."Weapon_Type" "Weapon_Type" on "Weapons"."Weapon_Type_Weapon_Type_ID" = "Weapon_Type"."Weapon_Type_ID"
+	"Location"."LocationID" "LocationID"
+	,"Location"."Address" "Address"
+	,"Location"."City" "City"
+	,"Location"."State" "State"
+	,"Location"."ZipCode" "ZipCode"
+from "dbo"."Location" "Location"
 ]]></text>
+    </command>
+    <command id="LocationIDIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="LocationID" />
+      </output>
     </command>
   </commands>
   <fields>
-    <field name="SerialID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Serial ID" />
-    <field name="Location" type="String" allowNulls="false" label="Location" length="50" showInSummary="true" />
-    <field name="WeaponTypemake" type="String" readOnly="true" label="Weapon Make" length="50" />
-    <field name="WeaponTypemodel" type="String" readOnly="true" label="Weapon Model" length="50" />
-    <field name="WeaponTypecaliber" type="Int32" readOnly="true" label="Weapon Typecaliber" />
+    <field name="LocationID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Location ID" readOnly="true" />
+    <field name="Address" type="String" allowNulls="false" label="Address" length="50" showInSummary="true" />
+    <field name="City" type="String" allowNulls="false" label="City" length="10" showInSummary="true" />
+    <field name="State" type="String" allowNulls="false" label="State" length="10" showInSummary="true" />
+    <field name="ZipCode" type="String" allowNulls="false" label="Zip Code" length="10" showInSummary="true" />
   </fields>
   <views>
-    <view id="grid1" type="Grid" commandId="command1" label="Weapons">
+    <view id="grid1" type="Grid" commandId="command1" label="Location">
       <headerText>$DefaultGridViewDescription</headerText>
       <dataFields>
-        <dataField fieldName="SerialID" columns="15" />
-        <dataField fieldName="Location" columns="50" />
-        <dataField fieldName="WeaponTypemake" columns="50" />
-        <dataField fieldName="WeaponTypemodel" columns="50" />
-        <dataField fieldName="WeaponTypecaliber" columns="15" />
+        <dataField fieldName="Address" columns="50" />
+        <dataField fieldName="City" columns="10" />
+        <dataField fieldName="State" columns="10" />
+        <dataField fieldName="ZipCode" columns="10" />
       </dataFields>
     </view>
-    <view id="editForm1" type="Form" commandId="command1" label="Review Weapons">
+    <view id="editForm1" type="Form" commandId="command1" label="Review Location">
       <headerText>$DefaultEditViewDescription</headerText>
       <categories>
-        <category id="c1" headerText="Weapons" flow="NewColumn">
+        <category id="c1" headerText="Location" flow="NewColumn">
           <description><![CDATA[$DefaultEditDescription]]></description>
           <dataFields>
-            <dataField fieldName="SerialID" columns="15" />
-            <dataField fieldName="Location" columns="50" />
-            <dataField fieldName="WeaponTypemake" columns="50" />
-            <dataField fieldName="WeaponTypemodel" columns="50" />
-            <dataField fieldName="WeaponTypecaliber" columns="15" />
+            <dataField fieldName="Address" columns="50" />
+            <dataField fieldName="City" columns="10" />
+            <dataField fieldName="State" columns="10" />
+            <dataField fieldName="ZipCode" columns="10" />
           </dataFields>
         </category>
       </categories>
     </view>
-    <view id="createForm1" type="Form" commandId="command1" label="New Weapons">
+    <view id="createForm1" type="Form" commandId="command1" label="New Location">
       <headerText>$DefaultCreateViewDescription</headerText>
       <categories>
-        <category id="c1" headerText="New Weapons" flow="NewColumn">
+        <category id="c1" headerText="New Location" flow="NewColumn">
           <description><![CDATA[$DefaultNewDescription]]></description>
           <dataFields>
-            <dataField fieldName="SerialID" columns="15" />
-            <dataField fieldName="Location" columns="50" />
-            <dataField fieldName="WeaponTypemake" columns="50" />
-            <dataField fieldName="WeaponTypemodel" columns="50" />
-            <dataField fieldName="WeaponTypecaliber" columns="15" />
+            <dataField fieldName="Address" columns="50" />
+            <dataField fieldName="City" columns="10" />
+            <dataField fieldName="State" columns="10" />
+            <dataField fieldName="ZipCode" columns="10" />
           </dataFields>
         </category>
       </categories>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Location" alias="Location" created="2017-04-13T16:57:51" modified="2017-04-13T17:01:49" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="LocationID" fieldName="LocationID" label="Location ID" />
+    <column name="Address" fieldName="Address" label="Address" />
+    <column name="City" fieldName="City" label="City" />
+    <column name="State" fieldName="State" label="State" />
+    <column name="ZipCode" fieldName="ZipCode" label="Zip Code" />
+  </columns>
+</dataModel>

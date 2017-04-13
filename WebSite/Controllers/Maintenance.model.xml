@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dataModel baseSchema="dbo" baseTable="Maintenance" alias="Maintenance" created="2017-04-10T21:21:08" modified="2017-04-10T21:26:32" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+<dataModel baseSchema="dbo" baseTable="Maintenance" alias="Maintenance" created="2017-04-10T21:21:08" modified="2017-04-13T17:05:24" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
   <foreignKeys>
-    <foreignKey id="Weapons_Serial" parentTableSchema="dbo" parentTableName="Weapons" x="415" y="20">
-      <foreignKeyColumn columnName="Weapons_SerialID" parentColumnName="SerialID" />
-    </foreignKey>
     <foreignKey id="Maintenance_Tech_Technician" parentTableSchema="dbo" parentTableName="Maintenance_Tech" x="415" y="181">
       <foreignKeyColumn columnName="Maintenance_Tech_TechnicianID" parentColumnName="TechnicianID" />
     </foreignKey>
