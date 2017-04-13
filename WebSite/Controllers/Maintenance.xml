@@ -11,7 +11,6 @@ select
 	,"Maintenance"."Weapons_SerialID" "WeaponsSerialid"
 	,"Maintenance_Tech_Technician"."TechLast" "MaintenanceTechTechniciantechlast"
 from "dbo"."Maintenance" "Maintenance"
-	left join "dbo"."Weapons" "Weapons_Serial" on "Maintenance"."Weapons_SerialID" = "Weapons_Serial"."SerialID"
 	left join "dbo"."Maintenance_Tech" "Maintenance_Tech_Technician" on "Maintenance"."Maintenance_Tech_TechnicianID" = "Maintenance_Tech_Technician"."TechnicianID"
 ]]></text>
     </command>
@@ -27,9 +26,7 @@ from "dbo"."Maintenance" "Maintenance"
     <field name="MaintInfo" type="String" label="Maintenance Info" length="250" showInSummary="true" />
     <field name="DateCompleted" type="DateTime" dataFormatString="g" label="Date Completed" showInSummary="true" />
     <field name="MaintPerformed" type="String" label="Maintenance Performed" length="250" showInSummary="true" />
-    <field name="WeaponsSerialid" type="Int32" allowNulls="false" label="Weapon Serial ID" showInSummary="true">
-      <items style="Lookup" dataController="Weapons" newDataView="createForm1" dataValueField="SerialID" dataTextField="WeaponTypemake" />
-    </field>
+    <field name="WeaponsSerialid" type="Int32" allowNulls="false" label="Weapon Serial ID" showInSummary="true" />
     <field name="MaintenanceTechTechniciantechlast" type="String" readOnly="true" label="Maintenance Tech Last Name" length="50" />
   </fields>
   <views>

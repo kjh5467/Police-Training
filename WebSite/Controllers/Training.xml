@@ -28,10 +28,10 @@ from "dbo"."Training" "Training"
     <field name="Score" type="Int32" label="Score" showInSummary="true" />
     <field name="Date" type="DateTime" dataFormatString="g" label="Date" showInSummary="true" />
     <field name="TrainLocation" type="String" label="Training Location" length="50" showInSummary="true" />
-    <field name="OfficersBadgeid" type="Int32" label="Officers Badgeid" showInSummary="true">
+    <field name="OfficersBadgeid" type="Int32" label="Officers Badge ID" showInSummary="true">
       <items style="Lookup" dataController="Officers" newDataView="createForm1" dataValueField="BadgeID" dataTextField="BadgeID" />
     </field>
-    <field name="OfficersBadgebadgeid" type="Int32" readOnly="true" label="Officers Badgebadgeid" />
+    <field name="OfficersBadgebadgeid" type="Int32" readOnly="true" label="Officers Badge ID" />
   </fields>
   <views>
     <view id="grid1" type="Grid" commandId="command1" label="Training">
