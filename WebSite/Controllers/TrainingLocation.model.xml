@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Training Location" alias="TrainingLocation" created="2017-04-13T17:30:55" modified="2017-04-13T17:31:21" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Course" parentTableSchema="dbo" parentTableName="Training" x="310" y="20">
+      <foreignKeyColumn columnName="Course_CourseID" parentColumnName="CourseID" />
+    </foreignKey>
+    <foreignKey id="Location" parentTableSchema="dbo" parentTableName="Location" x="310" y="181">
+      <foreignKeyColumn columnName="Location_LocationID" parentColumnName="LocationID" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Course_CourseID" fieldName="CourseCourseid" label="Course ID" aliasColumnName="CourseName" aliasForeignKey="Course" />
+    <column name="CourseName" fieldName="CourseCoursecoursename" label="Course Name" foreignKey="Course" />
+    <column name="Address" fieldName="LocationLocationaddress" label="Location Address" foreignKey="Location" />
+    <column name="City" fieldName="LocationCity" label="Location City" foreignKey="Location" />
+    <column name="State" fieldName="LocationState" label="Location State" foreignKey="Location" />
+    <column name="ZipCode" fieldName="LocationZipCode" label="Location Zip Code" foreignKey="Location" />
+    <column name="Location_LocationID" fieldName="LocationLocationid" label="Location Locationid" />
+  </columns>
+</dataModel>

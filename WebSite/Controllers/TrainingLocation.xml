@@ -1,63 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dataController name="Weapons" conflictDetection="overwriteChanges" label="Weapons" xmlns="urn:schemas-codeontime-com:data-aquarium">
+<dataController name="TrainingLocation" conflictDetection="overwriteChanges" label="Training Location" xmlns="urn:schemas-codeontime-com:data-aquarium">
   <commands>
     <command id="command1" type="Text">
       <text><![CDATA[
 select
-	"Weapons"."SerialID" "SerialID"
-	,"Weapons"."Location" "Location"
-	,"Weapon_Type"."Make" "WeaponTypemake"
-	,"Weapon_Type"."Model" "WeaponTypemodel"
-	,"Weapon_Type"."Caliber" "WeaponTypecaliber"
-from "dbo"."Weapons" "Weapons"
-	left join "dbo"."Weapon_Type" "Weapon_Type" on "Weapons"."Weapon_Type_Weapon_Type_ID" = "Weapon_Type"."Weapon_Type_ID"
+	"TrainingLocation"."Course_CourseID" "CourseCourseid"
+	,"Course"."CourseName" "CourseCoursecoursename"
+	,"Location"."Address" "LocationLocationaddress"
+	,"Location"."City" "LocationCity"
+	,"Location"."State" "LocationState"
+	,"Location"."ZipCode" "LocationZipCode"
+	,"TrainingLocation"."Location_LocationID" "LocationLocationid"
+from "dbo"."Training Location" "TrainingLocation"
+	left join "dbo"."Training" "Course" on "TrainingLocation"."Course_CourseID" = "Course"."CourseID"
+	left join "dbo"."Location" "Location" on "TrainingLocation"."Location_LocationID" = "Location"."LocationID"
 ]]></text>
     </command>
   </commands>
   <fields>
-    <field name="SerialID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Serial ID" />
-    <field name="Location" type="String" allowNulls="false" label="Location" length="50" showInSummary="true" />
-    <field name="WeaponTypemake" type="String" readOnly="true" label="Weapon Make" length="50" />
-    <field name="WeaponTypemodel" type="String" readOnly="true" label="Model" length="50" />
-    <field name="WeaponTypecaliber" type="Int32" readOnly="true" label="Caliber" />
+    <field name="CourseCourseid" type="Int32" allowNulls="false" isPrimaryKey="true" label="Course ID" showInSummary="true">
+      <items style="Lookup" dataController="Training" newDataView="createForm1" dataValueField="CourseID" dataTextField="CourseName" />
+    </field>
+    <field name="CourseCoursecoursename" type="String" readOnly="true" label="Course Name" length="100" />
+    <field name="LocationLocationaddress" type="String" readOnly="true" label="Location Address" length="50" />
+    <field name="LocationCity" type="String" readOnly="true" label="Location City" length="10" />
+    <field name="LocationState" type="String" readOnly="true" label="Location State" length="10" />
+    <field name="LocationZipCode" type="String" readOnly="true" label="Location Zip Code" length="10" />
+    <field name="LocationLocationid" type="Int32" allowNulls="false" isPrimaryKey="true" label="Location Locationid" showInSummary="true">
+      <items style="Lookup" dataController="Location" newDataView="createForm1" dataValueField="LocationID" dataTextField="LocationID" copy="LocationLocationaddress=Address, LocationCity=City, LocationState=State, LocationZipCode=ZipCode" />
+    </field>
   </fields>
   <views>
-    <view id="grid1" type="Grid" commandId="command1" label="Weapons">
+    <view id="grid1" type="Grid" commandId="command1" label="Training Location">
       <headerText>$DefaultGridViewDescription</headerText>
       <dataFields>
-        <dataField fieldName="SerialID" columns="15" />
-        <dataField fieldName="Location" columns="50" />
-        <dataField fieldName="WeaponTypemake" columns="50" />
-        <dataField fieldName="WeaponTypemodel" columns="50" />
-        <dataField fieldName="WeaponTypecaliber" columns="15" />
+        <dataField fieldName="CourseCourseid" aliasFieldName="CourseCoursecoursename" />
+        <dataField fieldName="LocationLocationaddress" columns="50" />
+        <dataField fieldName="LocationCity" columns="10" />
+        <dataField fieldName="LocationState" columns="10" />
+        <dataField fieldName="LocationZipCode" columns="10" />
+        <dataField fieldName="LocationLocationid" columns="15" />
       </dataFields>
     </view>
-    <view id="editForm1" type="Form" commandId="command1" label="Review Weapons">
+    <view id="editForm1" type="Form" commandId="command1" label="Review Training Location">
       <headerText>$DefaultEditViewDescription</headerText>
       <categories>
-        <category id="c1" headerText="Weapons" flow="NewColumn">
+        <category id="c1" headerText="Training Location" flow="NewColumn">
           <description><![CDATA[$DefaultEditDescription]]></description>
           <dataFields>
-            <dataField fieldName="SerialID" columns="15" />
-            <dataField fieldName="Location" columns="50" />
-            <dataField fieldName="WeaponTypemake" columns="50" />
-            <dataField fieldName="WeaponTypemodel" columns="50" />
-            <dataField fieldName="WeaponTypecaliber" columns="15" />
+            <dataField fieldName="CourseCourseid" aliasFieldName="CourseCoursecoursename" />
+            <dataField fieldName="LocationLocationaddress" columns="50" />
+            <dataField fieldName="LocationCity" columns="10" />
+            <dataField fieldName="LocationState" columns="10" />
+            <dataField fieldName="LocationZipCode" columns="10" />
+            <dataField fieldName="LocationLocationid" columns="15" />
           </dataFields>
         </category>
       </categories>
     </view>
-    <view id="createForm1" type="Form" commandId="command1" label="New Weapons">
+    <view id="createForm1" type="Form" commandId="command1" label="New Training Location">
       <headerText>$DefaultCreateViewDescription</headerText>
       <categories>
-        <category id="c1" headerText="New Weapons" flow="NewColumn">
+        <category id="c1" headerText="New Training Location" flow="NewColumn">
           <description><![CDATA[$DefaultNewDescription]]></description>
           <dataFields>
-            <dataField fieldName="SerialID" columns="15" />
-            <dataField fieldName="Location" columns="50" />
-            <dataField fieldName="WeaponTypemake" columns="50" />
-            <dataField fieldName="WeaponTypemodel" columns="50" />
-            <dataField fieldName="WeaponTypecaliber" columns="15" />
+            <dataField fieldName="CourseCourseid" aliasFieldName="CourseCoursecoursename" />
+            <dataField fieldName="LocationLocationaddress" columns="50" />
+            <dataField fieldName="LocationCity" columns="10" />
+            <dataField fieldName="LocationState" columns="10" />
+            <dataField fieldName="LocationZipCode" columns="10" />
+            <dataField fieldName="LocationLocationid" columns="15" />
           </dataFields>
         </category>
       </categories>

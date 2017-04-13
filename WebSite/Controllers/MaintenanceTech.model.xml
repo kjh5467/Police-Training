@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dataModel baseSchema="dbo" baseTable="Maintenance_Tech" alias="Maintenance_Tech" created="2017-04-13T17:01:07" modified="2017-04-13T17:01:40" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+<dataModel baseSchema="dbo" baseTable="Maintenance_Tech" alias="Maintenance_Tech" created="2017-04-13T17:01:07" modified="2017-04-13T17:34:23" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
   <foreignKeys />
   <columns>
     <column name="TechnicianID" fieldName="TechnicianID" label="Technician ID" />

@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <map>
+  <node name="Location" refs="1" depth="0" schema="dbo" label="Location" schemaLabel="Dbo">
+    <node name="TrainingLocation" refs="0" depth="1" schema="dbo" label="Training Location" schemaLabel="Dbo" />
+  </node>
   <node name="MaintenanceTech" refs="1" depth="0" schema="dbo" label="Maintenance Tech" schemaLabel="Dbo">
     <node name="Maintenance" refs="0" depth="1" schema="dbo" label="Maintenance" schemaLabel="Dbo" />
   </node>
   <node name="Officers" refs="1" depth="0" schema="dbo" label="Officers" schemaLabel="Dbo">
-    <node name="Training" refs="0" depth="1" schema="dbo" label="Training" schemaLabel="Dbo" />
+    <node name="Training" refs="1" depth="1" schema="dbo" label="Training" schemaLabel="Dbo" />
   </node>
-  <node name="Location" refs="0" depth="0" schema="dbo" label="Location" schemaLabel="Dbo" />
   <node name="Weapons" refs="0" depth="0" schema="dbo" label="Weapons" schemaLabel="Dbo" />
 </map>
