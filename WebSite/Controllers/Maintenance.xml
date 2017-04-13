@@ -9,7 +9,6 @@ select
 	,"Maintenance"."Date_Completed" "DateCompleted"
 	,"Maintenance"."Maint_Performed" "MaintPerformed"
 	,"Maintenance"."Weapons_SerialID" "WeaponsSerialid"
-	,"Weapons_Serial"."Make" "WeaponsSerialmake"
 	,"Maintenance_Tech_Technician"."TechLast" "MaintenanceTechTechniciantechlast"
 from "dbo"."Maintenance" "Maintenance"
 	left join "dbo"."Weapons" "Weapons_Serial" on "Maintenance"."Weapons_SerialID" = "Weapons_Serial"."SerialID"
@@ -29,9 +28,8 @@ from "dbo"."Maintenance" "Maintenance"
     <field name="DateCompleted" type="DateTime" dataFormatString="g" label="Date Completed" showInSummary="true" />
     <field name="MaintPerformed" type="String" label="Maintenance Performed" length="250" showInSummary="true" />
     <field name="WeaponsSerialid" type="Int32" allowNulls="false" label="Weapon Serial ID" showInSummary="true">
-      <items style="Lookup" dataController="Weapons" newDataView="createForm1" dataValueField="SerialID" dataTextField="Make" />
+      <items style="Lookup" dataController="Weapons" newDataView="createForm1" dataValueField="SerialID" dataTextField="WeaponTypemake" />
     </field>
-    <field name="WeaponsSerialmake" type="String" readOnly="true" label="Weapon Make" length="50" />
     <field name="MaintenanceTechTechniciantechlast" type="String" readOnly="true" label="Maintenance Tech Last Name" length="50" />
   </fields>
   <views>
@@ -41,7 +39,7 @@ from "dbo"."Maintenance" "Maintenance"
         <dataField fieldName="MaintInfo" />
         <dataField fieldName="DateCompleted" columns="20" />
         <dataField fieldName="MaintPerformed" />
-        <dataField fieldName="WeaponsSerialid" aliasFieldName="WeaponsSerialmake" />
+        <dataField fieldName="WeaponsSerialid" aliasFieldName="CleanIdentifier-Error" />
         <dataField fieldName="MaintenanceTechTechniciantechlast" columns="50" />
       </dataFields>
     </view>
@@ -54,7 +52,7 @@ from "dbo"."Maintenance" "Maintenance"
             <dataField fieldName="MaintInfo" />
             <dataField fieldName="DateCompleted" columns="20" />
             <dataField fieldName="MaintPerformed" />
-            <dataField fieldName="WeaponsSerialid" aliasFieldName="WeaponsSerialmake" />
+            <dataField fieldName="WeaponsSerialid" aliasFieldName="CleanIdentifier-Error" />
             <dataField fieldName="MaintenanceTechTechniciantechlast" columns="50" />
           </dataFields>
         </category>
@@ -69,7 +67,7 @@ from "dbo"."Maintenance" "Maintenance"
             <dataField fieldName="MaintInfo" />
             <dataField fieldName="DateCompleted" columns="20" />
             <dataField fieldName="MaintPerformed" />
-            <dataField fieldName="WeaponsSerialid" aliasFieldName="WeaponsSerialmake" />
+            <dataField fieldName="WeaponsSerialid" aliasFieldName="CleanIdentifier-Error" />
             <dataField fieldName="MaintenanceTechTechniciantechlast" columns="50" />
           </dataFields>
         </category>

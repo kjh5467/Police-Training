@@ -5,30 +5,31 @@
       <text><![CDATA[
 select
 	"Weapons"."SerialID" "SerialID"
-	,"Weapons"."Make" "Make"
-	,"Weapons"."Model" "Model"
-	,"Weapons"."Caliber" "Caliber"
 	,"Weapons"."Location" "Location"
+	,"Weapon_Type"."Make" "WeaponTypemake"
+	,"Weapon_Type"."Model" "WeaponTypemodel"
+	,"Weapon_Type"."Caliber" "WeaponTypecaliber"
 from "dbo"."Weapons" "Weapons"
+	left join "dbo"."Weapon_Type" "Weapon_Type" on "Weapons"."Weapon_Type_Weapon_Type_ID" = "Weapon_Type"."Weapon_Type_ID"
 ]]></text>
     </command>
   </commands>
   <fields>
     <field name="SerialID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Serial ID" />
-    <field name="Make" type="String" allowNulls="false" label="Make" length="50" showInSummary="true" />
-    <field name="Model" type="String" allowNulls="false" label="Model" length="50" showInSummary="true" />
-    <field name="Caliber" type="Int32" allowNulls="false" label="Caliber" showInSummary="true" />
     <field name="Location" type="String" allowNulls="false" label="Location" length="50" showInSummary="true" />
+    <field name="WeaponTypemake" type="String" readOnly="true" label="Weapon Typemake" length="50" />
+    <field name="WeaponTypemodel" type="String" readOnly="true" label="Weapon Typemodel" length="50" />
+    <field name="WeaponTypecaliber" type="Int32" readOnly="true" label="Weapon Typecaliber" />
   </fields>
   <views>
     <view id="grid1" type="Grid" commandId="command1" label="Weapons">
       <headerText>$DefaultGridViewDescription</headerText>
       <dataFields>
         <dataField fieldName="SerialID" columns="15" />
-        <dataField fieldName="Make" columns="50" />
-        <dataField fieldName="Model" columns="50" />
-        <dataField fieldName="Caliber" columns="15" />
         <dataField fieldName="Location" columns="50" />
+        <dataField fieldName="WeaponTypemake" columns="50" />
+        <dataField fieldName="WeaponTypemodel" columns="50" />
+        <dataField fieldName="WeaponTypecaliber" columns="15" />
       </dataFields>
     </view>
     <view id="editForm1" type="Form" commandId="command1" label="Review Weapons">
@@ -38,10 +39,10 @@ from "dbo"."Weapons" "Weapons"
           <description><![CDATA[$DefaultEditDescription]]></description>
           <dataFields>
             <dataField fieldName="SerialID" columns="15" />
-            <dataField fieldName="Make" columns="50" />
-            <dataField fieldName="Model" columns="50" />
-            <dataField fieldName="Caliber" columns="15" />
             <dataField fieldName="Location" columns="50" />
+            <dataField fieldName="WeaponTypemake" columns="50" />
+            <dataField fieldName="WeaponTypemodel" columns="50" />
+            <dataField fieldName="WeaponTypecaliber" columns="15" />
           </dataFields>
         </category>
       </categories>
@@ -53,10 +54,10 @@ from "dbo"."Weapons" "Weapons"
           <description><![CDATA[$DefaultNewDescription]]></description>
           <dataFields>
             <dataField fieldName="SerialID" columns="15" />
-            <dataField fieldName="Make" columns="50" />
-            <dataField fieldName="Model" columns="50" />
-            <dataField fieldName="Caliber" columns="15" />
             <dataField fieldName="Location" columns="50" />
+            <dataField fieldName="WeaponTypemake" columns="50" />
+            <dataField fieldName="WeaponTypemodel" columns="50" />
+            <dataField fieldName="WeaponTypecaliber" columns="15" />
           </dataFields>
         </category>
       </categories>

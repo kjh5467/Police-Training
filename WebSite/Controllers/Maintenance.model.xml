@@ -14,7 +14,6 @@
     <column name="Date_Completed" fieldName="DateCompleted" label="Date Completed" format="g" />
     <column name="Maint_Performed" fieldName="MaintPerformed" label="Maintenance Performed" />
     <column name="Weapons_SerialID" fieldName="WeaponsSerialid" label="Weapon Serial ID" aliasColumnName="Make" aliasForeignKey="Weapons_Serial" />
-    <column name="Make" fieldName="WeaponsSerialmake" label="Weapon Make" foreignKey="Weapons_Serial" />
     <column name="TechLast" fieldName="MaintenanceTechTechniciantechlast" label="Maintenance Tech Last Name" foreignKey="Maintenance_Tech_Technician" />
   </columns>
 </dataModel>
