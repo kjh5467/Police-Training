@@ -5,14 +5,23 @@
       <text><![CDATA[
 select
 	"Maintenance"."RecordID" "RecordID"
-	,"Maintenance"."Date_Started" "DateStarted"
-	,"Maintenance"."Date_Completed" "DateCompleted"
-	,"Maintenance"."Maint_Performed" "MaintPerformed"
-	,"Maintenance"."Weapons_SerialID" "WeaponsSerialid"
-	,"Maintenance"."Maintenance_Tech_TechnicianID" "MaintenanceTechTechnicianid"
 	,"Maintenance_Tech_Technician"."TechnicianID" "MaintenanceTechTechniciantechnicianid"
+	,"Maintenance"."Maintenance_Tech_TechnicianID" "MaintenanceTechTechnicianid"
+	,"Maintenance"."Date_Started" "DateStarted"
+	,"Maintenance_Tech_Technician"."TechFirst" "MaintenanceTechTechniciantechfirst"
+	,"Maintenance_Tech_Technician"."TechLast" "MaintenanceTechTechniciantechlast"
+	,"Maintenance"."Weapons_SerialID" "WeaponsSerialid"
+	,"Weapons_Serial"."SerialID" "WeaponsSerialserialid"
+	,"Weapons_Serial"."Weapon_Type_ID" "WeaponsSerialweaponTypeID"
+	,"Maintenance"."Maint_Performed" "MaintPerformed"
+	,"Maintenance"."Date_Completed" "DateCompleted"
+	,"Weapon_Type"."Make" "WeaponTypemake"
+	,"Weapon_Type"."Model" "WeaponTypemodel"
+	,"Weapon_Type"."Caliber" "WeaponTypecaliber"
 from "dbo"."Maintenance" "Maintenance"
 	left join "dbo"."Maintenance_Tech" "Maintenance_Tech_Technician" on "Maintenance"."Maintenance_Tech_TechnicianID" = "Maintenance_Tech_Technician"."TechnicianID"
+	left join "dbo"."Weapons" "Weapons_Serial" on "Maintenance"."Weapons_SerialID" = "Weapons_Serial"."SerialID"
+	left join "dbo"."Weapon_Type" "Weapon_Type" on "Weapons_Serial"."Weapon_Type_ID" = "Weapon_Type"."Weapon_Type_ID"
 ]]></text>
     </command>
     <command id="RecordIDIdentityCommand" type="Text" event="Inserted">
@@ -23,25 +32,38 @@ from "dbo"."Maintenance" "Maintenance"
     </command>
   </commands>
   <fields>
-    <field name="RecordID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Maintainence Record ID" readOnly="true" />
+    <field name="RecordID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Record ID" readOnly="true" />
+    <field name="MaintenanceTechTechniciantechnicianid" type="Int32" label="Tech ID" readOnly="true" />
+    <field name="MaintenanceTechTechnicianid" type="Int32" label="Tech ID" showInSummary="true" />
     <field name="DateStarted" type="DateTime" allowNulls="false" dataFormatString="g" label="Date Started" showInSummary="true" />
-    <field name="DateCompleted" type="DateTime" dataFormatString="g" label="Date Completed" showInSummary="true" />
-    <field name="MaintPerformed" type="String" label="Maintenance Performed" length="250" showInSummary="true" />
-    <field name="WeaponsSerialid" type="Int32" allowNulls="false" label="Weapon Serial ID" showInSummary="true" />
-    <field name="MaintenanceTechTechnicianid" type="Int32" label="Tech ID" showInSummary="true">
-      <items style="Lookup" dataController="MaintenanceTech" newDataView="createForm1" dataValueField="TechnicianID" dataTextField="TechnicianID" />
+    <field name="MaintenanceTechTechniciantechfirst" type="String" readOnly="true" label="Tech First Name" length="50" />
+    <field name="MaintenanceTechTechniciantechlast" type="String" readOnly="true" label="Tech Last Name" length="50" />
+    <field name="WeaponsSerialid" type="Int32" allowNulls="false" label="Serial ID" showInSummary="true">
+      <items style="Lookup" dataController="Weapons" newDataView="createForm1" dataValueField="SerialID" dataTextField="SerialID" copy="WeaponsSerialweaponTypeID=WeaponTypeID, WeaponTypemake=WeaponTypemake, WeaponTypemodel=WeaponTypemodel, WeaponTypecaliber=WeaponTypecaliber" />
     </field>
-    <field name="MaintenanceTechTechniciantechnicianid" type="Int32" label="Tech Id" readOnly="true" />
+    <field name="WeaponsSerialserialid" type="Int32" readOnly="true" label="Serial ID" />
+    <field name="WeaponsSerialweaponTypeID" type="Int32" readOnly="true" label="Weapons Serialweapon Type ID" />
+    <field name="MaintPerformed" type="String" label="Maintenance Performed" length="250" showInSummary="true" />
+    <field name="DateCompleted" type="DateTime" dataFormatString="g" label="Date Completed" showInSummary="true" />
+    <field name="WeaponTypemake" type="String" readOnly="true" label="Weapon Make" length="50" />
+    <field name="WeaponTypemodel" type="String" readOnly="true" label="Weapon Model" length="50" />
+    <field name="WeaponTypecaliber" type="Int32" readOnly="true" label="Weapon Caliber" />
   </fields>
   <views>
     <view id="grid1" type="Grid" commandId="command1" label="Maintenance">
       <headerText>$DefaultGridViewDescription</headerText>
       <dataFields>
+        <dataField fieldName="MaintenanceTechTechniciantechnicianid" columns="15" />
+        <dataField fieldName="MaintenanceTechTechnicianid" aliasFieldName="MaintenanceTechTechniciantechfirst" />
         <dataField fieldName="DateStarted" columns="20" />
-        <dataField fieldName="DateCompleted" columns="20" />
+        <dataField fieldName="MaintenanceTechTechniciantechlast" columns="50" />
+        <dataField fieldName="WeaponsSerialid" aliasFieldName="WeaponsSerialserialid" />
+        <dataField fieldName="WeaponsSerialweaponTypeID" columns="15" />
         <dataField fieldName="MaintPerformed" />
-        <dataField fieldName="WeaponsSerialid" aliasFieldName="CleanIdentifier-Error" />
-        <dataField fieldName="MaintenanceTechTechnicianid" aliasFieldName="MaintenanceTechTechniciantechnicianid" />
+        <dataField fieldName="DateCompleted" columns="20" />
+        <dataField fieldName="WeaponTypemake" columns="50" />
+        <dataField fieldName="WeaponTypemodel" columns="50" />
+        <dataField fieldName="WeaponTypecaliber" columns="15" />
       </dataFields>
     </view>
     <view id="editForm1" type="Form" commandId="command1" label="Review Maintenance">
@@ -50,11 +72,17 @@ from "dbo"."Maintenance" "Maintenance"
         <category id="c1" headerText="Maintenance" flow="NewColumn">
           <description><![CDATA[$DefaultEditDescription]]></description>
           <dataFields>
+            <dataField fieldName="MaintenanceTechTechniciantechnicianid" columns="15" />
+            <dataField fieldName="MaintenanceTechTechnicianid" aliasFieldName="MaintenanceTechTechniciantechfirst" />
             <dataField fieldName="DateStarted" columns="20" />
-            <dataField fieldName="DateCompleted" columns="20" />
+            <dataField fieldName="MaintenanceTechTechniciantechlast" columns="50" />
+            <dataField fieldName="WeaponsSerialid" aliasFieldName="WeaponsSerialserialid" />
+            <dataField fieldName="WeaponsSerialweaponTypeID" columns="15" />
             <dataField fieldName="MaintPerformed" />
-            <dataField fieldName="WeaponsSerialid" aliasFieldName="CleanIdentifier-Error" />
-            <dataField fieldName="MaintenanceTechTechnicianid" aliasFieldName="MaintenanceTechTechniciantechnicianid" />
+            <dataField fieldName="DateCompleted" columns="20" />
+            <dataField fieldName="WeaponTypemake" columns="50" />
+            <dataField fieldName="WeaponTypemodel" columns="50" />
+            <dataField fieldName="WeaponTypecaliber" columns="15" />
           </dataFields>
         </category>
       </categories>
@@ -65,11 +93,17 @@ from "dbo"."Maintenance" "Maintenance"
         <category id="c1" headerText="New Maintenance" flow="NewColumn">
           <description><![CDATA[$DefaultNewDescription]]></description>
           <dataFields>
+            <dataField fieldName="MaintenanceTechTechniciantechnicianid" columns="15" />
+            <dataField fieldName="MaintenanceTechTechnicianid" aliasFieldName="MaintenanceTechTechniciantechfirst" />
             <dataField fieldName="DateStarted" columns="20" />
-            <dataField fieldName="DateCompleted" columns="20" />
+            <dataField fieldName="MaintenanceTechTechniciantechlast" columns="50" />
+            <dataField fieldName="WeaponsSerialid" aliasFieldName="WeaponsSerialserialid" />
+            <dataField fieldName="WeaponsSerialweaponTypeID" columns="15" />
             <dataField fieldName="MaintPerformed" />
-            <dataField fieldName="WeaponsSerialid" aliasFieldName="CleanIdentifier-Error" />
-            <dataField fieldName="MaintenanceTechTechnicianid" aliasFieldName="MaintenanceTechTechniciantechnicianid" />
+            <dataField fieldName="DateCompleted" columns="20" />
+            <dataField fieldName="WeaponTypemake" columns="50" />
+            <dataField fieldName="WeaponTypemodel" columns="50" />
+            <dataField fieldName="WeaponTypecaliber" columns="15" />
           </dataFields>
         </category>
       </categories>

@@ -1,15 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dataModel baseSchema="dbo" baseTable="Weapons" alias="Weapons" created="2017-04-10T21:14:22" modified="2017-04-13T17:56:20" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+<dataModel baseSchema="dbo" baseTable="Weapons" alias="Weapons" created="2017-04-10T21:14:22" modified="2017-04-17T17:28:39" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
   <foreignKeys>
-    <foreignKey id="Weapon_Type" parentTableSchema="dbo" parentTableName="Weapon_Type" x="413" y="20">
-      <foreignKeyColumn columnName="Weapon_Type_Weapon_Type_ID" parentColumnName="Weapon_Type_ID" />
+    <foreignKey id="Weapon_Type" parentTableSchema="dbo" parentTableName="Weapon_Type" x="329" y="20">
+      <foreignKeyColumn columnName="Weapon_Type_ID" parentColumnName="Weapon_Type_ID" />
     </foreignKey>
   </foreignKeys>
   <columns>
     <column name="SerialID" fieldName="SerialID" label="Serial ID" />
-    <column name="Make" fieldName="WeaponTypemake" label="Weapon Make" foreignKey="Weapon_Type" />
+    <column name="Location" fieldName="Location" label="Location" />
+    <column name="Weapon_Type_ID" fieldName="WeaponTypeID" label="Weapon Type" aliasColumnName="Weapon_Type_ID" aliasForeignKey="Weapon_Type" />
+    <column name="Weapon_Type_ID" fieldName="WeaponTypeweaponTypeID" label="Weapon Type" foreignKey="Weapon_Type" />
+    <column name="Make" fieldName="WeaponTypemake" label="Make" foreignKey="Weapon_Type" />
     <column name="Model" fieldName="WeaponTypemodel" label="Model" foreignKey="Weapon_Type" />
     <column name="Caliber" fieldName="WeaponTypecaliber" label="Caliber" foreignKey="Weapon_Type" />
-    <column name="Location" fieldName="Location" label="Location" />
   </columns>
 </dataModel>
