@@ -12,12 +12,11 @@ select
 	,"Maintenance_Tech_Technician"."TechLast" "MaintenanceTechTechniciantechlast"
 	,"Maintenance"."Weapons_SerialID" "WeaponsSerialid"
 	,"Weapons_Serial"."SerialID" "WeaponsSerialserialid"
-	,"Weapons_Serial"."Weapon_Type_ID" "WeaponsSerialweaponTypeID"
 	,"Maintenance"."Maint_Performed" "MaintPerformed"
-	,"Maintenance"."Date_Completed" "DateCompleted"
-	,"Weapon_Type"."Make" "WeaponTypemake"
 	,"Weapon_Type"."Model" "WeaponTypemodel"
 	,"Weapon_Type"."Caliber" "WeaponTypecaliber"
+	,"Weapon_Type"."Make" "WeaponTypemake"
+	,"Maintenance"."Date_Completed" "DateCompleted"
 from "dbo"."Maintenance" "Maintenance"
 	left join "dbo"."Maintenance_Tech" "Maintenance_Tech_Technician" on "Maintenance"."Maintenance_Tech_TechnicianID" = "Maintenance_Tech_Technician"."TechnicianID"
 	left join "dbo"."Weapons" "Weapons_Serial" on "Maintenance"."Weapons_SerialID" = "Weapons_Serial"."SerialID"
@@ -39,15 +38,14 @@ from "dbo"."Maintenance" "Maintenance"
     <field name="MaintenanceTechTechniciantechfirst" type="String" readOnly="true" label="Tech First Name" length="50" />
     <field name="MaintenanceTechTechniciantechlast" type="String" readOnly="true" label="Tech Last Name" length="50" />
     <field name="WeaponsSerialid" type="Int32" allowNulls="false" label="Serial ID" showInSummary="true">
-      <items style="Lookup" dataController="Weapons" newDataView="createForm1" dataValueField="SerialID" dataTextField="SerialID" copy="WeaponsSerialweaponTypeID=WeaponTypeID, WeaponTypemake=WeaponTypemake, WeaponTypemodel=WeaponTypemodel, WeaponTypecaliber=WeaponTypecaliber" />
+      <items style="Lookup" dataController="Weapons" newDataView="createForm1" dataValueField="SerialID" dataTextField="SerialID" copy="WeaponTypemodel=WeaponTypemodel, WeaponTypecaliber=WeaponTypecaliber, WeaponTypemake=WeaponTypemake" />
     </field>
     <field name="WeaponsSerialserialid" type="Int32" readOnly="true" label="Serial ID" />
-    <field name="WeaponsSerialweaponTypeID" type="Int32" readOnly="true" label="Weapons Serialweapon Type ID" />
     <field name="MaintPerformed" type="String" label="Maintenance Performed" length="250" showInSummary="true" />
-    <field name="DateCompleted" type="DateTime" dataFormatString="g" label="Date Completed" showInSummary="true" />
-    <field name="WeaponTypemake" type="String" readOnly="true" label="Weapon Make" length="50" />
     <field name="WeaponTypemodel" type="String" readOnly="true" label="Weapon Model" length="50" />
     <field name="WeaponTypecaliber" type="Int32" readOnly="true" label="Weapon Caliber" />
+    <field name="WeaponTypemake" type="String" readOnly="true" label="Weapon Make" length="50" />
+    <field name="DateCompleted" type="DateTime" dataFormatString="g" label="Date Completed" showInSummary="true" />
   </fields>
   <views>
     <view id="grid1" type="Grid" commandId="command1" label="Maintenance">
@@ -58,12 +56,11 @@ from "dbo"."Maintenance" "Maintenance"
         <dataField fieldName="DateStarted" columns="20" />
         <dataField fieldName="MaintenanceTechTechniciantechlast" columns="50" />
         <dataField fieldName="WeaponsSerialid" aliasFieldName="WeaponsSerialserialid" />
-        <dataField fieldName="WeaponsSerialweaponTypeID" columns="15" />
         <dataField fieldName="MaintPerformed" />
-        <dataField fieldName="DateCompleted" columns="20" />
-        <dataField fieldName="WeaponTypemake" columns="50" />
         <dataField fieldName="WeaponTypemodel" columns="50" />
         <dataField fieldName="WeaponTypecaliber" columns="15" />
+        <dataField fieldName="WeaponTypemake" columns="50" />
+        <dataField fieldName="DateCompleted" columns="20" />
       </dataFields>
     </view>
     <view id="editForm1" type="Form" commandId="command1" label="Review Maintenance">
@@ -77,12 +74,11 @@ from "dbo"."Maintenance" "Maintenance"
             <dataField fieldName="DateStarted" columns="20" />
             <dataField fieldName="MaintenanceTechTechniciantechlast" columns="50" />
             <dataField fieldName="WeaponsSerialid" aliasFieldName="WeaponsSerialserialid" />
-            <dataField fieldName="WeaponsSerialweaponTypeID" columns="15" />
             <dataField fieldName="MaintPerformed" />
-            <dataField fieldName="DateCompleted" columns="20" />
-            <dataField fieldName="WeaponTypemake" columns="50" />
             <dataField fieldName="WeaponTypemodel" columns="50" />
             <dataField fieldName="WeaponTypecaliber" columns="15" />
+            <dataField fieldName="WeaponTypemake" columns="50" />
+            <dataField fieldName="DateCompleted" columns="20" />
           </dataFields>
         </category>
       </categories>
@@ -98,12 +94,11 @@ from "dbo"."Maintenance" "Maintenance"
             <dataField fieldName="DateStarted" columns="20" />
             <dataField fieldName="MaintenanceTechTechniciantechlast" columns="50" />
             <dataField fieldName="WeaponsSerialid" aliasFieldName="WeaponsSerialserialid" />
-            <dataField fieldName="WeaponsSerialweaponTypeID" columns="15" />
             <dataField fieldName="MaintPerformed" />
-            <dataField fieldName="DateCompleted" columns="20" />
-            <dataField fieldName="WeaponTypemake" columns="50" />
             <dataField fieldName="WeaponTypemodel" columns="50" />
             <dataField fieldName="WeaponTypecaliber" columns="15" />
+            <dataField fieldName="WeaponTypemake" columns="50" />
+            <dataField fieldName="DateCompleted" columns="20" />
           </dataFields>
         </category>
       </categories>
