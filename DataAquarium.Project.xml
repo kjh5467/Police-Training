@@ -9,7 +9,7 @@
   <webServer run="true" port="12981">
     <webConfig></webConfig>
   </webServer>
-  <features useSaveAndNew="true" pageHeader="Police Training Assistant " copyright="" annotations="false" annotationsPath="" newColumn="true" floating="false" maxGridFields="100" multiSelect="false" batchEdit="false" advancedSearch="false" advancedLookup="false" relationshipExplorer="false" enablePermalinks="false" enableHistory="false" enableTransactions="false" showModalForms="true" tabViewSelection="0">
+  <features useSaveAndNew="true" pageHeader="Police Training Assistant " copyright="&#x9;&#xD;&#xA;2017 &amp;copy;&lt;b&gt; Beaver Borough Police Department&lt;/b&gt; All rights reserved." annotations="false" annotationsPath="" newColumn="true" floating="false" maxGridFields="100" multiSelect="false" batchEdit="false" advancedSearch="false" advancedLookup="false" relationshipExplorer="false" enablePermalinks="false" enableHistory="false" enableTransactions="false" showModalForms="true" tabViewSelection="0">
     <navigation detectUnderscoreSeparatedSchema="" />
     <blob allowUploadOnInsert="true" />
     <framework scriptOnly="true" useExtenders="false" />
