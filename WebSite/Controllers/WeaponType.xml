@@ -1,77 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dataController name="Weapons" conflictDetection="overwriteChanges" label="Weapons" xmlns="urn:schemas-codeontime-com:data-aquarium">
+<dataController name="WeaponType" conflictDetection="overwriteChanges" label="Weapon Type" xmlns="urn:schemas-codeontime-com:data-aquarium">
   <commands>
     <command id="command1" type="Text">
       <text><![CDATA[
 select
-	"Weapons"."SerialID" "SerialID"
-	,"Weapons"."Location" "Location"
-	,"Weapons"."Weapon_Type_ID" "WeaponTypeID"
-	,"Weapon_Type"."Make" "WeaponTypemake"
-	,"Weapon_Type"."Model" "WeaponTypemodel"
-	,"Weapon_Type"."Caliber" "WeaponTypecaliber"
-from "dbo"."Weapons" "Weapons"
-	left join "dbo"."Weapon_Type" "Weapon_Type" on "Weapons"."Weapon_Type_ID" = "Weapon_Type"."Weapon_Type_ID"
+	"Weapon_Type"."Weapon_Type_ID" "WeaponTypeID"
+	,"Weapon_Type"."Make" "Make"
+	,"Weapon_Type"."Model" "Model"
+	,"Weapon_Type"."Caliber" "Caliber"
+from "dbo"."Weapon_Type" "Weapon_Type"
 ]]></text>
+    </command>
+    <command id="Weapon_Type_IDIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Weapon_Type_ID" />
+      </output>
     </command>
   </commands>
   <fields>
-    <field name="SerialID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Serial ID" />
-    <field name="Location" type="String" allowNulls="false" label="Weapon Location" length="50" showInSummary="true">
-      <items style="DropDownList">
-        <item value="On-Duty Carry" text="On-Duty Carry" />
-        <item value="Off-Duty Carry" text="Off-Duty Carry" />
-        <item value="Vehicle" text="Vehicle" />
-        <item value="Storage" text="Storage" />
-        <item value="Maintenance" text="Maintenance" />
-      </items>
-    </field>
-    <field name="WeaponTypeID" type="Int32" label="Weapon Type" showInSummary="true">
-      <items style="Lookup" dataController="WeaponType" newDataView="createForm1" dataValueField="WeaponTypeID" dataTextField="Make" copy="WeaponTypemodel=Model, WeaponTypecaliber=Caliber" />
-    </field>
-    <field name="WeaponTypemake" type="String" label="Make" length="50">
-      <items style="Lookup" dataController="Weapons" dataView="grid1" dataValueField="WeaponTypemake" newDataView="createForm1" />
-    </field>
-    <field name="WeaponTypemodel" type="String" readOnly="true" label="Model" length="50" />
-    <field name="WeaponTypecaliber" type="Int32" readOnly="true" label="Caliber" />
+    <field name="WeaponTypeID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Weapon Type ID" readOnly="true" />
+    <field name="Make" type="String" allowNulls="false" label="Make" length="50" showInSummary="true" />
+    <field name="Model" type="String" allowNulls="false" label="Model" length="50" showInSummary="true" />
+    <field name="Caliber" type="Int32" allowNulls="false" label="Caliber" showInSummary="true" />
   </fields>
   <views>
-    <view id="grid1" type="Grid" commandId="command1" label="Weapons">
+    <view id="grid1" type="Grid" commandId="command1" label="Weapon Type">
       <headerText>$DefaultGridViewDescription</headerText>
       <dataFields>
-        <dataField fieldName="SerialID" columns="15" />
-        <dataField fieldName="Location" columns="50" />
-        <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypemake" />
-        <dataField fieldName="WeaponTypemodel" columns="50" />
-        <dataField fieldName="WeaponTypecaliber" columns="15" />
+        <dataField fieldName="Make" columns="50" />
+        <dataField fieldName="Model" columns="50" />
+        <dataField fieldName="Caliber" columns="15" />
       </dataFields>
     </view>
-    <view id="editForm1" type="Form" commandId="command1" label="Review Weapons">
+    <view id="editForm1" type="Form" commandId="command1" label="Review Weapon Type">
       <headerText>$DefaultEditViewDescription</headerText>
       <categories>
-        <category id="c1" headerText="Weapons" flow="NewColumn">
+        <category id="c1" headerText="Weapon Type" flow="NewColumn">
           <description><![CDATA[$DefaultEditDescription]]></description>
           <dataFields>
-            <dataField fieldName="SerialID" columns="15" />
-            <dataField fieldName="Location" columns="50" />
-            <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypemake" />
-            <dataField fieldName="WeaponTypemodel" columns="50" />
-            <dataField fieldName="WeaponTypecaliber" columns="15" />
+            <dataField fieldName="Make" columns="50" />
+            <dataField fieldName="Model" columns="50" />
+            <dataField fieldName="Caliber" columns="15" />
           </dataFields>
         </category>
       </categories>
     </view>
-    <view id="createForm1" type="Form" commandId="command1" label="New Weapons">
+    <view id="createForm1" type="Form" commandId="command1" label="New Weapon Type">
       <headerText>$DefaultCreateViewDescription</headerText>
       <categories>
-        <category id="c1" headerText="New Weapons" flow="NewColumn">
+        <category id="c1" headerText="New Weapon Type" flow="NewColumn">
           <description><![CDATA[$DefaultNewDescription]]></description>
           <dataFields>
-            <dataField fieldName="SerialID" columns="15" />
-            <dataField fieldName="Location" columns="50" />
-            <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypemake" />
-            <dataField fieldName="WeaponTypemodel" columns="50" />
-            <dataField fieldName="WeaponTypecaliber" columns="15" />
+            <dataField fieldName="Make" columns="50" />
+            <dataField fieldName="Model" columns="50" />
+            <dataField fieldName="Caliber" columns="15" />
           </dataFields>
         </category>
       </categories>
