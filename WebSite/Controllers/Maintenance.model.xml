@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dataModel baseSchema="dbo" baseTable="Maintenance" alias="Maintenance" created="2017-04-10T21:21:08" modified="2017-04-17T19:44:48" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+<dataModel baseSchema="dbo" baseTable="Maintenance" alias="Maintenance" created="2017-04-10T21:21:08" modified="2017-04-17T20:05:39" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
   <foreignKeys>
     <foreignKey id="Maintenance_Tech_Technician" parentTableSchema="dbo" parentTableName="Maintenance_Tech" x="419" y="20">
       <foreignKeyColumn columnName="Maintenance_Tech_TechnicianID" parentColumnName="TechnicianID" />
     </foreignKey>
-    <foreignKey id="Weapons_Serial" parentTableSchema="dbo" parentTableName="Weapons" x="702" y="20">
+    <foreignKey id="Weapons_Serial" parentTableSchema="dbo" parentTableName="Weapons" x="701" y="20">
       <foreignKeyColumn columnName="Weapons_SerialID" parentColumnName="SerialID" />
     </foreignKey>
     <foreignKey id="Weapon_Type" parentTableSchema="dbo" parentTableName="Weapon_Type" x="1021" y="20" baseForeignKey="Weapons_Serial">
@@ -14,16 +14,14 @@
   <columns>
     <column name="RecordID" fieldName="RecordID" label="Record ID" />
     <column name="TechnicianID" fieldName="MaintenanceTechTechniciantechnicianid" label="Tech ID" foreignKey="Maintenance_Tech_Technician" />
-    <column name="Maintenance_Tech_TechnicianID" fieldName="MaintenanceTechTechnicianid" label="Tech ID" aliasColumnName="TechFirst" aliasForeignKey="Maintenance_Tech_Technician" />
-    <column name="Date_Started" fieldName="DateStarted" label="Date Started" format="g" />
     <column name="TechFirst" fieldName="MaintenanceTechTechniciantechfirst" label="Tech First Name" foreignKey="Maintenance_Tech_Technician" />
     <column name="TechLast" fieldName="MaintenanceTechTechniciantechlast" label="Tech Last Name" foreignKey="Maintenance_Tech_Technician" />
-    <column name="Weapons_SerialID" fieldName="WeaponsSerialid" label="Serial ID" aliasColumnName="SerialID" aliasForeignKey="Weapons_Serial" />
+    <column name="Date_Started" fieldName="DateStarted" label="Date Started" format="g" />
+    <column name="Date_Completed" fieldName="DateCompleted" label="Date Completed" format="g" />
     <column name="SerialID" fieldName="WeaponsSerialserialid" label="Serial ID" foreignKey="Weapons_Serial" />
-    <column name="Maint_Performed" fieldName="MaintPerformed" label="Maintenance Performed" />
+    <column name="Make" fieldName="WeaponTypemake" label="Weapon Make" foreignKey="Weapon_Type" />
     <column name="Model" fieldName="WeaponTypemodel" label="Weapon Model" foreignKey="Weapon_Type" />
     <column name="Caliber" fieldName="WeaponTypecaliber" label="Weapon Caliber" foreignKey="Weapon_Type" />
-    <column name="Make" fieldName="WeaponTypemake" label="Weapon Make" foreignKey="Weapon_Type" />
-    <column name="Date_Completed" fieldName="DateCompleted" label="Date Completed" format="g" />
+    <column name="Maint_Performed" fieldName="MaintPerformed" label="Maintenance Performed" />
   </columns>
 </dataModel>

@@ -1,1 +1,30 @@
-﻿<?xml version="1.0" encoding="utf-8"?><logs><log type="Controllers" /><log type="Application" /></logs>
+<?xml version="1.0" encoding="utf-8"?><logs><log type="Controllers" ><c y="NodeSet" t="2017-04-17T20:10:29"><controller name="Weapons" />
+<field name="Location" />
+<update>
+  <ItemsStyle>DropDownList</ItemsStyle>
+</update></c><c y="NodeSet" t="2017-04-17T20:11:44"><controller name="Weapons" />
+<field name="Location" />
+<insert type="item">
+  <Value>On-Duty Carry</Value>
+  <Text>On-Duty Carry</Text>
+</insert></c><c y="NodeSet" t="2017-04-17T20:12:02"><controller name="Weapons" />
+<field name="Location" />
+<insert type="item">
+  <Value>Off-Duty Carry</Value>
+  <Text>Off-Duty Carry</Text>
+</insert></c><c y="NodeSet" t="2017-04-17T20:12:15"><controller name="Weapons" />
+<field name="Location" />
+<insert type="item">
+  <Value>Vehicle</Value>
+  <Text>Vehicle</Text>
+</insert></c><c y="NodeSet" t="2017-04-17T20:12:55"><controller name="Weapons" />
+<field name="Location" />
+<insert type="item">
+  <Value>Storage</Value>
+  <Text>Storage</Text>
+</insert></c><c y="NodeSet" t="2017-04-17T20:13:32"><controller name="Weapons" />
+<field name="Location" />
+<insert type="item">
+  <Value>Maintenance</Value>
+  <Text>Maintenance</Text>
+</insert></c></log><log type="Application" /></logs>

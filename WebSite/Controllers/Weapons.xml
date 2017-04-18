@@ -7,7 +7,6 @@ select
 	"Weapons"."SerialID" "SerialID"
 	,"Weapons"."Location" "Location"
 	,"Weapons"."Weapon_Type_ID" "WeaponTypeID"
-	,"Weapon_Type"."Weapon_Type_ID" "WeaponTypeweaponTypeID"
 	,"Weapon_Type"."Make" "WeaponTypemake"
 	,"Weapon_Type"."Model" "WeaponTypemodel"
 	,"Weapon_Type"."Caliber" "WeaponTypecaliber"
@@ -18,11 +17,16 @@ from "dbo"."Weapons" "Weapons"
   </commands>
   <fields>
     <field name="SerialID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Serial ID" />
-    <field name="Location" type="String" allowNulls="false" label="Location" length="50" showInSummary="true" />
-    <field name="WeaponTypeID" type="Int32" label="Weapon Type" showInSummary="true">
-      <items style="Lookup" dataController="WeaponType" newDataView="createForm1" dataValueField="WeaponTypeID" dataTextField="WeaponTypeID" copy="WeaponTypemake=Make, WeaponTypemodel=Model, WeaponTypecaliber=Caliber" />
+    <field name="Location" type="String" allowNulls="false" label="Weapon Location" length="50" showInSummary="true">
+      <items style="DropDownList">
+        <item value="On-Duty Carry" text="On-Duty Carry" />
+        <item value="Off-Duty Carry" text="Off-Duty Carry" />
+        <item value="Vehicle" text="Vehicle" />
+        <item value="Storage" text="Storage" />
+        <item value="Maintenance" text="Maintenance" />
+      </items>
     </field>
-    <field name="WeaponTypeweaponTypeID" type="Int32" label="Weapon Type" readOnly="true" />
+    <field name="WeaponTypeID" type="Int32" label="Weapon Type" showInSummary="true" />
     <field name="WeaponTypemake" type="String" readOnly="true" label="Make" length="50" />
     <field name="WeaponTypemodel" type="String" readOnly="true" label="Model" length="50" />
     <field name="WeaponTypecaliber" type="Int32" readOnly="true" label="Caliber" />
@@ -33,8 +37,7 @@ from "dbo"."Weapons" "Weapons"
       <dataFields>
         <dataField fieldName="SerialID" columns="15" />
         <dataField fieldName="Location" columns="50" />
-        <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypeweaponTypeID" />
-        <dataField fieldName="WeaponTypemake" columns="50" />
+        <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypemake" />
         <dataField fieldName="WeaponTypemodel" columns="50" />
         <dataField fieldName="WeaponTypecaliber" columns="15" />
       </dataFields>
@@ -47,8 +50,7 @@ from "dbo"."Weapons" "Weapons"
           <dataFields>
             <dataField fieldName="SerialID" columns="15" />
             <dataField fieldName="Location" columns="50" />
-            <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypeweaponTypeID" />
-            <dataField fieldName="WeaponTypemake" columns="50" />
+            <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypemake" />
             <dataField fieldName="WeaponTypemodel" columns="50" />
             <dataField fieldName="WeaponTypecaliber" columns="15" />
           </dataFields>
@@ -63,8 +65,7 @@ from "dbo"."Weapons" "Weapons"
           <dataFields>
             <dataField fieldName="SerialID" columns="15" />
             <dataField fieldName="Location" columns="50" />
-            <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypeweaponTypeID" />
-            <dataField fieldName="WeaponTypemake" columns="50" />
+            <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypemake" />
             <dataField fieldName="WeaponTypemodel" columns="50" />
             <dataField fieldName="WeaponTypecaliber" columns="15" />
           </dataFields>

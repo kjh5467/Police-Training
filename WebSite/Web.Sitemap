@@ -6,6 +6,5 @@
     <siteMapNode title="Training" description="View Training" url="~/pages/training" />
     <siteMapNode title="Weapons" description="View Weapons" url="~/pages/weapons" />
     <siteMapNode title="Maintenance" description="View Maintenance" url="~/pages/maintenance" />
-    <siteMapNode title="Weapon Type" description="View Weapon Type" url="~/pages/weapon-type" />
   </siteMapNode>
 </siteMap>
