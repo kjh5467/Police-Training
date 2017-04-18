@@ -203,8 +203,8 @@ namespace MyCompany.Handlers
             if (_isTouchUI)
             {
                 if (_pageFooterContent != null)
-                	_pageFooterContent.Text = "<footer style=\"display:none\"><small>&copy; 2017 MyCompany. ^Copyright^All rights " +
-                        "reserved.^Copyright^</small></footer>";
+                	_pageFooterContent.Text = "<footer style=\"display:none\"><small>\t\r\n2017 &copy;<b> Beaver Borough Police Depar" +
+                        "tment</b> All rights reserved.</small></footer>";
             }
             else
             	if (contentInfo.TryGetValue("About", out s))
