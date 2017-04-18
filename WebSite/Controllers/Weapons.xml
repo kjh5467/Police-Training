@@ -27,7 +27,9 @@ from "dbo"."Weapons" "Weapons"
       </items>
     </field>
     <field name="WeaponTypeID" type="Int32" label="Weapon Type" showInSummary="true" />
-    <field name="WeaponTypemake" type="String" readOnly="true" label="Make" length="50" />
+    <field name="WeaponTypemake" type="String" label="Make" length="50">
+      <items style="Lookup" dataController="Weapons" dataView="grid1" dataValueField="WeaponTypemake" newDataView="createForm1" />
+    </field>
     <field name="WeaponTypemodel" type="String" readOnly="true" label="Model" length="50" />
     <field name="WeaponTypecaliber" type="Int32" readOnly="true" label="Caliber" />
   </fields>

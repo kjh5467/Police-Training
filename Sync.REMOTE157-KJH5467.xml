@@ -27,4 +27,13 @@
 <insert type="item">
   <Value>Maintenance</Value>
   <Text>Maintenance</Text>
-</insert></c></log><log type="Application" /></logs>
+</insert></c><c y="NodeSet" t="2017-04-17T21:22:08"><controller name="Weapons" />
+<field name="WeaponTypemake" />
+<update>
+  <ReadOnly>false</ReadOnly>
+  <ItemsStyle>Lookup</ItemsStyle>
+  <ItemsDataController>Weapons</ItemsDataController>
+  <ItemsDataView>grid1</ItemsDataView>
+  <ItemsDataValueField>WeaponTypemake</ItemsDataValueField>
+  <ItemsNewDataView>createForm1</ItemsNewDataView>
+</update></c></log><log type="Application" /></logs>
