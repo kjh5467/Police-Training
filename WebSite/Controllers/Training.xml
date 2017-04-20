@@ -5,12 +5,12 @@
       <text><![CDATA[
 select
 	"Training"."CourseName" "CourseName"
+	,"Training"."CourseID" "CourseID"
 	,"Training"."Score" "Score"
 	,"Training"."Date" "Date"
 	,"Officers_Badge"."FirstName" "OfficersBadgefirstname"
 	,"Officers_Badge"."LastName" "OfficersBadgelastname"
-	,"Officers_Badge"."BadgeID" "OfficersBadgebadgeid"
-	,"Training"."CourseID" "CourseID"
+	,"Training"."Officers_BadgeID" "OfficersBadgeid"
 from "dbo"."Training" "Training"
 	left join "dbo"."Officers" "Officers_Badge" on "Training"."Officers_BadgeID" = "Officers_Badge"."BadgeID"
 ]]></text>
@@ -24,12 +24,14 @@ from "dbo"."Training" "Training"
   </commands>
   <fields>
     <field name="CourseName" type="String" allowNulls="false" label="Course" length="100" showInSummary="true" />
+    <field name="CourseID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Course ID" readOnly="true" />
     <field name="Score" type="Int32" label="Score" showInSummary="true" />
     <field name="Date" type="DateTime" dataFormatString="g" label="Date" showInSummary="true" />
+    <field name="OfficersBadgeid" type="Int32" label="Officers Badgeid" showInSummary="true">
+      <items style="Lookup" dataController="Officers" newDataView="createForm1" dataValueField="BadgeID" dataTextField="BadgeID" copy="OfficersBadgefirstname=FirstName, OfficersBadgelastname=LastName" />
+    </field>
     <field name="OfficersBadgefirstname" type="String" readOnly="true" label="Officer First Name" length="50" />
     <field name="OfficersBadgelastname" type="String" readOnly="true" label="Officer Last Name" length="50" />
-    <field name="OfficersBadgebadgeid" type="Int32" readOnly="true" label="Officers Badge ID" />
-    <field name="CourseID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Course ID" readOnly="true" />
   </fields>
   <views>
     <view id="grid1" type="Grid" commandId="command1" label="Training">
@@ -40,7 +42,7 @@ from "dbo"."Training" "Training"
         <dataField fieldName="Date" columns="20" />
         <dataField fieldName="OfficersBadgefirstname" columns="50" />
         <dataField fieldName="OfficersBadgelastname" columns="50" />
-        <dataField fieldName="OfficersBadgebadgeid" columns="15" />
+        <dataField fieldName="OfficersBadgeid" columns="15" />
       </dataFields>
     </view>
     <view id="editForm1" type="Form" commandId="command1" label="Review Training">
@@ -52,9 +54,9 @@ from "dbo"."Training" "Training"
             <dataField fieldName="CourseName" />
             <dataField fieldName="Score" columns="15" />
             <dataField fieldName="Date" columns="20" />
+            <dataField fieldName="OfficersBadgeid" columns="15" />
             <dataField fieldName="OfficersBadgefirstname" columns="50" />
             <dataField fieldName="OfficersBadgelastname" columns="50" />
-            <dataField fieldName="OfficersBadgebadgeid" columns="15" />
           </dataFields>
         </category>
       </categories>
@@ -68,9 +70,17 @@ from "dbo"."Training" "Training"
             <dataField fieldName="CourseName" />
             <dataField fieldName="Score" columns="15" />
             <dataField fieldName="Date" columns="20" />
-            <dataField fieldName="OfficersBadgefirstname" columns="50" />
-            <dataField fieldName="OfficersBadgelastname" columns="50" />
-            <dataField fieldName="OfficersBadgebadgeid" columns="15" />
+            <dataField fieldName="OfficersBadgeid" columns="15" />
+            <dataField fieldName="OfficersBadgefirstname" columns="50">
+              <visibility>
+                <expression test="[OfficersBadgeid] != null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="OfficersBadgelastname" columns="50">
+              <visibility>
+                <expression test="[OfficersBadgeid] != null" type="ClientScript" />
+              </visibility>
+            </dataField>
           </dataFields>
         </category>
       </categories>

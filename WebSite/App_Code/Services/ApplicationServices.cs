@@ -901,7 +901,7 @@ namespace MyCompany.Services
         {
             get
             {
-                return "Police-Training";
+                return "Police Training Assistant";
             }
         }
         

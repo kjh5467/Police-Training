@@ -12,14 +12,10 @@ select
 	,"Weapon_Type"."Make" "WeaponTypemake"
 	,"Weapon_Type"."Model" "WeaponTypemodel"
 	,"Weapon_Type"."Caliber" "WeaponTypecaliber"
-	,"Maintenance"."TechnicianID" "TechnicianID"
-	,"Technician"."TechFirst" "TechnicianTechFirst"
-	,"Technician"."TechLast" "TechnicianTechLast"
 	,"Maintenance"."Maint_Performed" "MaintPerformed"
 from "dbo"."Maintenance" "Maintenance"
 	left join "dbo"."Weapons" "Weapons_Serial" on "Maintenance"."Weapons_SerialID" = "Weapons_Serial"."SerialID"
 	left join "dbo"."Weapon_Type" "Weapon_Type" on "Weapons_Serial"."Weapon_Type_ID" = "Weapon_Type"."Weapon_Type_ID"
-	left join "dbo"."Maintenance_Tech" "Technician" on "Maintenance"."TechnicianID" = "Technician"."TechnicianID"
 ]]></text>
     </command>
     <command id="RecordIDIdentityCommand" type="Text" event="Inserted">
@@ -40,11 +36,6 @@ from "dbo"."Maintenance" "Maintenance"
     <field name="WeaponTypemake" type="String" readOnly="true" label="Weapon Make" length="50" />
     <field name="WeaponTypemodel" type="String" readOnly="true" label="Weapon Model" length="50" />
     <field name="WeaponTypecaliber" type="Int32" readOnly="true" label="Weapon Caliber" />
-    <field name="TechnicianID" type="Int32" label="Technician ID" showInSummary="true">
-      <items style="Lookup" dataController="MaintenanceTech" newDataView="createForm1" dataValueField="TechnicianID" dataTextField="TechFirst" copy="TechnicianTechLast=TechLast" />
-    </field>
-    <field name="TechnicianTechFirst" type="String" readOnly="true" label="Tech First Name" length="50" />
-    <field name="TechnicianTechLast" type="String" readOnly="true" label="Tech Last Name" length="50" />
     <field name="MaintPerformed" type="String" label="Maintenance Performed" length="250" showInSummary="true" />
   </fields>
   <views>
@@ -57,8 +48,6 @@ from "dbo"."Maintenance" "Maintenance"
         <dataField fieldName="WeaponTypemake" columns="50" />
         <dataField fieldName="WeaponTypemodel" columns="50" />
         <dataField fieldName="WeaponTypecaliber" columns="15" />
-        <dataField fieldName="TechnicianID" aliasFieldName="TechnicianTechFirst" />
-        <dataField fieldName="TechnicianTechLast" columns="50" />
         <dataField fieldName="MaintPerformed" />
       </dataFields>
     </view>
@@ -74,8 +63,6 @@ from "dbo"."Maintenance" "Maintenance"
             <dataField fieldName="WeaponTypemake" columns="50" />
             <dataField fieldName="WeaponTypemodel" columns="50" />
             <dataField fieldName="WeaponTypecaliber" columns="15" />
-            <dataField fieldName="TechnicianID" aliasFieldName="TechnicianTechFirst" />
-            <dataField fieldName="TechnicianTechLast" columns="50" />
             <dataField fieldName="MaintPerformed" />
           </dataFields>
         </category>
@@ -93,8 +80,6 @@ from "dbo"."Maintenance" "Maintenance"
             <dataField fieldName="WeaponTypemake" columns="50" />
             <dataField fieldName="WeaponTypemodel" columns="50" />
             <dataField fieldName="WeaponTypecaliber" columns="15" />
-            <dataField fieldName="TechnicianID" aliasFieldName="TechnicianTechFirst" />
-            <dataField fieldName="TechnicianTechLast" columns="50" />
             <dataField fieldName="MaintPerformed" />
           </dataFields>
         </category>

@@ -36,4 +36,248 @@
   <ItemsDataView>grid1</ItemsDataView>
   <ItemsDataValueField>WeaponTypemake</ItemsDataValueField>
   <ItemsNewDataView>createForm1</ItemsNewDataView>
+</update></c><c y="NodeSet" t="2017-04-20T16:50:12"><controller name="Training" />
+<field name="Date" />
+<move>
+  <controller name="Training" />
+  <field name="OfficersBadgeid" />
+</move></c><c y="NodeSet" t="2017-04-20T16:53:07"><controller name="Training" />
+<view id="editForm1" />
+<category id="c1" />
+<dataField fieldName="Date" />
+<move>
+  <controller name="Training" />
+  <view id="editForm1" />
+  <category id="c1" />
+  <dataField fieldName="OfficersBadgeid" />
+</move></c><c y="NodeSet" t="2017-04-20T16:54:10"><controller name="Training" />
+<view id="editForm1" />
+<dataField fieldName="OfficersBadgefirstname" />
+<update>
+  <Hidden>true</Hidden>
+  <Visibility>[OfficersBadgeid] != Null</Visibility>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T16:55:24"><controller name="Training" />
+<view id="editForm1" />
+<dataField fieldName="OfficersBadgefirstname" />
+<update>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T16:56:20"><controller name="Training" />
+<view id="editForm1" />
+<dataField fieldName="OfficersBadgefirstname" />
+<update>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T16:57:21"><controller name="Training" />
+<view id="editForm1" />
+<dataField fieldName="OfficersBadgefirstname" />
+<update>
+  <Visibility>[OfficersBadgeid] != NULL</Visibility>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T16:58:28"><controller name="Training" />
+<view id="editForm1" />
+<dataField fieldName="OfficersBadgefirstname" />
+<update>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T16:59:36"><controller name="Training" />
+<view id="editForm1" />
+<dataField fieldName="OfficersBadgefirstname" />
+<update>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T16:59:47"><controller name="Training" />
+<view id="createForm1" />
+<category id="c1" />
+<dataField fieldName="Date" />
+<move>
+  <controller name="Training" />
+  <view id="createForm1" />
+  <category id="c1" />
+  <dataField fieldName="OfficersBadgeid" />
+</move></c><c y="NodeSet" t="2017-04-20T17:00:05"><controller name="Training" />
+<view id="createForm1" />
+<dataField fieldName="OfficersBadgefirstname" />
+<update>
+  <Hidden>true</Hidden>
+  <Visibility>[OfficersBadgeid] != NULL</Visibility>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T17:02:59"><controller name="Training" />
+<view id="createForm1" />
+<dataField fieldName="OfficersBadgefirstname" />
+<update>
+  <Visibility>[OfficersBadgeid] != 'NULL'</Visibility>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T17:04:20"><controller name="Training" />
+<view id="createForm1" />
+<dataField fieldName="OfficersBadgefirstname" />
+<update>
+  <Visibility />
+  <ReadOnlyWhen>[OfficersBadgeid] != 'NULL'</ReadOnlyWhen>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T17:05:01"><controller name="Training" />
+<view id="createForm1" />
+<dataField fieldName="OfficersBadgefirstname" />
+<update>
+  <ReadOnlyWhen>[OfficersBadgeid] != NULL</ReadOnlyWhen>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T17:06:31"><controller name="Training" />
+<view id="createForm1" />
+<dataField fieldName="OfficersBadgefirstname" />
+<update>
+  <ReadOnlyWhen>[OfficersBadgeid] != 'NULL'</ReadOnlyWhen>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T17:08:44"><controller name="Training" />
+<view id="createForm1" />
+<dataField fieldName="OfficersBadgefirstname" />
+<update>
+  <ReadOnlyWhen>[OfficersBadgeid] != ""</ReadOnlyWhen>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T17:10:13"><controller name="Training" />
+<view id="createForm1" />
+<dataField fieldName="OfficersBadgefirstname" />
+<update>
+  <ReadOnlyWhen>[OfficersBadgeid] !== null</ReadOnlyWhen>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T17:12:24"><controller name="Training" />
+<view id="createForm1" />
+<dataField fieldName="OfficersBadgefirstname" />
+<update>
+  <ReadOnlyWhen>[OfficersBadgeid] != null</ReadOnlyWhen>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T17:14:38"><controller name="Training" />
+<view id="createForm1" />
+<dataField fieldName="OfficersBadgefirstname" />
+<update>
+  <ReadOnlyWhen>[OfficersBadgeid] == [OfficersBadgeid]</ReadOnlyWhen>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T17:16:12"><controller name="Training" />
+<view id="createForm1" />
+<dataField fieldName="OfficersBadgefirstname" />
+<update>
+  <ReadOnlyWhen>[OfficersBadgeid] IS NOT NULL </ReadOnlyWhen>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T17:23:23"><controller name="Training" />
+<view id="createForm1" />
+<dataField fieldName="OfficersBadgefirstname" />
+<update>
+  <ReadOnlyWhen>$row.OfficersBadgeid != null</ReadOnlyWhen>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T17:27:10"><controller name="Training" />
+<view id="createForm1" />
+<dataField fieldName="OfficersBadgefirstname" />
+<update>
+  <ReadOnlyWhen>[OfficersBadgeid] == null</ReadOnlyWhen>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T17:28:22"><controller name="Training" />
+<view id="createForm1" />
+<dataField fieldName="OfficersBadgefirstname" />
+<update>
+  <Hidden>false</Hidden>
+  <Visibility>[OfficersBadgeid] != null</Visibility>
+  <ReadOnlyWhen />
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T17:29:50"><controller name="Training" />
+<view id="createForm1" />
+<dataField fieldName="OfficersBadgelastname" />
+<update>
+  <Hidden>false</Hidden>
+  <Visibility>[OfficersBadgeid] != null</Visibility>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T17:32:13"><controller name="Training" />
+<view id="editForm1" />
+<dataField fieldName="OfficersBadgelastname" />
+<update>
+  <Hidden>false</Hidden>
+  <Visibility>[OfficersBadgeid] != NULL</Visibility>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T17:33:30"><controller name="Training" />
+<view id="editForm1" />
+<dataField fieldName="OfficersBadgefirstname" />
+<update>
+  <Hidden>false</Hidden>
+  <Visibility />
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T17:33:50"><controller name="Training" />
+<view id="editForm1" />
+<dataField fieldName="OfficersBadgelastname" />
+<update>
+  <Hidden>false</Hidden>
+  <Visibility />
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T17:33:52"><controller name="Training" />
+<view id="editForm1" />
+<dataField fieldName="OfficersBadgelastname" />
+<update>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T17:34:24"><controller name="Training" />
+<view id="editForm1" />
+<dataField fieldName="OfficersBadgelastname" />
+<update>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-20T18:06:09"><controller name="Weapons" />
+<field name="Vehicle" />
+<insert type="item">
+  <Value>Vehicle290</Value>
+  <Text>Vehicle290</Text>
+</insert></c><c y="NodeSet" t="2017-04-20T18:09:05"><controller name="Weapons" />
+<field name="Vehicle" />
+<insert type="item">
+  <Value>Vehicle291</Value>
+  <Text>Vehicle291</Text>
+</insert></c><c y="NodeSet" t="2017-04-20T18:10:04"><controller name="Weapons" />
+<field name="Vehicle" />
+<insert type="item">
+  <Value>Vehicle292</Value>
+  <Text>Vehicle292</Text>
+</insert></c><c y="NodeSet" t="2017-04-20T18:10:59"><controller name="Weapons" />
+<field name="Vehicle" />
+<insert type="item">
+  <Value>Vehicle293</Value>
+  <Text>Vehicle293</Text>
+</insert></c><c y="NodeSet" t="2017-04-20T18:11:13"><controller name="Weapons" />
+<field name="Vehicle" />
+<insert type="item">
+  <Value>Vehicle294</Value>
+  <Text>Vehicle294</Text>
+</insert></c><c y="NodeSet" t="2017-04-20T18:11:46"><controller name="Weapons" />
+<field name="Vehicle" />
+<insert type="item">
+  <Value>Vehicle295</Value>
+  <Text>Vehicle295</Text>
+</insert></c><c y="NodeSet" t="2017-04-20T18:11:58"><controller name="Weapons" />
+<field name="Vehicle" />
+<insert type="item">
+  <Value>Vehicle296</Value>
+  <Text>Vehicle296</Text>
+</insert></c><c y="NodeSet" t="2017-04-20T18:12:14"><controller name="Weapons" />
+<field name="Vehicle" />
+<insert type="item">
+  <Value>Vehicle297</Value>
+  <Text>Vehicle297</Text>
+</insert></c><c y="NodeSet" t="2017-04-20T18:12:27"><controller name="Weapons" />
+<field name="Vehicle" />
+<insert type="item">
+  <Value>Vehicle298</Value>
+  <Text>Vehicle298</Text>
+</insert></c><c y="NodeSet" t="2017-04-20T18:13:11"><controller name="Weapons" />
+<field name="Vehicle" />
+<insert type="item">
+  <Value>Vehicle299</Value>
+  <Text>Vehicle299</Text>
+</insert></c><c y="NodeSet" t="2017-04-20T18:13:39"><controller name="Weapons" />
+<field name="Vehicle" />
+<update>
+  <ItemsStyle>Lookup</ItemsStyle>
+</update></c><c y="NodeSet" t="2017-04-20T18:14:55"><controller name="Weapons" />
+<field name="Vehicle" />
+<update>
+  <ItemsStyle>DropDownList</ItemsStyle>
+</update></c><c y="NodeSet" t="2017-04-20T18:17:37"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="Vehicle" />
+<update>
+  <Hidden>false</Hidden>
+  <Visibility>[Location] == 'Vehicle'</Visibility>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
 </update></c></log><log type="Application" /></logs>

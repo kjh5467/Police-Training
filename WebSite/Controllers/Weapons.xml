@@ -10,13 +10,17 @@ select
 	,"Weapon_Type"."Make" "WeaponTypemake"
 	,"Weapon_Type"."Model" "WeaponTypemodel"
 	,"Weapon_Type"."Caliber" "WeaponTypecaliber"
+	,"Officers"."BadgeID" "OfficersBadgeID"
+	,"Weapons"."Vehicle" "Vehicle"
 from "dbo"."Weapons" "Weapons"
 	left join "dbo"."Weapon_Type" "Weapon_Type" on "Weapons"."Weapon_Type_ID" = "Weapon_Type"."Weapon_Type_ID"
+	left join "dbo"."Officer_Weapon" "Officer_Weapon" on "Weapons"."SerialID" = "Officer_Weapon"."Weapons_SerialID"
+	left join "dbo"."Officers" "Officers" on "Officer_Weapon"."Officers_BadgeID" = "Officers"."BadgeID"
 ]]></text>
     </command>
   </commands>
   <fields>
-    <field name="SerialID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Serial ID" />
+    <field name="SerialID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Serial ID" showInSummary="true" />
     <field name="Location" type="String" allowNulls="false" label="Weapon Location" length="50" showInSummary="true">
       <items style="DropDownList">
         <item value="On-Duty Carry" text="On-Duty Carry" />
@@ -34,6 +38,21 @@ from "dbo"."Weapons" "Weapons"
     </field>
     <field name="WeaponTypemodel" type="String" readOnly="true" label="Model" length="50" />
     <field name="WeaponTypecaliber" type="Int32" readOnly="true" label="Caliber" />
+    <field name="OfficersBadgeID" type="Int32" readOnly="true" label="Officers Badge ID" />
+    <field name="Vehicle" type="String" label="Vehicle" length="50" showInSummary="true">
+      <items style="DropDownList">
+        <item value="Vehicle290" text="Vehicle290" />
+        <item value="Vehicle291" text="Vehicle291" />
+        <item value="Vehicle292" text="Vehicle292" />
+        <item value="Vehicle293" text="Vehicle293" />
+        <item value="Vehicle294" text="Vehicle294" />
+        <item value="Vehicle295" text="Vehicle295" />
+        <item value="Vehicle296" text="Vehicle296" />
+        <item value="Vehicle297" text="Vehicle297" />
+        <item value="Vehicle298" text="Vehicle298" />
+        <item value="Vehicle299" text="Vehicle299" />
+      </items>
+    </field>
   </fields>
   <views>
     <view id="grid1" type="Grid" commandId="command1" label="Weapons">
@@ -44,6 +63,8 @@ from "dbo"."Weapons" "Weapons"
         <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypemake" />
         <dataField fieldName="WeaponTypemodel" columns="50" />
         <dataField fieldName="WeaponTypecaliber" columns="15" />
+        <dataField fieldName="OfficersBadgeID" columns="15" />
+        <dataField fieldName="Vehicle" columns="50" />
       </dataFields>
     </view>
     <view id="editForm1" type="Form" commandId="command1" label="Review Weapons">
@@ -57,6 +78,8 @@ from "dbo"."Weapons" "Weapons"
             <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypemake" />
             <dataField fieldName="WeaponTypemodel" columns="50" />
             <dataField fieldName="WeaponTypecaliber" columns="15" />
+            <dataField fieldName="OfficersBadgeID" columns="15" />
+            <dataField fieldName="Vehicle" columns="50" />
           </dataFields>
         </category>
       </categories>
@@ -72,6 +95,12 @@ from "dbo"."Weapons" "Weapons"
             <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypemake" />
             <dataField fieldName="WeaponTypemodel" columns="50" />
             <dataField fieldName="WeaponTypecaliber" columns="15" />
+            <dataField fieldName="OfficersBadgeID" columns="15" />
+            <dataField fieldName="Vehicle" columns="50">
+              <visibility>
+                <expression test="[Location] == 'Vehicle'" type="ClientScript" />
+              </visibility>
+            </dataField>
           </dataFields>
         </category>
       </categories>

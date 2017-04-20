@@ -7,9 +7,6 @@
     <foreignKey id="Weapon_Type" parentTableSchema="dbo" parentTableName="Weapon_Type" x="1021" y="20" baseForeignKey="Weapons_Serial">
       <foreignKeyColumn columnName="Weapon_Type_ID" parentColumnName="Weapon_Type_ID" />
     </foreignKey>
-    <foreignKey id="Technician" parentTableSchema="dbo" parentTableName="Maintenance_Tech" x="366" y="186">
-      <foreignKeyColumn columnName="TechnicianID" parentColumnName="TechnicianID" />
-    </foreignKey>
   </foreignKeys>
   <columns>
     <column name="RecordID" fieldName="RecordID" label="Record ID" />
@@ -20,9 +17,6 @@
     <column name="Make" fieldName="WeaponTypemake" label="Weapon Make" foreignKey="Weapon_Type" />
     <column name="Model" fieldName="WeaponTypemodel" label="Weapon Model" foreignKey="Weapon_Type" />
     <column name="Caliber" fieldName="WeaponTypecaliber" label="Weapon Caliber" foreignKey="Weapon_Type" />
-    <column name="TechnicianID" fieldName="TechnicianID" label="Technician ID" aliasColumnName="TechFirst" aliasForeignKey="Technician" />
-    <column name="TechFirst" fieldName="TechnicianTechFirst" label="Tech First Name" foreignKey="Technician" />
-    <column name="TechLast" fieldName="TechnicianTechLast" label="Tech Last Name" foreignKey="Technician" />
     <column name="Maint_Performed" fieldName="MaintPerformed" label="Maintenance Performed" />
   </columns>
 </dataModel>
