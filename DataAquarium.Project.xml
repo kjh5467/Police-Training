@@ -2,14 +2,14 @@
   This file is provided to store the settings for your Data Aquarium project. 
   You can safely delete this file if no further code generation is planned.
 -->
-<project compatibility="20111118" dataModel="required" subscriptionLevel="Unlimited" name="Police Training Assistant" prettyName="Police Training Assistant" type="Web Site Factory" codeDomProvider="CSharp" targetFramework="4.6" userInterface="TouchUI" pageImplementation="html" sourceControl="git" xmlns="urn:schemas-codeontime-com:data-aquarium-project">
+<project compatibility="20111118" dataModel="required" subscriptionLevel="Free" name="Police-Training" prettyName="Police-Training" type="Web Site Factory" codeDomProvider="CSharp" targetFramework="4.6" userInterface="TouchUI" pageImplementation="html" sourceControl="git" xmlns="urn:schemas-codeontime-com:data-aquarium-project">
   <connectionString hostDatabaseSharing="false" sessionStateMode="None">Data Source=REMOTE157;Initial Catalog=Police Training 2;Integrated Security=True;</connectionString>
   <providerName>System.Data.SqlClient</providerName>
   <namespace>MyCompany</namespace>
   <webServer run="true" port="12981">
     <webConfig></webConfig>
   </webServer>
-  <features useSaveAndNew="true" pageHeader="Police Training Assistant " copyright="&#x9;&#xD;&#xA;2017 &amp;copy;&lt;b&gt; Beaver Borough Police Department&lt;/b&gt; All rights reserved." annotations="false" annotationsPath="" newColumn="true" floating="false" maxGridFields="100" multiSelect="false" batchEdit="false" advancedSearch="false" advancedLookup="false" relationshipExplorer="false" enablePermalinks="false" enableHistory="false" enableTransactions="false" showModalForms="true" tabViewSelection="0">
+  <features useSaveAndNew="true" pageHeader="Police Training Assistant " copyright="&#x9;&#xD;&#xA;2017 &amp;copy;&lt;b&gt; Beaver Borough Police Department&lt;/b&gt; All rights reserved." annotations="false" annotationsPath="" newColumn="true" floating="false" maxGridFields="100" multiSelect="false" batchEdit="false" advancedSearch="false" advancedLookup="false" relationshipExplorer="false" enablePermalinks="false" enableHistory="false" enableTransactions="false" showModalForms="false" tabViewSelection="0">
     <navigation detectUnderscoreSeparatedSchema="" />
     <blob allowUploadOnInsert="true" />
     <framework scriptOnly="true" useExtenders="false" />
@@ -39,5 +39,5 @@
   </membership>
   <globalization uiCulture="en-US" culture="en-US" enableClientBasedCulture="false" supportedCultures="en-US,en-US; " googleTranslateApiKey="" />
   <layout name="Classic" menuStyle="MultiLevel" />
-  <theme name="DarkKnight" />
+  <theme name="Aquarium" />
 </project>

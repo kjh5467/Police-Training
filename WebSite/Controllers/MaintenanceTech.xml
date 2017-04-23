@@ -90,10 +90,6 @@ from "dbo"."Maintenance_Tech" "Maintenance_Tech"
       <action id="a2" />
       <action id="a3" commandName="ExportRowset" />
       <action id="a4" commandName="ExportRss" />
-      <action id="a5" />
-      <action id="a6" commandName="Import" commandArgument="createForm1" />
-      <action id="a7" commandName="DataSheet" />
-      <action id="a8" commandName="Grid" />
     </actionGroup>
     <actionGroup id="ag6" scope="ActionBar" headerText="Record">
       <action id="a1" whenLastCommandName="Edit" commandName="Update" />
