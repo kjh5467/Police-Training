@@ -1,55 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dataController name="MaintenanceTech" conflictDetection="overwriteChanges" label="Maintenance Tech" xmlns="urn:schemas-codeontime-com:data-aquarium">
+<dataController name="WeaponAudit" conflictDetection="overwriteChanges" label="Weapon Audit" xmlns="urn:schemas-codeontime-com:data-aquarium">
   <commands>
     <command id="command1" type="Text">
       <text><![CDATA[
 select
-	"Maintenance_Tech"."TechnicianID" "TechnicianID"
-	,"Maintenance_Tech"."TechFirst" "TechFirst"
-	,"Maintenance_Tech"."TechLast" "TechLast"
-from "dbo"."Maintenance_Tech" "Maintenance_Tech"
+	"WeaponAudit"."AuditID" "AuditID"
+	,"WeaponAudit"."FirstName" "FirstName"
+	,"WeaponAudit"."LastName" "LastName"
+	,"WeaponAudit"."Date" "Date"
+from "dbo"."Weapon Audit" "WeaponAudit"
 ]]></text>
-    </command>
-    <command id="TechnicianIDIdentityCommand" type="Text" event="Inserted">
-      <text><![CDATA[select @@identity]]></text>
-      <output>
-        <fieldOutput fieldName="TechnicianID" />
-      </output>
     </command>
   </commands>
   <fields>
-    <field name="TechnicianID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Technician ID" readOnly="true" />
-    <field name="TechFirst" type="String" allowNulls="false" label="Tech First Name" length="50" showInSummary="true" />
-    <field name="TechLast" type="String" allowNulls="false" label="Tech Last" length="50" showInSummary="true" />
+    <field name="AuditID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Audit ID" />
+    <field name="FirstName" type="String" allowNulls="false" label="First Name" length="10" showInSummary="true" />
+    <field name="LastName" type="String" allowNulls="false" label="Last Name" length="50" showInSummary="true" />
+    <field name="Date" type="DateTime" allowNulls="false" dataFormatString="g" label="Date" showInSummary="true" />
   </fields>
   <views>
-    <view id="grid1" type="Grid" commandId="command1" label="Maintenance Tech">
+    <view id="grid1" type="Grid" commandId="command1" label="Weapon Audit">
       <headerText>$DefaultGridViewDescription</headerText>
       <dataFields>
-        <dataField fieldName="TechFirst" columns="50" />
-        <dataField fieldName="TechLast" columns="50" />
+        <dataField fieldName="AuditID" columns="15" />
+        <dataField fieldName="FirstName" columns="10" />
+        <dataField fieldName="LastName" columns="50" />
+        <dataField fieldName="Date" columns="20" />
       </dataFields>
     </view>
-    <view id="editForm1" type="Form" commandId="command1" label="Review Maintenance Tech">
+    <view id="editForm1" type="Form" commandId="command1" label="Review Weapon Audit">
       <headerText>$DefaultEditViewDescription</headerText>
       <categories>
-        <category id="c1" headerText="Maintenance Tech" flow="NewColumn">
+        <category id="c1" headerText="Weapon Audit" flow="NewColumn">
           <description><![CDATA[$DefaultEditDescription]]></description>
           <dataFields>
-            <dataField fieldName="TechFirst" columns="50" />
-            <dataField fieldName="TechLast" columns="50" />
+            <dataField fieldName="AuditID" columns="15" />
+            <dataField fieldName="FirstName" columns="10" />
+            <dataField fieldName="LastName" columns="50" />
+            <dataField fieldName="Date" columns="20" />
           </dataFields>
         </category>
       </categories>
     </view>
-    <view id="createForm1" type="Form" commandId="command1" label="New Maintenance Tech">
+    <view id="createForm1" type="Form" commandId="command1" label="New Weapon Audit">
       <headerText>$DefaultCreateViewDescription</headerText>
       <categories>
-        <category id="c1" headerText="New Maintenance Tech" flow="NewColumn">
+        <category id="c1" headerText="New Weapon Audit" flow="NewColumn">
           <description><![CDATA[$DefaultNewDescription]]></description>
           <dataFields>
-            <dataField fieldName="TechFirst" columns="50" />
-            <dataField fieldName="TechLast" columns="50" />
+            <dataField fieldName="AuditID" columns="15" />
+            <dataField fieldName="FirstName" columns="10" />
+            <dataField fieldName="LastName" columns="50" />
+            <dataField fieldName="Date" columns="20" />
           </dataFields>
         </category>
       </categories>

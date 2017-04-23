@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Weapon Audit" alias="WeaponAudit" created="2017-04-20T14:32:56" modified="2017-04-20T14:33:00" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="AuditID" fieldName="AuditID" label="Audit ID" />
+    <column name="FirstName" fieldName="FirstName" label="First Name" />
+    <column name="LastName" fieldName="LastName" label="Last Name" />
+    <column name="Date" fieldName="Date" label="Date" format="g" />
+  </columns>
+</dataModel>
