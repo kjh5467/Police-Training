@@ -51,7 +51,7 @@ from "dbo"."Weapons" "Weapons"
       </items>
     </field>
     <field name="OfficersBadgeid" type="Int32" label="Officers Badgeid" showInSummary="true">
-      <items style="Lookup" dataController="Officers" dataView="grid1" dataTextField="BadgeID" dataValueField="BadgeID" newDataView="createForm1" />
+      <items style="DropDownList" dataController="Officers" dataView="grid1" dataTextField="BadgeID" dataValueField="BadgeID" newDataView="createForm1" />
     </field>
   </fields>
   <views>
