@@ -10,8 +10,10 @@ select
 	,"Weapon_Type"."Make" "WeaponTypemake"
 	,"Weapon_Type"."Model" "WeaponTypemodel"
 	,"Weapon_Type"."Caliber" "WeaponTypecaliber"
-	,"Officers"."BadgeID" "OfficersBadgeID"
 	,"Weapons"."Vehicle" "Vehicle"
+	,"Officers"."BadgeID" "OfficersBadgeID"
+	,"Officers"."FirstName" "OfficersFirstName"
+	,"Officers"."LastName" "OfficersLastName"
 from "dbo"."Weapons" "Weapons"
 	left join "dbo"."Weapon_Type" "Weapon_Type" on "Weapons"."Weapon_Type_ID" = "Weapon_Type"."Weapon_Type_ID"
 	left join "dbo"."Officer_Weapon" "Officer_Weapon" on "Weapons"."SerialID" = "Officer_Weapon"."Weapons_SerialID"
@@ -30,15 +32,6 @@ from "dbo"."Weapons" "Weapons"
         <item value="Maintenance" text="Maintenance" />
       </items>
     </field>
-    <field name="WeaponTypeID" type="Int32" label="Weapon Type" showInSummary="true">
-      <items style="Lookup" dataController="WeaponType" newDataView="createForm1" dataValueField="WeaponTypeID" dataTextField="Make" copy="WeaponTypemodel=Model, WeaponTypecaliber=Caliber" />
-    </field>
-    <field name="WeaponTypemake" type="String" label="Make" length="50">
-      <items style="Lookup" dataController="Weapons" dataView="grid1" dataValueField="WeaponTypemake" newDataView="createForm1" />
-    </field>
-    <field name="WeaponTypemodel" type="String" readOnly="true" label="Model" length="50" />
-    <field name="WeaponTypecaliber" type="Int32" readOnly="true" label="Caliber" />
-    <field name="OfficersBadgeID" type="Int32" readOnly="true" label="Officers Badge ID" />
     <field name="Vehicle" type="String" label="Vehicle" length="50" showInSummary="true">
       <items style="DropDownList">
         <item value="Vehicle290" text="Vehicle290" />
@@ -53,6 +46,19 @@ from "dbo"."Weapons" "Weapons"
         <item value="Vehicle299" text="Vehicle299" />
       </items>
     </field>
+    <field name="OfficersBadgeID" type="Int32" label="Officers Badge ID">
+      <items style="Lookup" dataController="Officers" dataView="grid1" dataTextField="BadgeID" dataValueField="BadgeID" newDataView="createForm1" />
+    </field>
+    <field name="WeaponTypeID" type="Int32" label="Weapon Type" showInSummary="true">
+      <items style="Lookup" dataController="WeaponType" newDataView="createForm1" dataValueField="WeaponTypeID" dataTextField="Make" copy="WeaponTypemodel=Model, WeaponTypecaliber=Caliber" />
+    </field>
+    <field name="WeaponTypemake" type="String" label="Make" length="50">
+      <items style="Lookup" dataController="Weapons" dataView="grid1" dataValueField="WeaponTypemake" newDataView="createForm1" />
+    </field>
+    <field name="WeaponTypemodel" type="String" readOnly="true" label="Model" length="50" />
+    <field name="WeaponTypecaliber" type="Int32" readOnly="true" label="Caliber" />
+    <field name="OfficersFirstName" type="String" readOnly="true" label="Officers First Name" length="50" />
+    <field name="OfficersLastName" type="String" readOnly="true" label="Officers Last Name" length="50" />
   </fields>
   <views>
     <view id="grid1" type="Grid" commandId="command1" label="Weapons">
@@ -63,8 +69,10 @@ from "dbo"."Weapons" "Weapons"
         <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypemake" />
         <dataField fieldName="WeaponTypemodel" columns="50" />
         <dataField fieldName="WeaponTypecaliber" columns="15" />
-        <dataField fieldName="OfficersBadgeID" columns="15" />
         <dataField fieldName="Vehicle" columns="50" />
+        <dataField fieldName="OfficersBadgeID" columns="15" />
+        <dataField fieldName="OfficersFirstName" columns="50" />
+        <dataField fieldName="OfficersLastName" columns="50" />
       </dataFields>
     </view>
     <view id="editForm1" type="Form" commandId="command1" label="Review Weapons">
@@ -78,8 +86,10 @@ from "dbo"."Weapons" "Weapons"
             <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypemake" />
             <dataField fieldName="WeaponTypemodel" columns="50" />
             <dataField fieldName="WeaponTypecaliber" columns="15" />
-            <dataField fieldName="OfficersBadgeID" columns="15" />
             <dataField fieldName="Vehicle" columns="50" />
+            <dataField fieldName="OfficersBadgeID" columns="15" />
+            <dataField fieldName="OfficersFirstName" columns="50" />
+            <dataField fieldName="OfficersLastName" columns="50" />
           </dataFields>
         </category>
       </categories>
@@ -95,10 +105,24 @@ from "dbo"."Weapons" "Weapons"
             <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypemake" />
             <dataField fieldName="WeaponTypemodel" columns="50" />
             <dataField fieldName="WeaponTypecaliber" columns="15" />
-            <dataField fieldName="OfficersBadgeID" columns="15" />
             <dataField fieldName="Vehicle" columns="50">
               <visibility>
                 <expression test="[Location] == 'Vehicle'" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="OfficersBadgeID" columns="15">
+              <visibility>
+                <expression test="[Location] == 'On-Duty Carry' |&#xD;&#xA;[Location] == 'Off-Duty Carry'" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="OfficersFirstName" columns="50">
+              <visibility>
+                <expression test="[Location] == 'On-Duty Carry' |&#xD;&#xA;[Location] == 'Off-Duty Carry'" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="OfficersLastName" columns="50">
+              <visibility>
+                <expression test="[Location] == 'On-Duty Carry' |&#xD;&#xA;[Location] == 'Off-Duty Carry'" type="ClientScript" />
               </visibility>
             </dataField>
           </dataFields>
