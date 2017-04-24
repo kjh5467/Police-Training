@@ -14,4 +14,55 @@
 <field name="OfficersBadgeid" />
 <update>
   <ItemsStyle>DropDownList</ItemsStyle>
+</update></c><c y="NodeSet" t="2017-04-24T17:38:10"><controller name="Weapons" />
+<copy>
+  <controller name="Officers" />
+  <field name="FirstName" />
+</copy></c><c y="NodeSet" t="2017-04-24T17:38:16"><controller name="Weapons" />
+<copy>
+  <controller name="Officers" />
+  <field name="LastName" />
+</copy></c><c y="NodeSet" t="2017-04-24T17:39:21"><controller name="Weapons" />
+<view id="createForm1" />
+<category id="c1" />
+<move>
+  <controller name="Weapons" />
+  <field name="FirstName" />
+</move></c><c y="NodeSet" t="2017-04-24T17:39:26"><controller name="Weapons" />
+<view id="createForm1" />
+<category id="c1" />
+<move>
+  <controller name="Weapons" />
+  <field name="LastName" />
+</move></c><c y="NodeSet" t="2017-04-24T17:40:08"><controller name="Weapons" />
+<field name="FirstName" />
+<update>
+  <Computed>true</Computed>
+</update></c><c y="NodeSet" t="2017-04-24T17:40:11"><controller name="Weapons" />
+<field name="FirstName" />
+<update>
+  <Computed>false</Computed>
+</update></c><c y="NodeSet" t="2017-04-24T17:43:30"><controller name="Weapons" />
+<field name="FirstName" />
+<update>
+  <ItemsStyle>AutoComplete</ItemsStyle>
+  <ItemsDataController>Officers</ItemsDataController>
+  <ItemsDataView>grid1</ItemsDataView>
+  <ItemsDataValueField>FirstName</ItemsDataValueField>
+  <ItemsDataTextField>FirstName</ItemsDataTextField>
+  <ItemsNewDataView>createForm1</ItemsNewDataView>
+</update></c><c y="NodeSet" t="2017-04-24T17:43:59"><controller name="Weapons" />
+<field name="LastName" />
+<update>
+  <ItemsStyle>AutoComplete</ItemsStyle>
+  <ItemsDataController>Officers</ItemsDataController>
+  <ItemsDataView>grid1</ItemsDataView>
+  <ItemsDataValueField>LastName</ItemsDataValueField>
+  <ItemsDataTextField>LastName</ItemsDataTextField>
+  <ItemsNewDataView>createForm1</ItemsNewDataView>
+</update></c><c y="NodeSet" t="2017-04-24T18:01:13"><controller name="WeaponType" />
+<field name="Model" />
+<update>
+  <Computed>true</Computed>
+  <Formula>SELECT FirstName FROM Officers</Formula>
 </update></c></log><log type="Application"></log></logs>

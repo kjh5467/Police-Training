@@ -29,8 +29,6 @@ namespace MyCompany.Handlers
         
         static Site()
         {
-            AquariumExtenderBase.EnableCombinedScript = true;
-            ApplicationServices.EnableMinifiedCss = true;
         }
     }
     
@@ -196,7 +194,7 @@ namespace MyCompany.Handlers
                 {
                     _pageContent.Text = "<div id=\"PageContent\" style=\"display:none\"><div data-app-role=\"page\">404 Not Foun" +
                         "d</div></div>";
-                    this.Title = "Police Training Assistant";
+                    this.Title = "Police-Training";
                 }
                 else
                 	_pageContent.Text = "404 Not Found";
@@ -378,19 +376,7 @@ namespace MyCompany.Handlers
         protected void sm_ResolveScriptReference(object sender, ScriptReferenceEventArgs e)
         {
             if (System.Array.IndexOf(MicrosoftJavaScript, e.Script.Name) >= 0)
-            {
-                if (AquariumExtenderBase.EnableCombinedScript)
-                {
-                    string lang = CultureInfo.CurrentUICulture.IetfLanguageTag.ToLower();
-                    string scriptPath = ResolveUrl(String.Format("~/appservices/combined-{0}.{1}.js", ApplicationServices.Version, lang));
-                    if (ApplicationServices.IsTouchClient)
-                    	scriptPath = String.Format("{0}?_spa", scriptPath);
-                    e.Script.Path = scriptPath;
-                    e.Script.ResourceUICultures = null;
-                    return;
-                }
-                e.Script.Path = String.Format("~/Scripts/{0}?{1}", e.Script.Name, ApplicationServices.Version);
-            }
+            	e.Script.Path = String.Format("~/Scripts/{0}?{1}", e.Script.Name, ApplicationServices.Version);
         }
         
         protected override void OnPreRender(EventArgs e)
