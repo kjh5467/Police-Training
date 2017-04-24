@@ -444,4 +444,20 @@
   <ItemsDataValueField>BadgeID</ItemsDataValueField>
   <ItemsDataTextField>BadgeID</ItemsDataTextField>
   <ItemsNewDataView>createForm1</ItemsNewDataView>
+</update></c><c y="NodeSet" t="2017-04-23T17:00:51"><controller name="Weapons" />
+<field name="OfficersFirstName" />
+<update>
+  <ItemsStyle>Lookup</ItemsStyle>
+</update></c><c y="NodeSet" t="2017-04-23T17:01:01"><controller name="Weapons" />
+<field name="OfficersLastName" />
+<update>
+  <ItemsStyle>Lookup</ItemsStyle>
+</update></c><c y="NodeSet" t="2017-04-23T17:02:13"><controller name="Weapons" />
+<field name="OfficersFirstName" />
+<update>
+  <ItemsStyle />
+</update></c><c y="NodeSet" t="2017-04-23T17:02:22"><controller name="Weapons" />
+<field name="OfficersLastName" />
+<update>
+  <ItemsStyle />
 </update></c></log><log type="Application" /></logs>

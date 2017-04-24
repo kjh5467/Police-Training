@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel nameMaxLength="128" parameterMarker="@" quote="&quot;">
+  <table name="Courses" schema="dbo">
+    <columns>
+      <column name="Training_CourseID" type="int" allowNulls="false" dataType="Int32" />
+      <column name="Officers_BadgeID" type="int" allowNulls="false" dataType="Int32" />
+    </columns>
+    <primaryKey>
+      <primaryKeyColumn columnName="Training_CourseID" />
+      <primaryKeyColumn columnName="Officers_BadgeID" />
+    </primaryKey>
+    <foreignKeys>
+      <foreignKey parentTableSchema="dbo" parentTableName="Officers">
+        <foreignKeyColumn columnName="Officers_BadgeID" parentColumnName="BadgeID" />
+      </foreignKey>
+      <foreignKey parentTableSchema="dbo" parentTableName="Training">
+        <foreignKeyColumn columnName="Training_CourseID" parentColumnName="CourseID" />
+      </foreignKey>
+    </foreignKeys>
+  </table>
+  <table name="Maintenance" schema="dbo">
+    <columns>
+      <column name="RecordID" type="int" allowNulls="false" identity="true" readOnly="true" dataType="Int32" />
+      <column name="Date_Completed" type="datetime" dataType="DateTime" />
+      <column name="Maint_Performed" type="nvarchar" length="250" dataType="String" />
+      <column name="Weapons_SerialID" type="int" allowNulls="false" dataType="Int32" />
+      <column name="TechnicianID" type="int" dataType="Int32" />
+      <column name="Date_Started" type="datetime" allowNulls="false" dataType="DateTime" />
+    </columns>
+    <primaryKey>
+      <primaryKeyColumn columnName="RecordID" />
+    </primaryKey>
+    <foreignKeys>
+      <foreignKey parentTableSchema="dbo" parentTableName="Maintenance_Tech">
+        <foreignKeyColumn columnName="TechnicianID" parentColumnName="TechnicianID" />
+      </foreignKey>
+      <foreignKey parentTableSchema="dbo" parentTableName="Weapons">
+        <foreignKeyColumn columnName="Weapons_SerialID" parentColumnName="SerialID" />
+      </foreignKey>
+    </foreignKeys>
+  </table>
+  <table name="Maintenance_Tech" schema="dbo">
+    <columns>
+      <column name="TechnicianID" type="int" allowNulls="false" identity="true" readOnly="true" dataType="Int32" />
+      <column name="TechFirst" type="nvarchar" length="50" allowNulls="false" dataType="String" />
+      <column name="TechLast" type="nvarchar" length="50" allowNulls="false" dataType="String" />
+    </columns>
+    <primaryKey>
+      <primaryKeyColumn columnName="TechnicianID" />
+    </primaryKey>
+    <foreignKeys />
+  </table>
+  <table name="Officer_Weapon" schema="dbo">
+    <columns>
+      <column name="Weapons_SerialID" type="int" allowNulls="false" dataType="Int32" />
+      <column name="Officers_BadgeID" type="int" allowNulls="false" dataType="Int32" />
+    </columns>
+    <primaryKey>
+      <primaryKeyColumn columnName="Weapons_SerialID" />
+      <primaryKeyColumn columnName="Officers_BadgeID" />
+    </primaryKey>
+    <foreignKeys>
+      <foreignKey parentTableSchema="dbo" parentTableName="Officers">
+        <foreignKeyColumn columnName="Officers_BadgeID" parentColumnName="BadgeID" />
+      </foreignKey>
+      <foreignKey parentTableSchema="dbo" parentTableName="Weapons">
+        <foreignKeyColumn columnName="Weapons_SerialID" parentColumnName="SerialID" />
+      </foreignKey>
+    </foreignKeys>
+  </table>
+  <table name="Officers" schema="dbo">
+    <columns>
+      <column name="BadgeID" type="int" allowNulls="false" dataType="Int32" />
+      <column name="FirstName" type="nvarchar" length="50" allowNulls="false" dataType="String" />
+      <column name="LastName" type="nvarchar" length="50" allowNulls="false" dataType="String" />
+      <column name="Department" type="nvarchar" length="50" allowNulls="false" dataType="String" />
+      <column name="Active" type="bit" allowNulls="false" dataType="Boolean" />
+    </columns>
+    <primaryKey>
+      <primaryKeyColumn columnName="BadgeID" />
+    </primaryKey>
+    <foreignKeys />
+  </table>
+  <table name="Training" schema="dbo">
+    <columns>
+      <column name="CourseID" type="int" allowNulls="false" identity="true" readOnly="true" dataType="Int32" />
+      <column name="CourseName" type="nvarchar" length="100" allowNulls="false" dataType="String" />
+      <column name="Score" type="int" dataType="Int32" />
+      <column name="Date" type="date" dataType="DateTime" />
+      <column name="Officers_BadgeID" type="int" dataType="Int32" />
+    </columns>
+    <primaryKey>
+      <primaryKeyColumn columnName="CourseID" />
+    </primaryKey>
+    <foreignKeys />
+  </table>
+  <table name="Weapon Audit" schema="dbo">
+    <columns>
+      <column name="AuditID" type="int" allowNulls="false" dataType="Int32" />
+      <column name="FirstName" type="nchar" length="10" allowNulls="false" dataType="String" />
+      <column name="LastName" type="nvarchar" length="50" allowNulls="false" dataType="String" />
+      <column name="Date" type="datetime" allowNulls="false" dataType="DateTime" />
+    </columns>
+    <primaryKey>
+      <primaryKeyColumn columnName="AuditID" />
+    </primaryKey>
+    <foreignKeys />
+  </table>
+  <table name="Weapon_Type" schema="dbo">
+    <columns>
+      <column name="Weapon_Type_ID" type="int" allowNulls="false" identity="true" readOnly="true" dataType="Int32" />
+      <column name="Make" type="nvarchar" length="50" allowNulls="false" dataType="String" />
+      <column name="Model" type="nvarchar" length="50" allowNulls="false" dataType="String" />
+      <column name="Caliber" type="int" allowNulls="false" dataType="Int32" />
+      <column name="Classification" type="nvarchar" length="50" dataType="String" />
+    </columns>
+    <primaryKey>
+      <primaryKeyColumn columnName="Weapon_Type_ID" />
+    </primaryKey>
+    <foreignKeys />
+  </table>
+  <table name="Weapons" schema="dbo">
+    <columns>
+      <column name="SerialID" type="int" allowNulls="false" dataType="Int32" />
+      <column name="Location" type="nvarchar" length="50" allowNulls="false" dataType="String" />
+      <column name="Weapon_Type_ID" type="int" dataType="Int32" />
+      <column name="AuditID" type="int" dataType="Int32" />
+      <column name="Vehicle" type="nvarchar" length="50" dataType="String" />
+      <column name="Officers_BadgeID" type="int" dataType="Int32" />
+    </columns>
+    <primaryKey>
+      <primaryKeyColumn columnName="SerialID" />
+    </primaryKey>
+    <foreignKeys>
+      <foreignKey parentTableSchema="dbo" parentTableName="Officers">
+        <foreignKeyColumn columnName="Officers_BadgeID" parentColumnName="BadgeID" />
+      </foreignKey>
+      <foreignKey parentTableSchema="dbo" parentTableName="Weapon Audit">
+        <foreignKeyColumn columnName="AuditID" parentColumnName="AuditID" />
+      </foreignKey>
+      <foreignKey parentTableSchema="dbo" parentTableName="Weapon_Type">
+        <foreignKeyColumn columnName="Weapon_Type_ID" parentColumnName="Weapon_Type_ID" />
+      </foreignKey>
+    </foreignKeys>
+  </table>
+</dataModel>

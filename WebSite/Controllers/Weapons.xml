@@ -57,8 +57,12 @@ from "dbo"."Weapons" "Weapons"
     </field>
     <field name="WeaponTypemodel" type="String" readOnly="true" label="Model" length="50" />
     <field name="WeaponTypecaliber" type="Int32" readOnly="true" label="Caliber" />
-    <field name="OfficersFirstName" type="String" readOnly="true" label="Officers First Name" length="50" />
-    <field name="OfficersLastName" type="String" readOnly="true" label="Officers Last Name" length="50" />
+    <field name="OfficersFirstName" type="String" readOnly="true" label="Officers First Name" length="50">
+      <items style="Lookup" />
+    </field>
+    <field name="OfficersLastName" type="String" readOnly="true" label="Officers Last Name" length="50">
+      <items style="Lookup" />
+    </field>
   </fields>
   <views>
     <view id="grid1" type="Grid" commandId="command1" label="Weapons">
