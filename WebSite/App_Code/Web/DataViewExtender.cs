@@ -157,10 +157,6 @@ namespace MyCompany.Web
         [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.Never)]
         private ActionButtonLocation _showActionButtons;
         
-        private bool _showSearchBar;
-        
-        private bool _showModalForms;
-        
         private string _filterSource;
         
         private string _filterFields;
@@ -240,7 +236,6 @@ namespace MyCompany.Web
             this._showDetailsInListMode = true;
             this._showPager = PagerLocation.Bottom;
             this._showPageSize = true;
-            this._showSearchBar = true;
             _showDescription = true;
             _showViewSelector = true;
             _summaryFieldCount = 5;
@@ -331,35 +326,6 @@ namespace MyCompany.Web
             set
             {
                 this._showActionButtons = value;
-            }
-        }
-        
-        [System.ComponentModel.Description("Specifies if the search bar is enabled in the views of the data controller.")]
-        [System.ComponentModel.DefaultValue(true)]
-        public bool ShowSearchBar
-        {
-            get
-            {
-                return _showSearchBar;
-            }
-            set
-            {
-                _showSearchBar = value;
-            }
-        }
-        
-        [System.ComponentModel.Description("Specifies that form views are displayed as modal popups. The default form renderi" +
-            "ng mode is in-place.")]
-        [System.ComponentModel.DefaultValue(true)]
-        public bool ShowModalForms
-        {
-            get
-            {
-                return _showModalForms;
-            }
-            set
-            {
-                _showModalForms = value;
             }
         }
         
@@ -803,10 +769,6 @@ namespace MyCompany.Web
             	descriptor.AddProperty("showPageSize", false);
             if (!(ShowDetailsInListMode))
             	descriptor.AddProperty("showDetailsInListMode", false);
-            if (ShowSearchBar)
-            	descriptor.AddProperty("showSearchBar", true);
-            if (ShowModalForms)
-            	descriptor.AddProperty("showModalForms", true);
             if (SearchOnStart)
             	descriptor.AddProperty("searchOnStart", true);
             if (_lookupMode)
@@ -856,12 +818,6 @@ namespace MyCompany.Web
             	descriptor.AddProperty("summaryFieldCount", SummaryFieldCount);
             if (SearchByFirstLetter)
             	descriptor.AddProperty("showFirstLetters", true);
-            if (AutoSelectFirstRow)
-            	descriptor.AddProperty("autoSelectFirstRow", true);
-            if (AutoHighlightFirstRow)
-            	descriptor.AddProperty("autoHighlightFirstRow", true);
-            if (RefreshInterval > 0)
-            	descriptor.AddProperty("refreshInterval", RefreshInterval);
             if (!(ShowQuickFind))
             	descriptor.AddProperty("showQuickFind", false);
             if (ShowRowNumber)

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><logs><log type="Controllers"><c y="NodeSet" t="2017-04-23T16:30:47"><controller name="Weapons" />
+<field name="OfficersBadgeid" />
+<update>
+  <ItemsStyle>Lookup</ItemsStyle>
+</update></c><c y="NodeSet" t="2017-04-23T16:34:34"><controller name="Weapons" />
+<field name="OfficersBadgeid" />
+<update>
+  <ItemsDataController>Officers</ItemsDataController>
+  <ItemsDataView>grid1</ItemsDataView>
+  <ItemsDataValueField>BadgeID</ItemsDataValueField>
+  <ItemsDataTextField>BadgeID</ItemsDataTextField>
+  <ItemsNewDataView>createForm1</ItemsNewDataView>
+</update></c><c y="NodeSet" t="2017-04-23T19:37:51"><controller name="Weapons" />
+<field name="OfficersBadgeid" />
+<update>
+  <ItemsStyle>DropDownList</ItemsStyle>
+</update></c></log><log type="Application"></log></logs>

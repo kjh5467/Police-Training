@@ -6,7 +6,6 @@ using System.Data;
 using System.Data.Common;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Transactions;
@@ -447,30 +446,6 @@ namespace MyCompany.Data
                     }
                     reader.Close();
                 }
-                if (request.RequiresFirstLetters && this._viewType != "Form")
-                	if (!(page.RequiresRowCount))
-                    	page.FirstLetters = String.Empty;
-                    else
-                    {
-                        DbCommand firstLettersCommand = CreateCommand(connection);
-                        string[] oldFilter = page.Filter;
-                        ConfigureCommand(firstLettersCommand, page, CommandConfigurationType.SelectFirstLetters, null);
-                        page.Filter = oldFilter;
-                        if (!(String.IsNullOrEmpty(page.FirstLetters)))
-                        {
-                            DbDataReader reader = firstLettersCommand.ExecuteReader();
-                            StringBuilder firstLetters = new StringBuilder(page.FirstLetters);
-                            while (reader.Read())
-                            {
-                                firstLetters.Append(",");
-                                string letter = Convert.ToString(reader[0]);
-                                if (!(String.IsNullOrEmpty(letter)))
-                                	firstLetters.Append(letter);
-                            }
-                            reader.Close();
-                            page.FirstLetters = firstLetters.ToString();
-                        }
-                    }
             }
             if (_config.PlugIn != null)
             	_config.PlugIn.ProcessPageRequest(request, page);
@@ -1125,43 +1100,10 @@ namespace MyCompany.Data
                     else
                     	i++;
             }
-            if (!(RequiresHierarchy(page)))
-            	return;
-            bool requiresHierarchyOrganization = false;
-            foreach (DataField field in page.Fields)
-            	if (field.IsTagged("hierarchy-parent"))
-                	requiresHierarchyOrganization = true;
-                else
-                	if (field.IsTagged("hierarchy-organization"))
-                    {
-                        requiresHierarchyOrganization = false;
-                        break;
-                    }
-            if (requiresHierarchyOrganization)
-            {
-                DataField field = new DataField();
-                field.Name = HierarchyOrganizationFieldName;
-                field.Type = "String";
-                field.Tag = "hierarchy-organization";
-                field.Len = 255;
-                field.Columns = 20;
-                field.Hidden = true;
-                field.ReadOnly = true;
-                page.Fields.Add(field);
-            }
         }
         
         protected virtual bool RequiresHierarchy(ViewPage page)
         {
-            if (!((GetRequestedViewType(page) == "DataSheet")))
-            	return false;
-            foreach (DataField field in page.Fields)
-            	if (field.IsTagged("hierarchy-parent"))
-                {
-                    if ((page.Filter != null) && (page.Filter.Length > 0))
-                    	return false;
-                    return true;
-                }
             return false;
         }
         
@@ -1348,99 +1290,14 @@ namespace MyCompany.Data
     public class StringEncryptorBase
     {
         
-        public virtual byte[] Key
-        {
-            get
-            {
-                return new byte[] {
-                        253,
-                        124,
-                        8,
-                        201,
-                        31,
-                        27,
-                        89,
-                        189,
-                        251,
-                        47,
-                        198,
-                        241,
-                        38,
-                        78,
-                        198,
-                        193,
-                        18,
-                        179,
-                        209,
-                        220,
-                        34,
-                        84,
-                        178,
-                        99,
-                        193,
-                        84,
-                        64,
-                        15,
-                        188,
-                        98,
-                        101,
-                        153};
-            }
-        }
-        
-        public virtual byte[] IV
-        {
-            get
-            {
-                return new byte[] {
-                        87,
-                        84,
-                        163,
-                        98,
-                        205,
-                        255,
-                        139,
-                        173,
-                        16,
-                        88,
-                        88,
-                        254,
-                        133,
-                        176,
-                        55,
-                        112};
-            }
-        }
-        
         public virtual string Encrypt(string s)
         {
-            byte[] plainText = Encoding.Default.GetBytes(String.Format("{0}$${1}", s, s.GetHashCode()));
-            byte[] cipherText;
-            using (MemoryStream output = new MemoryStream())
-            {
-                using (Stream cOutput = new CryptoStream(output, Aes.Create().CreateEncryptor(Key, IV), CryptoStreamMode.Write))
-                	cOutput.Write(plainText, 0, plainText.Length);
-                cipherText = output.ToArray();
-            }
-            return Convert.ToBase64String(cipherText);
+            return Convert.ToBase64String(Encoding.Default.GetBytes(s));
         }
         
         public virtual string Decrypt(string s)
         {
-            byte[] cipherText = Convert.FromBase64String(s);
-            byte[] plainText;
-            using (MemoryStream output = new MemoryStream())
-            {
-                using (Stream cOutput = new CryptoStream(output, Aes.Create().CreateDecryptor(Key, IV), CryptoStreamMode.Write))
-                	cOutput.Write(cipherText, 0, cipherText.Length);
-                plainText = output.ToArray();
-            }
-            string plain = Encoding.Default.GetString(plainText);
-            string[] parts = plain.Split(new string[] {
-                        "$$"}, StringSplitOptions.None);
-            if (parts.Length != 2 || !((parts[0].GetHashCode() == Convert.ToInt32(parts[1]))))
-            	throw new Exception("Attempt to alter the hashed URL.");
-            return parts[0];
+            return Encoding.Default.GetString(Convert.FromBase64String(s));
         }
     }
 }
