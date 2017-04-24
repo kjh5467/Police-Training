@@ -611,4 +611,11 @@
   <Hidden>false</Hidden>
   <Visibility>[Location] == 'On-Duty Carry' | [Location] == 'Off-Duty Carry'</Visibility>
   <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T18:27:36"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="LastName" />
+<update>
+  <Hidden>false</Hidden>
+  <Visibility>[Location] == 'On-Duty Carry' | [Location] == 'Off-Duty Carry'</Visibility>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
 </update></c></log><log type="Application" /></logs>
