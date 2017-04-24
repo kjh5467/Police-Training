@@ -51,6 +51,9 @@ namespace MyCompany.Data
         
         private bool _requiresLocalization;
         
+        [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.Never)]
+        private SiteContentFileList _pendingAlterations;
+        
         public ControllerConfiguration(string path) : 
                 this(File.OpenRead(path))
         {
@@ -160,6 +163,18 @@ namespace MyCompany.Data
             }
         }
         
+        public SiteContentFileList PendingAlterations
+        {
+            get
+            {
+                return this._pendingAlterations;
+            }
+            set
+            {
+                this._pendingAlterations = value;
+            }
+        }
+        
         public XPathNavigator TrimmedNavigator
         {
             get
@@ -189,6 +204,30 @@ namespace MyCompany.Data
                     }
                 return nav;
             }
+        }
+        
+        public bool RequiresVirtualization(string controllerName)
+        {
+            BusinessRules rules = CreateBusinessRules();
+            return ((rules != null) && rules.SupportsVirtualization(controllerName));
+        }
+        
+        public ControllerConfiguration Virtualize(string controllerName)
+        {
+            ControllerConfiguration config = this;
+            if (!(_navigator.CanEdit))
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml(_navigator.OuterXml);
+                config = new ControllerConfiguration(doc.CreateNavigator());
+            }
+            BusinessRules rules = CreateBusinessRules();
+            if (rules != null)
+            {
+                rules.VirtualizeController(controllerName, config._navigator, config._namespaceManager);
+                config.PendingAlterations = rules.PendingAlterations;
+            }
+            return config;
         }
         
         protected virtual void Initialize(XPathNavigator navigator)

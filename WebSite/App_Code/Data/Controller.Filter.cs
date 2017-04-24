@@ -724,6 +724,62 @@ namespace MyCompany.Data
         
         protected virtual void AppendSystemFilter(DbCommand command, ViewPage page, SelectClauseDictionary expressions)
         {
+            string[] systemFilter = page.SystemFilter;
+            if (!(RequiresHierarchy(page)) || ((systemFilter == null) || (systemFilter.Length < 2)))
+            	return;
+            if (!(String.IsNullOrEmpty(_viewFilter)))
+            	_viewFilter = String.Format("({0})and", _viewFilter);
+            StringBuilder sb = new StringBuilder(_viewFilter);
+            sb.Append("(");
+            bool collapse = (systemFilter[0] == "collapse-nodes");
+            DataField parentField = null;
+            foreach (DataField field in page.Fields)
+            	if (field.IsTagged("hierarchy-parent"))
+                {
+                    parentField = field;
+                    break;
+                }
+            string parentFieldExpression = expressions[parentField.Name];
+            sb.AppendFormat("{0} is null or ", parentFieldExpression);
+            if (collapse)
+            	sb.Append("not(");
+            sb.AppendFormat("{0} in (", parentFieldExpression);
+            bool first = true;
+            for (int i = 1; (i < systemFilter.Length); i++)
+            {
+                object v = StringToValue(systemFilter[i]);
+                DbParameter p = command.CreateParameter();
+                p.ParameterName = String.Format("{0}p{1}", _parameterMarker, command.Parameters.Count);
+                p.Value = v;
+                command.Parameters.Add(p);
+                if (first)
+                	first = false;
+                else
+                	sb.Append(",");
+                sb.Append(p.ParameterName);
+            }
+            if (collapse)
+            	sb.Append(")");
+            sb.Append("))");
+            _viewFilter = sb.ToString();
+        }
+        
+        private void AppendAccessControlRules(DbCommand command, ViewPage page, SelectClauseDictionary expressions)
+        {
+            object handler = _config.CreateActionHandler();
+            if (!((handler is BusinessRules)))
+            	return;
+            BusinessRules rules = _serverRules;
+            if ((rules == null) && (handler != null))
+            	rules = ((BusinessRules)(handler));
+            if (rules == null)
+            	rules = CreateBusinessRules();
+            string accessControlFilter = rules.EnumerateAccessControlRules(command, _config.ControllerName, _parameterMarker, page, expressions);
+            if (String.IsNullOrEmpty(accessControlFilter))
+            	return;
+            if (!(String.IsNullOrEmpty(_viewFilter)))
+            	_viewFilter = (_viewFilter + " and ");
+            _viewFilter = String.Format("{0}/*Sql*/{1}/*Sql*/", _viewFilter, accessControlFilter);
         }
     }
 }

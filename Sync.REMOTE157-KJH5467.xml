@@ -460,4 +460,155 @@
 <field name="OfficersLastName" />
 <update>
   <ItemsStyle />
+</update></c><c y="NodeSet" t="2017-04-24T17:17:33"><controller name="Weapons" />
+<field name="WeaponTypemake" />
+<update>
+  <Label>Weapon Make</Label>
+</update></c><c y="NodeSet" t="2017-04-24T17:18:12"><controller name="Weapons" />
+<field name="WeaponTypemake" />
+<update>
+  <ItemsDataTextField>WeaponTypemake</ItemsDataTextField>
+</update></c><c y="NodeSet" t="2017-04-24T17:23:20"><controller name="Weapons" />
+<field name="WeaponTypemake" />
+<update>
+  <ReadOnly>true</ReadOnly>
+</update></c><c y="NodeSet" t="2017-04-24T17:26:40"><controller name="Weapons" />
+<field name="OfficersBadgeID" />
+<update>
+  <ReadOnly>true</ReadOnly>
+</update></c><c y="NodeSet" t="2017-04-24T17:46:59"><controller name="Weapons" />
+<copy>
+  <controller name="Officers" />
+  <field name="FirstName" />
+</copy></c><c y="NodeSet" t="2017-04-24T17:46:59"><controller name="Weapons" />
+<copy>
+  <controller name="Officers" />
+  <field name="LastName" />
+</copy></c><c y="NodeSet" t="2017-04-24T17:47:11"><controller name="Weapons" />
+<view id="createForm1" />
+<category id="c1" />
+<move>
+  <controller name="Weapons" />
+  <field name="FirstName" />
+</move></c><c y="NodeSet" t="2017-04-24T17:47:11"><controller name="Weapons" />
+<view id="createForm1" />
+<category id="c1" />
+<move>
+  <controller name="Weapons" />
+  <field name="LastName" />
+</move></c><c y="NodeSet" t="2017-04-24T17:47:47"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="FirstName" />
+<update>
+  <ReadOnly>true</ReadOnly>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T17:47:55"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="LastName" />
+<update>
+  <ReadOnly>true</ReadOnly>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T17:48:06"><controller name="Weapons" />
+<field name="FirstName" />
+<update>
+  <ReadOnly>true</ReadOnly>
+</update></c><c y="NodeSet" t="2017-04-24T17:48:13"><controller name="Weapons" />
+<field name="LastName" />
+<update>
+  <ReadOnly>true</ReadOnly>
+</update></c><c y="NodeSet" t="2017-04-24T17:48:19"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="FirstName" />
+<update>
+  <ReadOnly />
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T17:48:25"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="LastName" />
+<update>
+  <ReadOnly />
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T17:50:42"><controller name="Weapons" />
+<field name="OfficersBadgeid" />
+<update>
+  <Copy>OfficersFirstName=First Name, OfficersLastName=Last Name</Copy>
+</update></c><c y="NodeSet" t="2017-04-24T17:52:04"><controller name="Weapons" />
+<field name="OfficersBadgeid" />
+<update>
+  <ItemsStyle>Lookup</ItemsStyle>
+</update></c><c y="NodeSet" t="2017-04-24T17:55:23"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="OfficersBadgeid" />
+<update>
+  <Alias>OfficersBadgeid</Alias>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T17:55:35"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="OfficersBadgeid" />
+<update>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T17:58:33"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="OfficersBadgeid" />
+<update>
+  <Alias />
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T17:59:03"><controller name="Weapons" />
+<field name="OfficersBadgeid" />
+<update>
+  <Copy>FirstName=First Name, LastName=Last Name</Copy>
+</update></c><c y="NodeSet" t="2017-04-24T18:05:29"><controller name="Weapons" />
+<field name="OfficersBadgeid" />
+<update>
+  <Copy>OfficersFirstName=First Name, OfficersLastName=Last Name</Copy>
+</update></c><c y="NodeSet" t="2017-04-24T18:09:26"><controller name="Weapons" />
+<field name="WeaponTypeID" />
+<update>
+  <ItemsDataView>grid1</ItemsDataView>
+</update></c><c y="NodeSet" t="2017-04-24T18:16:03"><controller name="Weapons" />
+<field name="OfficersFirstName" />
+<delete /></c><c y="NodeSet" t="2017-04-24T18:16:03"><controller name="Weapons" />
+<field name="OfficersLastName" />
+<delete /></c><c y="NodeSet" t="2017-04-24T18:21:56"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="FirstName" />
+<update>
+  <Hidden>false</Hidden>
+  <Visibility>[OfficerBadgeid] != null</Visibility>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T18:23:52"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="FirstName" />
+<update>
+  <Hidden>false</Hidden>
+  <Visibility>[Location] == 'On-Duty Carry', 
+[Location] == 'Off-Duty Carry'</Visibility>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T18:24:41"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="FirstName" />
+<update>
+  <Hidden>false</Hidden>
+  <Visibility>[Location] == 'On-Duty Carry', [Location] == 'Off-Duty Carry'</Visibility>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T18:25:19"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="FirstName" />
+<update>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T18:26:11"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="FirstName" />
+<update>
+  <Hidden>false</Hidden>
+  <Visibility>[Location] == 'On-Duty Carry' | [Location] == 'Off-Duty Carry'</Visibility>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
 </update></c></log><log type="Application" /></logs>

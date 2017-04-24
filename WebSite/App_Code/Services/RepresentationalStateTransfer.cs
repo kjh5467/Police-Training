@@ -357,7 +357,7 @@ namespace MyCompany.Services
                                 "}.min.css\', type: \'text/css\', rel: \'stylesheet\' }});", ApplicationServices.JqmVersion), baseUrl, ApplicationServices.JqmVersion);
                 else
                 	sb.AppendFormat(String.Format("$(\'<link></link>\').appendTo($(\'head\')).attr({{ href: \'{0}/App_Themes/MyCompany/_T" +
-                                "heme_DarkKnight.css?{0}\', type: \'text/css\', rel: \'stylesheet\' }});", ApplicationServices.Version), baseUrl);
+                                "heme_Aquarium.css?{0}\', type: \'text/css\', rel: \'stylesheet\' }});", ApplicationServices.Version), baseUrl);
                 try
                 {
                     StringBuilder blankPage = new StringBuilder();

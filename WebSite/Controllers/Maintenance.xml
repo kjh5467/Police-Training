@@ -29,10 +29,10 @@ from "dbo"."Maintenance" "Maintenance"
     <field name="RecordID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Record ID" readOnly="true" />
     <field name="DateStarted" type="DateTime" allowNulls="false" dataFormatString="g" label="Date Started" showInSummary="true" />
     <field name="DateCompleted" type="DateTime" dataFormatString="g" label="Date Completed" showInSummary="true" />
-    <field name="WeaponsSerialid" type="Int32" allowNulls="false" label="Weapon Serial ID" showInSummary="true">
+    <field name="WeaponsSerialid" type="String" allowNulls="false" label="Weapon Serial ID" length="50" showInSummary="true">
       <items style="Lookup" dataController="Weapons" newDataView="createForm1" dataValueField="SerialID" dataTextField="SerialID" copy="WeaponTypemake=WeaponTypemake, WeaponTypemodel=WeaponTypemodel, WeaponTypecaliber=WeaponTypecaliber" />
     </field>
-    <field name="WeaponsSerialserialid" type="Int32" readOnly="true" label="Weapons Serial ID" />
+    <field name="WeaponsSerialserialid" type="String" readOnly="true" label="Weapons Serial ID" length="50" />
     <field name="WeaponTypemake" type="String" readOnly="true" label="Weapon Make" length="50" />
     <field name="WeaponTypemodel" type="String" readOnly="true" label="Weapon Model" length="50" />
     <field name="WeaponTypecaliber" type="Int32" readOnly="true" label="Weapon Caliber" />
@@ -121,6 +121,10 @@ from "dbo"."Maintenance" "Maintenance"
       <action id="a2" />
       <action id="a3" commandName="ExportRowset" />
       <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
     </actionGroup>
     <actionGroup id="ag6" scope="ActionBar" headerText="Record">
       <action id="a1" whenLastCommandName="Edit" commandName="Update" />
