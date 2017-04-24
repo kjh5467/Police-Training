@@ -190,8 +190,6 @@ namespace MyCompany.Web
             if (!(isMobile))
             	scripts.Add(CreateScriptReference("~/Scripts/daf-menu.js"));
             scripts.Add(CreateScriptReference("~/Scripts/daf.js"));
-            if (!(isMobile) && new ControllerUtilities().SupportsScrollingInDataSheet)
-            	scripts.Add(CreateScriptReference("~/Scripts/daf-extensions.js"));
             ConfigureScripts(scripts);
             if (isMobile)
             {
@@ -224,8 +222,8 @@ namespace MyCompany.Web
                 string designerPort = ApplicationServices.DesignerPort;
                 if (!(String.IsNullOrEmpty(designerPort)) && !(Controller.UserIsInRole(ApplicationServices.SiteContentDevelopers)))
                 	designerPort = String.Empty;
-                p.ClientScript.RegisterStartupScript(typeof(AquariumExtenderBase), "TargetFramework", String.Format("var __targetFramework=\"4.6\",__tf=4.0,__servicePath=\"{0}\",__baseUrl=\"{1}\",__design" +
-                            "erPort=\"{2}\";", p.ResolveClientUrl(AquariumExtenderBase.DefaultServicePath), p.ResolveClientUrl("~"), designerPort), true);
+                p.ClientScript.RegisterStartupScript(typeof(AquariumExtenderBase), "TargetFramework", String.Format("var __targetFramework=\"4.6\",__tf=4.01,__servicePath=\"{0}\",__baseUrl=\"{1}\",__desig" +
+                            "nerPort=\"{2}\";", p.ResolveClientUrl(AquariumExtenderBase.DefaultServicePath), p.ResolveClientUrl("~"), designerPort), true);
                 p.ClientScript.RegisterStartupScript(typeof(AquariumExtenderBase), "TouchUI", (("var __settings=" + ApplicationServices.Create().UserSettings(p).ToString(Newtonsoft.Json.Formatting.None)) 
                                 + ";"), true);
             }
