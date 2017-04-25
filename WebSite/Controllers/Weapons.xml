@@ -24,40 +24,23 @@ from "dbo"."Weapons" "Weapons"
     <field name="SerialID" type="String" allowNulls="false" isPrimaryKey="true" label="Serial ID" length="50" showInSummary="true" />
     <field name="Location" type="String" allowNulls="false" label="Weapon Location" length="50" showInSummary="true">
       <items style="DropDownList">
-        <item value="On-Duty Carry" text="On-Duty Carry" />
-        <item value="Off-Duty Carry" text="Off-Duty Carry" />
-        <item value="Vehicle" text="Vehicle" />
-        <item value="Storage" text="Storage" />
-        <item value="Maintenance" text="Maintenance" />
-      </items>
-    </field>
-    <field name="Vehicle" type="String" label="Vehicle" length="50" showInSummary="true">
-      <items style="DropDownList">
-        <item value="Vehicle290" text="Vehicle290" />
-        <item value="Vehicle291" text="Vehicle291" />
-        <item value="Vehicle292" text="Vehicle292" />
-        <item value="Vehicle293" text="Vehicle293" />
-        <item value="Vehicle294" text="Vehicle294" />
-        <item value="Vehicle295" text="Vehicle295" />
-        <item value="Vehicle296" text="Vehicle296" />
-        <item value="Vehicle297" text="Vehicle297" />
-        <item value="Vehicle298" text="Vehicle298" />
-        <item value="Vehicle299" text="Vehicle299" />
+        <item value="On-Duty-Carry" text="On-Duty-Carry" />
       </items>
     </field>
     <field name="WeaponTypeID" type="Int32" label="Weapon Type" showInSummary="true">
-      <items style="Lookup" dataController="WeaponType" newDataView="createForm1" dataValueField="WeaponTypeID" dataTextField="Make" copy="WeaponTypemodel=Model, WeaponTypecaliber=Caliber" dataView="grid1" />
+      <items style="Lookup" dataController="WeaponType" newDataView="createForm1" dataValueField="WeaponTypeID" dataTextField="Make" copy="WeaponTypemodel=Model, WeaponTypecaliber=Caliber" />
     </field>
-    <field name="WeaponTypemake" type="String" label="Weapon Make" length="50" readOnly="true">
-      <items style="Lookup" dataController="Weapons" dataView="grid1" dataValueField="WeaponTypemake" newDataView="createForm1" dataTextField="WeaponTypemake" />
-    </field>
+    <field name="WeaponTypemake" type="String" readOnly="true" label="Make" length="50" />
     <field name="WeaponTypemodel" type="String" readOnly="true" label="Model" length="50" />
     <field name="WeaponTypecaliber" type="Int32" readOnly="true" label="Caliber" />
-    <field name="BadgeID" type="Int32" label="Badge ID" showInSummary="true">
-      <items style="Lookup" dataController="Officers" newDataView="createForm1" dataValueField="BadgeID" dataTextField="FirstName" copy="OfficersLastName=LastName" />
+    <field name="Vehicle" type="String" label="Vehicle" length="50" showInSummary="true" />
+    <field name="BadgeID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Badge ID">
+      <items style="Lookup" dataController="Officers" dataView="grid1" dataTextField="BadgeID" dataValueField="BadgeID" />
     </field>
-    <field name="LastName" type="String" allowNulls="false" label="Last Name" length="50" showInSummary="true" readOnly="true" />
-    <field name="FirstName" type="String" allowNulls="false" label="First Name" length="50" showInSummary="true" readOnly="true" />
+    <field name="FirstName" type="String" allowNulls="false" label="First Name" length="50" showInSummary="true">
+      <items style="AutoComplete" dataController="Officers" dataView="grid1" dataTextField="FirstName" dataValueField="FirstName" />
+    </field>
+    <field name="LastName" type="String" allowNulls="false" label="Last Name" length="50" showInSummary="true" />
   </fields>
   <views>
     <view id="grid1" type="Grid" commandId="command1" label="Weapons">
@@ -69,7 +52,6 @@ from "dbo"."Weapons" "Weapons"
         <dataField fieldName="WeaponTypemodel" columns="50" />
         <dataField fieldName="WeaponTypecaliber" columns="15" />
         <dataField fieldName="Vehicle" columns="50" />
-        <dataField fieldName="BadgeID" />
       </dataFields>
     </view>
     <view id="editForm1" type="Form" commandId="command1" label="Review Weapons">
@@ -84,7 +66,6 @@ from "dbo"."Weapons" "Weapons"
             <dataField fieldName="WeaponTypemodel" columns="50" />
             <dataField fieldName="WeaponTypecaliber" columns="15" />
             <dataField fieldName="Vehicle" columns="50" />
-            <dataField fieldName="BadgeID" />
           </dataFields>
         </category>
       </categories>
@@ -100,22 +81,7 @@ from "dbo"."Weapons" "Weapons"
             <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypemake" />
             <dataField fieldName="WeaponTypemodel" columns="50" />
             <dataField fieldName="WeaponTypecaliber" columns="15" />
-            <dataField fieldName="Vehicle" columns="50">
-              <visibility>
-                <expression test="[Location] == 'Vehicle'" type="ClientScript" />
-              </visibility>
-            </dataField>
-            <dataField fieldName="BadgeID" />
-            <dataField fieldName="LastName" columns="50">
-              <visibility>
-                <expression test="[Location] == 'On-Duty Carry' | [Location] == 'Off-Duty Carry'" type="ClientScript" />
-              </visibility>
-            </dataField>
-            <dataField fieldName="FirstName" columns="50">
-              <visibility>
-                <expression test="[Location] == 'On-Duty Carry' | [Location] == 'Off-Duty Carry'" type="ClientScript" />
-              </visibility>
-            </dataField>
+            <dataField fieldName="Vehicle" columns="50" />
           </dataFields>
         </category>
       </categories>
@@ -156,10 +122,6 @@ from "dbo"."Weapons" "Weapons"
       <action id="a2" />
       <action id="a3" commandName="ExportRowset" />
       <action id="a4" commandName="ExportRss" />
-      <action id="a5" />
-      <action id="a6" commandName="Import" commandArgument="createForm1" />
-      <action id="a7" commandName="DataSheet" />
-      <action id="a8" commandName="Grid" />
     </actionGroup>
     <actionGroup id="ag6" scope="ActionBar" headerText="Record">
       <action id="a1" whenLastCommandName="Edit" commandName="Update" />
