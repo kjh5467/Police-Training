@@ -65,4 +65,87 @@
 <update>
   <Computed>true</Computed>
   <Formula>SELECT FirstName FROM Officers</Formula>
-</update></c></log><log type="Application"></log></logs>
+</update></c><c y="NodeSet" t="2017-04-24T19:00:31"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="BadgeID" />
+<update>
+  <Alias>BadgeID</Alias>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T19:00:46"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="BadgeID" />
+<update>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T19:03:25"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="BadgeID" />
+<update>
+  <Alias />
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T19:03:57"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="BadgeID" />
+<update>
+  <Alias>BadgeID</Alias>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T19:04:26"><controller name="Weapons" />
+<field name="BadgeID" />
+<update>
+  <Label>FirstName</Label>
+  <Copy />
+</update></c><c y="NodeSet" t="2017-04-24T19:05:33"><controller name="Weapons" />
+<field name="Location" />
+<update>
+  <ItemsStyle>DropDownList</ItemsStyle>
+</update></c><c y="NodeSet" t="2017-04-24T19:57:20"><controller name="Weapons" />
+<field name="BadgeID" />
+<update>
+  <ItemsDataValueField>FirstName</ItemsDataValueField>
+</update></c><c y="NodeSet" t="2017-04-24T19:58:09"><controller name="Weapons" />
+<field name="BadgeID" />
+<update>
+  <ItemsTargetController>Weapons</ItemsTargetController>
+</update></c><c y="NodeSet" t="2017-04-24T19:59:01"><controller name="Weapons" />
+<field name="BadgeID" />
+<delete /></c><c y="NodeSet" t="2017-04-24T19:59:05"><controller name="Weapons" />
+<field name="OfficersFirstName" />
+<delete /></c><c y="NodeSet" t="2017-04-24T19:59:10"><controller name="Weapons" />
+<field name="OfficersLastName" />
+<delete /></c><c y="NodeSet" t="2017-04-24T19:59:33"><controller name="Weapons" />
+<copy>
+  <controller name="Officers" />
+  <field name="BadgeID" />
+</copy></c><c y="NodeSet" t="2017-04-24T19:59:39"><controller name="Weapons" />
+<copy>
+  <controller name="Officers" />
+  <field name="FirstName" />
+</copy></c><c y="NodeSet" t="2017-04-24T19:59:39"><controller name="Weapons" />
+<copy>
+  <controller name="Officers" />
+  <field name="LastName" />
+</copy></c><c y="NodeSet" t="2017-04-24T20:00:25"><controller name="Weapons" />
+<field name="BadgeID" />
+<update>
+  <ItemsStyle>Lookup</ItemsStyle>
+  <ItemsDataController>Officers</ItemsDataController>
+  <ItemsDataView>grid1</ItemsDataView>
+  <ItemsDataValueField>BadgeID</ItemsDataValueField>
+  <ItemsDataTextField>BadgeID</ItemsDataTextField>
+</update></c><c y="NodeSet" t="2017-04-24T20:00:54"><controller name="Weapons" />
+<field name="FirstName" />
+<update>
+  <ItemsStyle>AutoComplete</ItemsStyle>
+  <ItemsDataController>Officers</ItemsDataController>
+  <ItemsDataView>grid1</ItemsDataView>
+  <ItemsDataValueField>FirstName</ItemsDataValueField>
+  <ItemsDataTextField>FirstName</ItemsDataTextField>
+</update></c><c y="NodeSet" t="2017-04-24T20:02:24"><controller name="Weapons" />
+<field name="Location" />
+<insert type="item">
+  <Value>On-Duty-Carry</Value>
+  <Text>On-Duty-Carry</Text>
+</insert></c></log><log type="Application"></log></logs>
