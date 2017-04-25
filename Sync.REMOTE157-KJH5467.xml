@@ -642,4 +642,61 @@
 <field name="BadgeID" />
 <update>
   <Copy>[OfficersLastName]==[OfficersLastName]</Copy>
+</update></c><c y="NodeSet" t="2017-04-24T20:40:13"><controller name="Weapons" />
+<field name="BadgeID" />
+<update>
+  <Copy>Last Name=Last Name</Copy>
+</update></c><c y="NodeSet" t="2017-04-24T20:41:26"><controller name="Weapons" />
+<field name="BadgeID" />
+<update>
+  <Copy>LastName=LastName</Copy>
+</update></c><c y="NodeSet" t="2017-04-24T20:44:38"><controller name="Weapons" />
+<field name="BadgeID" />
+<update>
+  <Copy>LastName=LastName
+FirstName=FirstName</Copy>
+</update></c><c y="NodeSet" t="2017-04-24T20:57:45"><controller name="Weapons" />
+<view id="editForm1" />
+<dataField fieldName="Vehicle" />
+<update>
+  <Hidden>false</Hidden>
+  <Visibility>[Location] == 'Vehicle'</Visibility>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T20:58:14"><controller name="Weapons" />
+<view id="editForm1" />
+<dataField fieldName="BadgeID" />
+<update>
+  <Hidden>false</Hidden>
+  <Visibility>[Location] == 'On-Duty Carry' | [Location] == 'Off-Duty Carry'</Visibility>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T20:58:33"><controller name="Weapons" />
+<view id="editForm1" />
+<category id="c1" />
+<dataField fieldName="BadgeID" />
+<move>
+  <controller name="Weapons" />
+  <view id="createForm1" />
+  <category id="c1" />
+  <dataField fieldName="FirstName" />
+</move></c><c y="NodeSet" t="2017-04-24T20:58:33"><controller name="Weapons" />
+<view id="editForm1" />
+<category id="c1" />
+<dataField fieldName="BadgeID" />
+<move>
+  <controller name="Weapons" />
+  <view id="createForm1" />
+  <category id="c1" />
+  <dataField fieldName="LastName" />
+</move></c><c y="NodeSet" t="2017-04-24T20:58:58"><controller name="Weapons" />
+<field name="BadgeID" />
+<update>
+  <Copy>LastName=LastName
+FirstName=FirstName</Copy>
+</update></c><c y="NodeSet" t="2017-04-24T21:05:46"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="WeaponTypeID" />
+<update>
+  <TextMode>Static</TextMode>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
 </update></c></log><log type="Application" /></logs>

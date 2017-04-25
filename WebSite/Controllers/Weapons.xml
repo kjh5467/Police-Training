@@ -54,7 +54,7 @@ from "dbo"."Weapons" "Weapons"
     <field name="WeaponTypemodel" type="String" readOnly="true" label="Model" length="50" />
     <field name="WeaponTypecaliber" type="Int32" readOnly="true" label="Caliber" />
     <field name="BadgeID" type="Int32" label="Badge ID" showInSummary="true">
-      <items style="Lookup" dataController="Officers" newDataView="createForm1" dataValueField="BadgeID" dataTextField="BadgeID" copy="[OfficersLastName]==[OfficersLastName]" dataView="grid1" />
+      <items style="Lookup" dataController="Officers" newDataView="createForm1" dataValueField="BadgeID" dataTextField="BadgeID" copy="LastName=LastName&#xD;&#xA;FirstName=FirstName" dataView="grid1" />
     </field>
     <field name="LastName" type="String" allowNulls="false" label="Last Name" length="50" showInSummary="true" readOnly="true" />
     <field name="FirstName" type="String" allowNulls="false" label="First Name" length="50" showInSummary="true" readOnly="true" />
@@ -83,8 +83,26 @@ from "dbo"."Weapons" "Weapons"
             <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypemake" />
             <dataField fieldName="WeaponTypemodel" columns="50" />
             <dataField fieldName="WeaponTypecaliber" columns="15" />
-            <dataField fieldName="Vehicle" columns="50" />
-            <dataField fieldName="BadgeID" />
+            <dataField fieldName="Vehicle" columns="50">
+              <visibility>
+                <expression test="[Location] == 'Vehicle'" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="BadgeID">
+              <visibility>
+                <expression test="[Location] == 'On-Duty Carry' | [Location] == 'Off-Duty Carry'" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="LastName" columns="50">
+              <visibility>
+                <expression test="[Location] == 'On-Duty Carry' | [Location] == 'Off-Duty Carry'" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="FirstName" columns="50">
+              <visibility>
+                <expression test="[Location] == 'On-Duty Carry' | [Location] == 'Off-Duty Carry'" type="ClientScript" />
+              </visibility>
+            </dataField>
           </dataFields>
         </category>
       </categories>
@@ -97,7 +115,7 @@ from "dbo"."Weapons" "Weapons"
           <dataFields>
             <dataField fieldName="SerialID" columns="50" />
             <dataField fieldName="Location" columns="50" />
-            <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypemake" />
+            <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypemake" textMode="Static" />
             <dataField fieldName="WeaponTypemodel" columns="50" />
             <dataField fieldName="WeaponTypecaliber" columns="15" />
             <dataField fieldName="Vehicle" columns="50">
