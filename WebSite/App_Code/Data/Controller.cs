@@ -291,6 +291,8 @@ namespace MyCompany.Data
             	config = config.PlugIn.Create(config);
             if (requiresLocalization)
             	config = config.Localize(controller);
+            if (config.RequiresVirtualization(controller))
+            	config = config.Virtualize(controller);
             config.Complete();
             HttpContext.Current.Items[configKey] = config;
             return config;
@@ -391,9 +393,98 @@ namespace MyCompany.Data
             command.CommandText = ((string)(commandNav.Evaluate("string(c:text)", Resolver)));
             if (String.IsNullOrEmpty(command.CommandText))
             	command.CommandText = commandNav.InnerXml;
-            if ((command.CommandType == CommandType.StoredProcedure) || commandNav.Select("c:parameters/c:parameter", Resolver).MoveNext())
-            	throw new Exception("Commands of type Stored Procedure and command parameters are available in Premium" +
-                        " edition only.");
+            IActionHandler handler = _config.CreateActionHandler();
+            XPathNodeIterator parameterIterator = commandNav.Select("c:parameters/c:parameter", Resolver);
+            SortedDictionary<string, string> missingFields = null;
+            while (parameterIterator.MoveNext())
+            {
+                DbParameter parameter = command.CreateParameter();
+                parameter.ParameterName = parameterIterator.Current.GetAttribute("name", String.Empty);
+                string s = parameterIterator.Current.GetAttribute("type", String.Empty);
+                if (!(String.IsNullOrEmpty(s)))
+                	parameter.DbType = ((DbType)(TypeDescriptor.GetConverter(typeof(DbType)).ConvertFromString(s)));
+                s = parameterIterator.Current.GetAttribute("direction", String.Empty);
+                if (!(String.IsNullOrEmpty(s)))
+                	parameter.Direction = ((ParameterDirection)(TypeDescriptor.GetConverter(typeof(ParameterDirection)).ConvertFromString(s)));
+                command.Parameters.Add(parameter);
+                s = parameterIterator.Current.GetAttribute("defaultValue", String.Empty);
+                if (!(String.IsNullOrEmpty(s)))
+                	parameter.Value = s;
+                s = parameterIterator.Current.GetAttribute("fieldName", String.Empty);
+                if ((args != null) && !(String.IsNullOrEmpty(s)))
+                {
+                    FieldValue v = args.SelectFieldValueObject(s);
+                    if (v != null)
+                    {
+                        s = parameterIterator.Current.GetAttribute("fieldValue", String.Empty);
+                        if (s == "Old")
+                        	parameter.Value = v.OldValue;
+                        else
+                        	if (s == "New")
+                            	parameter.Value = v.NewValue;
+                            else
+                            	parameter.Value = v.Value;
+                    }
+                    else
+                    {
+                        if (missingFields == null)
+                        	missingFields = new SortedDictionary<string, string>();
+                        missingFields.Add(parameter.ParameterName, s);
+                    }
+                }
+                s = parameterIterator.Current.GetAttribute("propertyName", String.Empty);
+                if (!(String.IsNullOrEmpty(s)) && (handler != null))
+                {
+                    object result = handler.GetType().InvokeMember(s, (System.Reflection.BindingFlags.GetProperty | System.Reflection.BindingFlags.GetField), null, handler, new object[0]);
+                    parameter.Value = result;
+                }
+                if (parameter.Value == null)
+                	parameter.Value = DBNull.Value;
+            }
+            if (missingFields != null)
+            {
+                bool retrieveMissingValues = true;
+                List<string> filter = new List<string>();
+                ViewPage page = CreateViewPage();
+                foreach (DataField field in page.Fields)
+                	if (field.IsPrimaryKey)
+                    {
+                        FieldValue v = args.SelectFieldValueObject(field.Name);
+                        if (v == null)
+                        {
+                            retrieveMissingValues = false;
+                            break;
+                        }
+                        else
+                        	filter.Add(String.Format("{0}:={1}", v.Name, v.Value));
+                    }
+                if (retrieveMissingValues)
+                {
+                    string editView = ((string)(_config.Evaluate("string(//c:view[@type=\'Form\']/@id)")));
+                    if (!(String.IsNullOrEmpty(editView)))
+                    {
+                        PageRequest request = new PageRequest(0, 1, null, filter.ToArray());
+                        request.RequiresMetaData = true;
+                        page = ControllerFactory.CreateDataController().GetPage(args.Controller, editView, request);
+                        if (page.Rows.Count > 0)
+                        	foreach (string parameterName in missingFields.Keys)
+                            {
+                                int index = 0;
+                                string fieldName = missingFields[parameterName];
+                                foreach (DataField field in page.Fields)
+                                {
+                                    if (field.Name.Equals(fieldName))
+                                    {
+                                        object v = page.Rows[0][index];
+                                        if (v != null)
+                                        	command.Parameters[parameterName].Value = v;
+                                    }
+                                    index++;
+                                }
+                            }
+                    }
+                }
+            }
             return command;
         }
         
@@ -706,6 +797,7 @@ namespace MyCompany.Data
                 sb.AppendLine(" and ");
             }
             AppendSystemFilter(command, page, expressions);
+            AppendAccessControlRules(command, page, expressions);
             if (((page.Filter != null) && (page.Filter.Length > 0)) || !(String.IsNullOrEmpty(_viewFilter)))
             	AppendFilterExpressionsToWhere(sb, page, command, expressions, whereClause);
             else
@@ -814,7 +906,124 @@ namespace MyCompany.Data
         
         protected virtual bool ConfigureCTE(StringBuilder sb, ViewPage page, DbCommand command, SelectClauseDictionary expressions, bool performCount)
         {
-            return false;
+            if (!(RequiresHierarchy(page)))
+            	return false;
+            // detect hierarchy
+            DataField primaryKeyField = null;
+            DataField parentField = null;
+            DataField sortField = null;
+            string sortOrder = "asc";
+            string hierarchyOrganization = HierarchyOrganizationFieldName;
+            foreach (DataField field in page.Fields)
+            {
+                if (field.IsPrimaryKey)
+                	primaryKeyField = field;
+                if (field.IsTagged("hierarchy-parent"))
+                	parentField = field;
+                else
+                	if (field.IsTagged("hierarchy-organization"))
+                    	hierarchyOrganization = field.Name;
+            }
+            if (parentField == null)
+            	return false;
+            // select a hierarchy sort field
+            if (sortField == null)
+            {
+                if (!(String.IsNullOrEmpty(page.SortExpression)))
+                {
+                    Match sortExpression = Regex.Match(page.SortExpression, "(?\'FieldName\'\\w+)(\\s+(?\'SortOrder\'asc|desc)?)", RegexOptions.IgnoreCase);
+                    if (sortExpression.Success)
+                    	foreach (DataField field in page.Fields)
+                        	if (field.Name == sortExpression.Groups["FieldName"].Value)
+                            {
+                                sortField = field;
+                                sortOrder = sortExpression.Groups["SortOrder"].Value;
+                                break;
+                            }
+                }
+                if (sortField == null)
+                	foreach (DataField field in page.Fields)
+                    	if (!(field.Hidden))
+                        {
+                            sortField = field;
+                            break;
+                        }
+            }
+            if (sortField == null)
+            	sortField = page.Fields[0];
+            // append a hierarchical CTE
+            bool isOracle = DatabaseEngineIs(command, "Oracle");
+            sb.AppendLine("),");
+            sb.AppendLine("h__(");
+            bool first = true;
+            foreach (DataField field in page.Fields)
+            {
+                if (first)
+                	first = false;
+                else
+                	sb.Append(",");
+                sb.AppendFormat("{0}{1}{2}", _leftQuote, field.Name, _rightQuote);
+                sb.AppendLine();
+            }
+            sb.AppendFormat(",{0}{1}{2}", _leftQuote, hierarchyOrganization, _rightQuote);
+            sb.AppendLine(")as(");
+            // top-level of self-referring CTE
+            sb.AppendLine("select");
+            first = true;
+            foreach (DataField field in page.Fields)
+            {
+                if (first)
+                	first = false;
+                else
+                	sb.Append(",");
+                sb.AppendFormat("h1__.{0}{1}{2}", _leftQuote, field.Name, _rightQuote);
+                sb.AppendLine();
+            }
+            // add top-level hierarchy organization field
+            if (isOracle)
+            	sb.AppendFormat(",lpad(cast(row_number() over (partition by h1__.{0}{1}{2} order by h1__.{0}{3}{2}" +
+                        " {4}) as varchar(5)), 5, \'0\') as {0}{5}{2}", _leftQuote, parentField.Name, _rightQuote, sortField.Name, sortOrder, hierarchyOrganization);
+            else
+            	sb.AppendFormat(",cast(right(\'0000\' + cast(row_number() over (partition by h1__.{0}{1}{2} order by" +
+                        " h1__.{0}{3}{2} {4}) as varchar), 4) as varchar) as {0}{5}{2}", _leftQuote, parentField.Name, _rightQuote, sortField.Name, sortOrder, hierarchyOrganization);
+            // add top-level "from" clause
+            sb.AppendLine();
+            sb.AppendFormat("from page_cte__ h1__ where h1__.{0}{1}{2} is null ", _leftQuote, parentField.Name, _rightQuote);
+            sb.AppendLine();
+            sb.AppendLine("union all");
+            // sublevel of self-referring CTE
+            sb.AppendLine("select");
+            first = true;
+            foreach (DataField field in page.Fields)
+            {
+                if (first)
+                	first = false;
+                else
+                	sb.Append(",");
+                sb.AppendFormat("h2__.{0}{1}{2}", _leftQuote, field.Name, _rightQuote);
+                sb.AppendLine();
+            }
+            // add sublevel hierarchy organization field
+            if (isOracle)
+            	sb.AppendFormat(",h__.{0}{5}{2} || \'/\' || lpad(cast(row_number() over (partition by h2__.{0}{1}{2}" +
+                        " order by h2__.{0}{3}{2} {4}) as varchar(5)), 5, \'0\') as {0}{5}{2}", _leftQuote, parentField.Name, _rightQuote, sortField.Name, sortOrder, hierarchyOrganization);
+            else
+            	sb.AppendFormat(",convert(varchar, h__.{0}{5}{2} + \'/\' + cast(right(\'0000\' + cast(row_number() ove" +
+                        "r (partition by h2__.{0}{1}{2} order by h2__.{0}{3}{2} {4}) as varchar), 4) as v" +
+                        "archar)) as {0}{5}{2}", _leftQuote, parentField.Name, _rightQuote, sortField.Name, sortOrder, hierarchyOrganization);
+            sb.AppendLine();
+            // add sublevel "from" clause
+            sb.AppendFormat("from page_cte__ h2__ inner join h__ on h2__.{0}{1}{2} = h__.{0}{3}{2}", _leftQuote, parentField.Name, _rightQuote, primaryKeyField.Name);
+            sb.AppendLine();
+            sb.AppendLine("),");
+            sb.AppendFormat("ho__ as (select row_number() over (order by ({0}{1}{2})) as row_number__, h__.* f" +
+                    "rom h__)", _leftQuote, hierarchyOrganization, _rightQuote);
+            if (performCount)
+            	sb.AppendLine("select count(*) from ho__");
+            else
+            	sb.AppendLine("select * from ho__");
+            sb.AppendLine();
+            return true;
         }
         
         private void AppendFirstLetterExpressions(StringBuilder sb, ViewPage page, SelectClauseDictionary expressions, string substringFunction)

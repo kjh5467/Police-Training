@@ -1221,6 +1221,12 @@ function UploadSuccess(key, message) {
             try
             {
                 string storageSystem = arguments["storage-system"].ToLower();
+                if (storageSystem == "file")
+                	return new FileSystemBlobAdapter(controller, arguments);
+                if (storageSystem == "azure")
+                	return new AzureBlobAdapter(controller, arguments);
+                if (storageSystem == "s3")
+                	return new S3BlobAdapter(controller, arguments);
             }
             catch (Exception )
             {

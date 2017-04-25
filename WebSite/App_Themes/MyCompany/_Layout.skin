@@ -1,0 +1,35 @@
+﻿<%--
+Default skin template. The following skins are provided as examples only.
+
+1. Named control skin. The SkinId should be uniquely defined because
+   duplicate SkinId's per control type are not allowed in the same theme.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Default skin. The SkinId is not defined. Only one default 
+   control skin per control type is allowed in the same theme.
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+--%>
+
+<%--
+<asp:Image runat="server" SkinID="Placeholder" ImageUrl="~/App_Themes/_Shared/Placeholder.gif" CssClass="Placeholder" />
+--%>
+
+<asp:Image runat="server" SkinID="PageLogo" ImageUrl="" />
+
+<asp:SiteMapPath SkinID="SiteMapPath" runat="server" CssClass="SiteMapPath" >
+    <PathSeparatorStyle CssClass="PathSeparator" />
+    <CurrentNodeStyle CssClass="CurrentNode" />
+    <NodeStyle CssClass="Node" />
+    <RootNodeStyle CssClass="RootNode" />
+</asp:SiteMapPath>
+
+<%--
+This rule has been depriciated from application framework. Assign 'TabContainer' to the 'CSS Class' property of standalone TabContainer components.
+
+<act:TabContainer runat="server" CssClass="TabContainer">
+</act:TabContainer>
+--%>

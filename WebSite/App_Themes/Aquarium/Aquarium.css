@@ -1,0 +1,216 @@
+@import url(../_Shared/Core.css?8.6.2.0);
+@import url(../_Shared/_Layout.css?8.6.2.0);
+
+
+/***** Bootstrap *****/
+
+.app-theme-aquarium .app-bootstrap.app-content-desktop {
+    border-top-color: #c2dcff;
+}
+
+.app-theme-aquarium .app-bootstrap a:not(.ui-btn):not(.btn) {
+    color: #000;
+}
+
+.app-theme-aquarium .jumbotron {
+    background-color: #E1EDFB;
+}
+
+.app-theme-aquarium .btn-default,
+.app-theme-aquarium .btn-default:focus,
+.app-theme-aquarium .btn-default:visited {
+    background-color: #F2F8FF;
+    border-color: #C3DCFC;
+    color: #333 !important;
+}
+
+.app-theme-aquarium.app-desktop .btn-default:hover {
+    background-color: #eaf5fa;
+    border-color: #79a7e3;
+}
+
+.app-theme-aquarium .app-bootstrap .btn.ui-btn-active,
+.app-theme-aquarium .app-bootstrap .btn.ui-btn-active:hover,
+.app-theme-aquarium .app-bootstrap .btn.ui-btn-active:focus,
+.app-theme-aquarium .app-bootstrap .list-group-item.ui-btn-active,
+.app-theme-aquarium .app-bootstrap .list-group-item.ui-btn-active:hover,
+.app-theme-aquarium .app-bootstrap .list-group-item.ui-btn-active:focus,
+.app-theme-aquarium .app-bootstrap .list-group-item.ui-btn-active .list-group-item-text,
+.app-theme-aquarium .app-bootstrap .list-group-item.ui-btn-active .list-group-item-heading {
+    background-color: #ffd253 !important;
+    border-color: #ffd253 !important;
+    color: #333 !important;
+}
+
+.app-theme-aquarium .app-bootstrap .nav .ui-btn-active,
+.app-theme-aquarium .app-bootstrap .nav .ui-btn-active:hover,
+.app-theme-aquarium .app-bootstrap .nav .ui-btn-active:focus {
+    background-color: #ffd253 !important;
+    color: #333 !important;
+}
+
+.app-theme-aquarium .table,
+.app-theme-aquarium .table > thead > tr > th,
+.app-theme-aquarium .table > tbody > tr > th,
+.app-theme-aquarium .table > tfoot > tr > th,
+.app-theme-aquarium .table > thead > tr > td,
+.app-theme-aquarium .table > tbody > tr > td,
+.app-theme-aquarium .table > tfoot > tr > td,
+.app-theme-aquarium .list-group-item:not(.active) {
+    background-color: #F2F8FF;
+    border-color: #C3DCFC;
+}
+
+.app-theme-aquarium.app-desktop a.list-group-item:hover:not(.active) {
+    background-color: #eaf5fa;
+}
+
+.app-theme-aquarium .table > thead > tr > th,
+.app-theme-aquarium .table > tbody > tr > th,
+.app-theme-aquarium .table > tfoot > tr > th {
+    color: #3e5354;
+    background-color: #E1EDFB;
+}
+
+.app-theme-aquarium .table-striped > tbody > tr:nth-child(2n+1) > td,
+.app-theme-aquarium .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: #eaf5fa;
+}
+
+.app-theme-aquarium.app-desktop .navbar-default .navbar-toggle:hover,
+.app-theme-aquarium .navbar-default .navbar-toggle:focus,
+.app-theme-aquarium .list-group-item.active:not(.btn),
+.app-theme-aquarium .list-group-item.active:not(.btn):hover,
+.app-theme-aquarium .list-group-item.active:not(.btn):focus,
+.app-theme-aquarium .nav-pills > li.active > a,
+.app-theme-aquarium .nav-pills > li.active > a:hover,
+.app-theme-aquarium .nav-pills > li.active > a:focus {
+    color: #fff !important;
+    background-color: #79a7e3;
+    border-color: #79a7e3;
+}
+
+.app-theme-aquarium .list-group-item.active > .badge,
+.app-theme-aquarium .nav-pills > .active > a > .badge {
+    color: #79a7e3 !important;
+}
+
+.app-theme-aquarium .navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+.app-theme-aquarium .img-thumbnail {
+    background-color: #F2F8FF;
+    border-color: #C3DCFC;
+}
+
+.app-theme-aquarium .page-header,
+.app-theme-aquarium .nav-tabs {
+    border-color: #C3DCFC;
+}
+
+    .app-theme-aquarium .nav-tabs > li.active > a,
+    .app-theme-aquarium .nav-tabs > li.active > a:hover,
+    .app-theme-aquarium .nav-tabs > li.active > a:focus {
+        border-top-color: #C3DCFC;
+        border-left-color: #C3DCFC;
+        border-right-color: #C3DCFC;
+    }
+
+.app-theme-aquarium.app-desktop .nav > li:not(.active) > a:hover,
+.app-theme-aquarium.app-desktop .nav > li:not(.active) > a:focus {
+    background-color: rgba(255,255,255,0.25);
+    border-color: #C3DCFC !important;
+}
+
+
+.app-theme-aquarium.app-desktop .nav-tabs > li:not(.active) > a:hover,
+.app-theme-aquarium .nav-tabs > li:not(.active) > a:focus,
+.app-theme-aquarium.app-desktop .nav-pills > li:not(.active) > a:hover,
+.app-theme-aquarium .nav-pills > li:not(.active) > a:focus {
+    background-color: #eaf5fa;
+}
+
+.app-theme-aquarium .navbar-default {
+    background-color: #83b0ec;
+    border-color: #6f9dd9;
+}
+
+    .app-theme-aquarium .navbar-default .navbar-brand,
+    .app-theme-aquarium .navbar-default .navbar-brand:hover {
+        color: #333 !important;
+    }
+
+    .app-theme-aquarium .navbar-default .navbar-nav > li > a {
+        color: #333 !important;
+    }
+
+.app-theme-aquarium.app-desktop .navbar-default a.navbar-brand:hover,
+.app-theme-aquarium .app-bootstrap .navbar-default a.navbar-brand.ui-btn-active,
+.app-theme-aquarium.app-desktop .navbar-default .navbar-nav > li > a:hover {
+    color: #000 !important;
+}
+
+.app-theme-aquarium .app-bootstrap .navbar-default .navbar-nav > .active > a,
+.app-theme-aquarium .app-bootstrap .navbar-default .navbar-nav > .active > a:hover,
+.app-theme-aquarium .app-bootstrap .navbar-default .navbar-nav > .active > a:focus,
+.app-theme-aquarium .app-bootstrap .navbar-default .navbar-nav > .open > a,
+.app-theme-aquarium .app-bootstrap .navbar-default .navbar-nav > .open > a:hover,
+.app-theme-aquarium .app-bootstrap .navbar-default .navbar-nav > .open > a:focus {
+    color: #000 !important;
+    background-color: rgba(0,0,0,.05);
+}
+
+.app-theme-aquarium .well {
+    background-color: #F2F8FF;
+    border-color: #C3DCFC;
+    /*box-shadow: rgba(0,0,0,0.1) 0 0 10px inset;*/
+}
+
+@media all and (max-width:767px) {
+    .app-sidebar-undocked.app-theme-aquarium .navbar-nav .open .dropdown-menu {
+        background-color: #F2F8FF;
+    }
+
+    .app-sidebar-undocked.app-theme-aquarium.app-desktop .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .app-sidebar-undocked.app-theme-aquarium .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        background-color: #eaf5fa;
+    }
+}
+
+.app-theme-aquarium .dropdown-menu {
+    background-color: #F2F8FF;
+}
+
+    .app-theme-aquarium .dropdown-menu .divider {
+        background-color: #C3DCFC;
+    }
+
+    .app-theme-aquarium.app-desktop .dropdown-menu > li > a:hover,
+    .app-theme-aquarium .dropdown-menu > li > a:focus {
+        background-color: #eaf5fa;
+    }
+
+.app-theme-aquarium .navbar-default .navbar-collapse,
+.app-theme-aquarium .navbar-default .navbar-form,
+.app-theme-aquarium .navbar-default .navbar-toggle {
+    border-color: #6f9dd9;
+}
+
+.app-theme-aquarium .navbar-inverse a:not(.ui-btn) {
+    color: #777 !important;
+}
+
+.app-theme-aquarium.app-desktop .navbar-inverse a.navbar-brand:hover,
+.app-theme-aquarium.app-desktop .navbar-inverse .navbar-nav > li > a:hover {
+    color: #FFF !important;
+}
+
+.app-theme-aquarium .navbar-inverse .navbar-nav > .active > a,
+.app-theme-aquarium .navbar-inverse .navbar-nav > .active > a:hover,
+.app-theme-aquarium .navbar-inverse .navbar-nav > .active > a:focus,
+.app-theme-aquarium .navbar-inverse .navbar-nav > .open > a,
+.app-theme-aquarium .navbar-inverse .navbar-nav > .open > a:hover,
+.app-theme-aquarium .navbar-inverse .navbar-nav > .open > a:focus {
+    color: #FFF !important;
+}

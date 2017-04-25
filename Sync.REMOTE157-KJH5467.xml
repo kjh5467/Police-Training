@@ -618,4 +618,28 @@
   <Hidden>false</Hidden>
   <Visibility>[Location] == 'On-Duty Carry' | [Location] == 'Off-Duty Carry'</Visibility>
   <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T19:02:18"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="BadgeID" />
+<update>
+  <Hidden>false</Hidden>
+  <Visibility>[Location] == 'On-Duty Carry' | [Location] == 'Off-Duty Carry'</Visibility>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T19:10:15"><controller name="Weapons" />
+<field name="BadgeID" />
+<update>
+  <ItemsDataView>grid1</ItemsDataView>
+  <ItemsDataTextField>BadgeID</ItemsDataTextField>
+</update></c><c y="NodeSet" t="2017-04-24T19:51:12"><controller name="Weapons" />
+<field name="BadgeID" />
+<update>
+  <Copy>WeaponsLastName=OfficersLastName</Copy>
+</update></c><c y="NodeSet" t="2017-04-24T19:54:59"><controller name="Weapons" />
+<field name="BadgeID" />
+<update>
+  <Copy>[OfficersLastName]=[OfficersLastName]</Copy>
+</update></c><c y="NodeSet" t="2017-04-24T19:56:51"><controller name="Weapons" />
+<field name="BadgeID" />
+<update>
+  <Copy>[OfficersLastName]==[OfficersLastName]</Copy>
 </update></c></log><log type="Application" /></logs>

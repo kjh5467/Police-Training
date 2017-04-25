@@ -1,0 +1,1048 @@
+﻿body
+{
+    margin: 0;
+    font-family: tahoma;
+    font-size: 8.5pt;
+}
+
+div#PageHeaderBar
+{
+    height: 20px;
+    padding-left: 36px;
+    background-image: url(DefaultLogo.gif);
+    background-repeat: no-repeat;
+    background-position: 6px 4px;
+    font: bold 11pt verdana;
+    color: #666666;
+    padding-top: 4px;
+}
+
+.Tall div#PageHeaderBar
+{
+    padding-bottom: 4px;
+}
+
+table#PageBody
+{
+    width: 100%;
+    border-spacing: 0;
+    border-width: 0;
+    border-collapse:collapse;
+}
+
+/* page header */
+
+table#PageBody tr td#PageHeaderSideBar
+{
+    background-image: url(TabsBar.gif);
+    background-repeat: repeat-x;
+    background-color: #d6e8ff;
+    padding:0;
+}
+
+table#PageBody tr td#PageHeaderSideBar img
+{
+    width: 152px;
+    height: 54px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+table#PageBody tr td#PageHeaderLeftSide
+{
+    background-image: url(TabsBar.gif);
+    background-repeat: repeat-x;
+    background-color: #d6e8ff;
+    padding:0;
+}
+
+    table#PageBody span.placeholder
+    {
+        display:block;
+        width:1px;
+        height:1px;
+    }
+
+table#PageBody tr td#PageHeaderLeftSide span.placeholder
+{
+    width: 10px;
+    height: 1px;
+}
+
+table#PageBody tr td#PageHeaderContent
+{
+    background-image: url(PageHeader.gif);
+    background-repeat: repeat-x;
+    border-left: solid 1px #6f9dd9;
+    border-right: solid 1px #6f9dd9;
+    padding:0;
+}
+
+.HomePage table#PageBody tr td#PageHeaderContent
+{
+    background-image: url(TabsBar.gif);
+    background-color: #d6e8ff;
+    border-left-style: none;
+    border-right-style: none;
+    padding:0;
+}
+
+table#PageBody tr td#PageHeaderContent div.Header
+{
+    padding: 8px;
+}
+
+table#PageBody tr td#PageHeaderContent div.Header div.Title
+{
+    font-family: Verdana;
+    font-size: 16pt;
+    color: Black;
+}
+
+.HomePage table#PageBody tr td#PageHeaderContent div.Header
+{
+    padding: 8px 0;
+    background-image: url(TopShape.jpg);
+    background-repeat: no-repeat;
+    background-position: 300px bottom;
+}
+
+.Tall.HomePage div.Header
+{
+    background-image: none !important;
+}
+
+table#PageBody tr td#PageHeaderRightSide
+{
+    background-image: url(TabsBar.gif);
+    background-repeat: repeat-x;
+    background-color: #d6e8ff;
+    padding:0;
+}
+
+
+table#PageBody tr td#PageHeaderRightSide span.placeholder
+{
+    width: 10px;
+    height: 1px;
+}
+
+/* site map path */
+
+.SiteMapPath
+{
+    display: block;
+}
+
+.SiteMapPath .RootNode, .SiteMapPath .Node
+{
+    font-family: Tahoma;
+    font-size: 8pt;
+    color: #3966BF;
+    padding: 0;
+}
+
+.SiteMapPath .PathSeparator
+{
+    font-family: Tahoma;
+    font-size: 8pt;
+    color: #666666;
+    padding: 0 2px;
+}
+
+.SiteMapPath .CurrentNode
+{
+    font-family: Tahoma;
+    font-size: 8pt;
+    color: #666666;
+}
+
+.SiteMapPath a
+{
+    text-decoration: none;
+}
+
+.SiteMapPath a:hover
+{
+    color: Black;
+    text-decoration: underline;
+}
+
+/* page content */
+
+.SideBarBody
+{
+}
+
+table#PageBody tr td#PageContentSideBar
+{
+    background-image: url(NavShape.jpg);
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-color: #83b0ec;
+    padding:0;
+    vertical-align:top;
+    border-collapse:separate;
+}
+
+table#PageBody tr td#PageContentLeftSide
+{
+    background-image: url(NavShape.jpg);
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-color: #83b0ec;
+    padding:0;
+}
+
+table#PageBody tr td#PageContentLeftSide span.placeholder
+{
+    width: 10px;
+    height: 1px;
+}
+
+
+table#PageBody tr td#PageContentSideBar span.placeholder
+{
+    width: 152px;
+    height: 1px;
+}
+
+table#PageBody tr td#PageContentSideBar div.TaskBox, div.History div.TaskBox
+{
+    border-top: #6F9DD9 1px solid;
+    border-left: #6F9DD9 1px solid;
+    border-right: #83B0EC 1px solid;
+    border-bottom: #83B0EC 1px solid;
+    margin-left: 5px;
+    margin-right: 9px;
+    margin-bottom: 2px;
+    background-color: #F2F8FF;
+}
+
+table#PageBody tr td#PageContentSideBar div.TaskBox div.Inner, div.History div.TaskBox div.Inner
+{
+    border-right: #6F9DD9 1px solid;
+    border-bottom: #6F9DD9 1px solid;
+    padding-bottom: 4px;
+}
+
+table#PageBody tr td#PageContentSideBar div.TaskBox div.Header, div.History div.TaskBox div.Header
+{
+    background-color: #D6E8FF;
+    font-weight: bold;
+    padding: 2px 4px 4px 4px;
+    color: #003399;
+    border-left: solid 1px white;
+    border-top: solid 1px white;
+    border-bottom: solid 1px #ADD1FF;
+}
+
+table#PageBody tr td#PageContentSideBar div.TaskBox div.Label, div.History div.TaskBox div.Label
+{
+    background-color: #D6E8FF;
+    padding: 2px 4px;
+    color: #003399;
+    border-left: solid 1px white;
+    border-top: solid 1px white;
+    border-bottom: solid 1px #ADD1FF;
+}
+
+table#PageBody tr td#PageContentSideBar div.TaskBox div.Item, div.History div.TaskBox div.Item
+{
+    padding: 2px 2px 4px 16px;
+    background-image: url(bullet.gif);
+    background-repeat: no-repeat;
+    background-position: 7px center;
+}
+
+table#PageBody tr td#PageContentSideBar div.TaskBox div.Task, div.History div.TaskBox div.Task
+{
+    padding: 2px 2px 4px 16px;
+    background-image: url(TaskBullet.gif);
+    background-repeat: no-repeat;
+    background-position: 4px 5px;
+}
+
+table#PageBody tr td#PageContentSideBar div.TaskBox div.Task a, div.History div.TaskBox div.Task a
+{
+    color: #003399;
+    text-decoration: none;
+}
+
+table#PageBody tr td#PageContentSideBar div.TaskBox div.Selected a, div.History div.TaskBox div.Selected a
+{
+    font-weight: bold;
+    color: Black;
+}
+
+table#PageBody tr td#PageContentSideBar div.TaskBox div.Summary, div.History div.TaskBox div.Summary
+{
+    background-image: url(TaskBoxBkg.gif);
+    background-repeat: repeat-x;
+    padding: 2px 4px 4px 4px;
+    color: #003399;
+    font-weight: bold;
+    border-left: solid 1px white;
+    border-top: solid 1px white;
+    border-bottom: solid 1px #ADD1FF;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+table#PageBody tr td#PageContentSideBar div.TaskBox div.Value, div.History div.TaskBox div.Value
+{
+    padding: 2px 2px 2px 5px;
+}
+
+table#PageBody tr td#PageContentSideBar div.TaskBox div.Divider, div.History div.TaskBox div.Divider
+{
+    background-color: #ADD1FF;
+    height: 1px;
+    font-size: 1px;
+}
+
+table#PageBody tr td#PageContentSideBar div.TaskBox div.Item a, div.History div.TaskBox div.Item a
+{
+    color: #003399;
+    text-decoration: none;
+}
+
+table#PageBody tr td#PageContentSideBar div.TaskBox div.Item a:hover, div.History div.TaskBox div.Item a:hover
+{
+    text-decoration: underline;
+    color: #000000;
+}
+
+table#PageBody tr td#PageContent
+{
+    background-color: white;
+    width: 100%;
+    border-left: solid 1px #6f9dd9;
+    border-right: solid 1px #6f9dd9;
+    border-bottom: solid 1px #6f9dd9;
+    padding: 8px;
+    vertical-align:top;
+    border-collapse:separate;
+}
+
+
+table#PageBody.Hosted tr td#PageContent
+{
+    border-style: none;
+    padding: 4px 8px;
+    background-color: transparent;
+}
+
+.HomePage table#PageBody tr td#PageContent
+{
+    border: solid 1px #6f9dd9;
+}
+
+table#PageBody tr td#PageContent .LayoutContainer
+{
+    float: left;
+}
+
+table#PageBody tr td#PageContentRightSide
+{
+    background-color: #83b0ec;
+    background-image: url(PageContentRightSide.gif);
+    background-repeat: repeat-x;
+    padding:0;
+}
+
+.HomePage table#PageBody tr td#PageContentRightSide
+{
+    border-left: solid 1px #83b0ec;
+}
+
+table#PageBody tr td#PageContentRightSide span.placeholder
+{
+    width: 10px;
+}
+
+/* page footer */
+
+table#PageBody tr td#PageFooterSideBar
+{
+    background-color: #83b0ec;
+    height: 4px;
+    padding: 0;
+    font-size: 1px;
+}
+
+table#PageBody tr td#PageFooterLeftSide
+{
+    background-color: #83b0ec;
+    height: 4px;
+    padding: 0;
+    font-size: 1px;
+}
+
+table#PageBody tr td#PageFooterContent
+{
+    background-color: #83b0ec;
+    height: 4px;
+    padding: 0;
+    font-size: 1px;
+}
+
+table#PageBody tr td#PageFooterRightSide
+{
+    background-color: #83b0ec;
+    height: 4px;
+    padding: 0;
+    font-size: 1px;
+}
+
+td#PageFooterSideBar span.placeholder, td#PageFooterLeftSide span.placeholder, td#PageFooterContent span.placeholder, td#PageFooterRightSide span.placeholder
+{
+    height: 4px;
+}
+
+.Standard table#PageBody tr td#PageHeaderLeftSide, .Standard table#PageBody tr td#PageContentLeftSide, .Standard table#PageBody tr td#PageFooterLeftSide
+{
+    display: none;
+}
+
+.Wide table#PageBody tr td#PageHeaderSideBar, .Wide table#PageBody tr td#PageContentSideBar, .Wide table#PageBody tr td#PageFooterSideBar
+{
+    display: none;
+}
+
+/* page footer bar */
+
+div#PageFooterBar
+{
+    background-color: #83b0ec;
+    color: Black;
+    font-family: Verdana;
+    font-size: 8.5pt;
+    padding: 0 10px 10px 150px;
+}
+
+.Wide div#PageFooterBar
+{
+    padding-left: 10px;
+}
+
+form
+{
+    padding: 0;
+    margin: 0;
+}
+
+/* initial page element styles */
+
+.Loading td#PageFooterSideBar, .Loading td#PageFooterLeftSide, .Loading td#PageFooterContent, .Loading td#PageFooterRightSide
+{
+    visibility: hidden;
+}
+
+.Loading div#PageFooterBar
+{
+    visibility: hidden;
+}
+
+.Loading table#PageBody tr td#PageContent
+{
+    border-bottom-style: none;
+    visibility: hidden;
+}
+
+
+/* menu and tab bar */
+
+div.PageMenuBar
+{
+    padding: 5px 10px 0 6px;
+    overflow: hidden;
+    height: 19px;
+}
+
+.Tall div.PageMenuBar
+{
+    display: none;
+}
+
+.NoSeeAlso div.TaskBox.SeeAlso
+{
+    display: none;
+}
+
+div.TabBar
+{
+    padding: 0;
+    overflow: hidden;
+    height: 19px;
+    border-bottom: solid 1px #6f9dd9;
+}
+
+div.EmptyTabBar
+{
+    height: 0;
+}
+
+div.EmptyTabBar .Menu
+{
+    display: none;
+}
+
+div.TabBody
+{
+    border-left: solid 1px #6f9dd9;
+    border-bottom: solid 1px #6f9dd9;
+    border-right: solid 1px #6f9dd9;
+    padding: 4px 4px 0 4px;
+    margin-bottom: 4px;
+}
+
+table.Menu
+{
+    border-left: solid 1px #c2dcff;
+    height: 19px;
+}
+
+table.Menu tr td.Item
+{
+    padding: 1px 8px 3px 8px;
+    border-right: solid 1px #c2dcff;
+    border-top: solid 1px #c2dcff;
+    background-image: url(TabsInactiveTab.gif);
+    border-left: white 1px solid;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+table.Menu tr td.Item span.Outer
+{
+    display: block;
+}
+
+table.Menu tr td.Parent span.Outer
+{
+    background-image: url(DropArrow.gif);
+    background-position: right center;
+    background-repeat: no-repeat;
+    padding-right: 13px;
+}
+
+table.Menu tr td.Selected
+{
+    background-image: url(TabsSelectedTab.gif);
+    border-right: solid 1px #79a7e3;
+    border-top: solid 1px #79a7e3;
+}
+
+table.Menu tr td.Menu_Hover
+{
+    background-image: url(TabsActiveTab.gif);
+    border-right: solid 1px #c2a770;
+    border-top: solid 1px #c2a770;
+}
+
+table.Menu a.Link
+{
+    font-family: Tahoma;
+    font-size: 8.5pt;
+    text-decoration: none;
+    color: #3764a0;
+}
+
+table.Menu tr td.Selected a
+{
+    font-weight: bold;
+    color: #0033cc;
+}
+
+table.Menu tr td.Menu_Hover a
+{
+    color: Black;
+}
+
+/* menu hover styles */
+
+.Menu_TopLine, .Menu_RightLine, .Menu_BottomLine, .Menu_LeftLine
+{
+    display: none;
+}
+
+.Menu_Arrow
+{
+    width: 20px;
+    background-color: transparent !important;
+    background-image: url(Placeholder.gif) !important;
+}
+
+/* site actions menu */
+
+table.SiteActions
+{
+    border-left-style: none;
+}
+
+table.SiteActions tr td.Item
+{
+    background-image: url(SiteActionsInactiveTab.gif);
+    border-left: solid 1px #6593CF;
+    border-right: solid 1px #6593CF;
+    border-top: solid 1px #6593CF;
+    border-bottom: solid 1px #6593CF;
+    padding-right: 4px;
+    padding-bottom: 2px;
+}
+
+table.SiteActions tr td.Parent span.Outer
+{
+    background-image: url(WhiteDropArrow.gif);
+}
+
+table.SiteActions a.Link
+{
+    color: #fff;
+    font-weight: bold;
+}
+
+table.SiteActions tr td.SiteActions_Hover
+{
+    background-image: url(SiteActionsActiveTab.gif);
+    border-right: solid 1px #89724F;
+    border-top: solid 1px #89724F;
+    border-left: solid 1px #89724F;
+}
+
+.SiteActions_TopLine, .SiteActions_RightLine, .SiteActions_BottomLine, .SiteActions_LeftLine
+{
+    display: none;
+}
+
+.SiteActions_Arrow
+{
+    width: 20px;
+    background-color: transparent !important;
+    background-image: url(Placeholder.gif) !important;
+}
+
+.CloseSiteAction
+{
+    float: right;
+    margin-right: 4px;
+    margin-top: 4px;
+    padding-left: 12px;
+    background-image: url(Close.gif);
+    background-repeat: no-repeat;
+    background-position: left 2px;
+}
+
+.CloseSiteAction a
+{
+    text-decoration: none;
+    color: #000000;
+}
+
+.CloseSiteAction a:hover
+{
+    color: Black;
+    text-decoration: underline;
+}
+
+/* membership */
+
+.MembershipBarPlaceholder
+{
+    background-color: #ebf3ff !important;
+    border-bottom-color: #ebf3ff !important;
+}
+
+table.LoginDialog
+{
+    border-color: #6f9dd9 !important;
+    background-color: #d6e8ff !important;
+}
+
+table.LoginDialogCollapsed
+{
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+table.LoginDialogCollapsed, div.HelpLink
+{
+    color: #696969 !important;
+}
+
+div.MembershipBar a
+{
+    color: #336699 !important;
+}
+
+
+/* page content */
+
+.ParaHeader
+{
+    font-weight: bold;
+    color: Black;
+    padding: 4px;
+    background-image: url(ParaHeaderBkg.gif);
+    border: solid 1px #ADD1FF;
+    background-repeat: repeat-x;
+    margin-bottom: 4px;
+}
+
+.ParaInfo
+{
+    font-family: Tahoma;
+    font-size: 8.5pt;
+    color: #696969;
+    padding: 0 0 4px 0;
+}
+
+.ParaText
+{
+    font-family: Tahoma;
+    font-size: 8.5pt;
+    color: #000000;
+    padding: 4px 0;
+}
+
+.DataViewHeader
+{
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding-left: 3px;
+    color: #333333;
+    padding-bottom: 4px;
+}
+
+/* page logos */
+
+img.PageLogo
+{
+    background-image: url(Page_Generic.png);
+}
+
+.AnnouncePage img.PageLogo
+{
+    background-image: url(Page_Announce.png);
+}
+
+.CategoriesPage img.PageLogo
+{
+    background-image: url(Page_Categories.png);
+}
+
+.CommentsPage img.PageLogo
+{
+    background-image: url(Page_Comments.png);
+}
+
+.ContactsPage img.PageLogo
+{
+    background-image: url(Page_Contacts.png);
+}
+
+.DiscussionsPage img.PageLogo
+{
+    background-image: url(Page_Contacts.png);
+}
+
+.EventsPage img.PageLogo
+{
+    background-image: url(Page_Events.png);
+}
+
+.FoldersPage img.PageLogo
+{
+    background-image: url(Page_Folders.png);
+}
+
+.ImagesPage img.PageLogo
+{
+    background-image: url(Page_Images.png);
+}
+
+.MeetingPage img.PageLogo
+{
+    background-image: url(Page_Meeting.png);
+}
+
+.MemosPage img.PageLogo
+{
+    background-image: url(Page_Memos.png);
+}
+
+.MiscPage img.PageLogo
+{
+    background-image: url(Page_Misc.png);
+}
+
+.NotesPage img.PageLogo
+{
+    background-image: url(Page_Notes.png);
+}
+
+.ReferencesPage img.PageLogo
+{
+    background-image: url(Page_References.png);
+}
+
+.SettingsPage img.PageLogo
+{
+    background-image: url(Page_Settings.png);
+}
+
+.SolutionsPage img.PageLogo
+{
+    background-image: url(Page_Issues2.png);
+}
+
+.TasksPage img.PageLogo
+{
+    background-image: url(Page_Issues.png);
+}
+
+.UsersPage img.PageLogo
+{
+    background-image: url(Page_Users.png);
+}
+
+/* fix for the height of standard buttons in tree view */
+
+.TreeView img
+{
+    height: 20px;
+}
+
+/* Two-level menu */
+
+div.two-level
+{
+    overflow: visible;
+    border-top: solid 1px #c2dcff;
+    margin: 2px 0 0 0;
+    padding: 0 0 0 6px;
+    height: auto;
+}
+
+div.two-level ul
+{
+    padding: 0;
+    margin: 0;
+}
+
+div.two-level ul li
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+div.two-level a
+{
+    text-decoration: none;
+    color: #3764a0;
+}
+
+div.two-level a:hover
+{
+    color: #000 !important;
+    text-decoration: underline;
+}
+
+div.two-level ul li.level1
+{
+    float: left;
+}
+
+div.two-level ul li.level1 a.level1 span.inner
+{
+    padding: 5px 6px;
+    display: inline-block;
+}
+
+div.two-level ul li.level1 a.level1 span.inner:hover
+{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+div.two-level li.selected.level1 a.level1, div.two-level li.current a.level1
+{
+    font-weight: bold;
+}
+
+div.two-level div.children li.level2.current a.level2, div.two-level div.children li.level3.current a.level3, div.two-level div.children li.level4.current a.level4
+{
+    font-weight: bold;
+    color: #000 !important;
+}
+
+div.two-level li.selected.level1, div.two-level li.current.level1, div.two-level li.hover.level1
+{
+    background-image: url(TopShape.jpg);
+    background-repeat: repeat-x;
+}
+
+div.two-level li.unhover.level1
+{
+    background-image: none !important;
+    background-color: transparent !important;
+}
+
+div.two-level li.level1
+{
+    border-left: 1px solid #c2dcff;
+}
+
+div.two-level li.level1.first
+{
+    border-left-color: #fff;
+}
+
+div.two-level li.selected.level1.first, div.two-level li.current.level1.first, div.two-level li.hover.level1.first
+{
+    border-left: 1px solid #c2dcff;
+}
+
+div.two-level li.selected.level1.last, div.two-level li.current.level1.last, div.two-level li.hover.level1.last
+{
+    border-right: 1px solid #c2dcff;
+}
+
+div.two-level div.children.level2
+{
+    position: absolute;
+    background-color: #fff;
+    border: solid 1px #6f9dd9;
+    border-top-width: 3px;
+    padding: 6px 12px;
+    box-shadow: 7px 7px 10px rgba(0,0,0,0.2);
+    margin-left: -25px;
+    overflow: auto;
+    z-index: 1;
+}
+
+div.two-level div.children ul
+{
+    margin-left: 20px;
+}
+
+div.two-level div.children ul li
+{
+    padding: 2px 0;
+}
+
+div.two-level div.children ul.level2
+{
+    margin-left: 0;
+}
+
+
+div.two-level div.children.level2 a, div.two-level div.children.level2 a span
+{
+    display: block;
+}
+
+div.two-level div.children div.column.level2
+{
+    float: left;
+    margin-left: 20px;
+}
+
+div.two-level div.children div.column.level2.first
+{
+    margin-left: 0;
+}
+
+div.two-level span.text
+{
+    color: #808080;
+    font-weight: bold;
+    font-size: small;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+div.two-level span.text.first
+{
+    margin-top: 0;
+}
+
+/* menu-button styles*/
+
+.menu-button-container a
+{
+    font-family: Tahoma;
+    font-size: 8.5pt;
+}
+
+.menu-button-container a.selected
+{
+    font-weight: bold !important;
+}
+
+.menu-button-container ul
+{
+    box-shadow: 7px 7px 10px rgba(0,0,0,0.2);
+    border-top: solid 3px #000;
+}
+
+.menu-button-container ul
+{
+    border-color: #000;
+}
+
+.menu-button-container .root-level
+{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.menu-button-container .sub-level
+{
+    border-radius: 0;
+    border-left-width: 0;
+}
+
+.menu-button-container .sub-level.last-level
+{
+    border-bottom-right-radius: 4px;
+}
+
+
+
+.menu-button.ui-state-default
+{
+    background-image: none;
+    background-color: transparent;
+    border-color: transparent;
+    font-family: Verdana;
+    font-size: 11pt;
+    font-weight: bold;
+}
+
+.menu-button.ui-state-default.menu-button-active
+{
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.menu-button .ui-button-text
+{
+    padding-left: 0.4em !important;
+    padding-right: 1.8em !important;
+}
+
+div#PageHeaderBar.menu-button-bar
+{
+    height: 30px;
+    padding-top: 0;
+    padding-bottom: 4px;
+    background-position-y: center;
+}
