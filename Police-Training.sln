@@ -30,6 +30,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Code On Time Items", "Code 
 		DataAquarium.Version.xml = DataAquarium.Version.xml
 		Sync.REMOTE157-KJH5467.xml = Sync.REMOTE157-KJH5467.xml
 		Sync.REMOTE159-jxp5346.xml = Sync.REMOTE159-jxp5346.xml
+		Sync.REMOTE161-pas5515.xml = Sync.REMOTE161-pas5515.xml
 	EndProjectSection
 EndProject
 Global

@@ -196,7 +196,7 @@ namespace MyCompany.Handlers
                 {
                     _pageContent.Text = "<div id=\"PageContent\" style=\"display:none\"><div data-app-role=\"page\">404 Not Foun" +
                         "d</div></div>";
-                    this.Title = "Police Training Assistant";
+                    this.Title = "Police-Training";
                 }
                 else
                 	_pageContent.Text = "404 Not Found";

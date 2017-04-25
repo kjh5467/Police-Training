@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?><logs><log type="Controllers"><c y="NodeSet" t="2017-04-24T22:42:36"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="WeaponTypeID" />
+<update>
+  <TextMode>Text</TextMode>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T22:43:04"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="WeaponTypecaliber" />
+<update>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T22:44:38"><controller name="WeaponType" />
+<field name="Make" />
+<update>
+  <AllowNulls>true</AllowNulls>
+</update></c><c y="NodeSet" t="2017-04-24T22:44:59"><controller name="WeaponType" />
+<field name="Model" />
+<update>
+  <AllowNulls>true</AllowNulls>
+</update></c><c y="NodeSet" t="2017-04-24T22:45:03"><controller name="WeaponType" />
+<field name="Caliber" />
+<update>
+  <AllowNulls>true</AllowNulls>
+</update></c><c y="NodeSet" t="2017-04-24T22:45:33"><controller name="WeaponType" />
+<field name="Caliber" />
+<update>
+  <AllowNulls>false</AllowNulls>
+</update></c><c y="NodeSet" t="2017-04-24T22:45:45"><controller name="WeaponType" />
+<field name="Make" />
+<update>
+  <AllowNulls>false</AllowNulls>
+</update></c><c y="NodeSet" t="2017-04-24T22:45:49"><controller name="WeaponType" />
+<field name="Model" />
+<update>
+  <AllowNulls>false</AllowNulls>
+</update></c><c y="NodeSet" t="2017-04-24T22:46:30"><controller name="WeaponType" />
+<field name="Model" />
+<update>
+  <Formula />
+</update></c></log><log type="Application"></log></logs>
