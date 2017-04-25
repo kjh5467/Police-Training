@@ -699,4 +699,143 @@ FirstName=FirstName</Copy>
   <TextMode>Static</TextMode>
   <Hidden>false</Hidden>
   <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T23:06:03"><controller name="Weapons" />
+<view id="createForm1" />
+<category id="c1" />
+<move>
+  <controller name="Weapons" />
+  <field name="BadgeID" />
+</move></c><c y="NodeSet" t="2017-04-24T23:06:05"><controller name="Weapons" />
+<view id="createForm1" />
+<category id="c1" />
+<dataField fieldName="Vehicle" />
+<move>
+  <controller name="Weapons" />
+  <view id="createForm1" />
+  <category id="c1" />
+  <dataField fieldName="BadgeID" />
+</move></c><c y="NodeSet" t="2017-04-24T23:06:08"><controller name="Weapons" />
+<view id="editForm1" />
+<move>
+  <controller name="Weapons" />
+  <view id="createForm1" />
+  <category id="c1" />
+  <dataField fieldName="BadgeID" />
+</move></c><c y="NodeSet" t="2017-04-24T23:06:19"><controller name="Weapons" />
+<view id="editForm1" />
+<category id="c1" />
+<dataField fieldName="WeaponTypecaliber" />
+<move>
+  <controller name="Weapons" />
+  <view id="editForm1" />
+  <category id="c1" />
+  <dataField fieldName="BadgeID" />
+</move></c><c y="NodeSet" t="2017-04-24T23:06:24"><controller name="Weapons" />
+<view id="grid1" />
+<move>
+  <controller name="Weapons" />
+  <view id="editForm1" />
+  <category id="c1" />
+  <dataField fieldName="BadgeID" />
+</move></c><c y="NodeSet" t="2017-04-24T23:06:27"><controller name="Weapons" />
+<view id="grid1" />
+<dataField fieldName="WeaponTypecaliber" />
+<move>
+  <controller name="Weapons" />
+  <view id="grid1" />
+  <dataField fieldName="BadgeID" />
+</move></c><c y="NodeSet" t="2017-04-24T23:07:37"><controller name="Weapons" />
+<view id="grid1" />
+<dataField fieldName="BadgeID" />
+<update>
+  <Hidden>false</Hidden>
+  <Visibility>[Location]== 'On-Duty Carry' | [Location] == 'Off-Duty Carry'</Visibility>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T23:08:18"><controller name="Weapons" />
+<view id="editForm1" />
+<dataField fieldName="BadgeID" />
+<update>
+  <Hidden>false</Hidden>
+  <Visibility>[Location]== 'On-Duty Carry' | [Location] == 'Off-Duty Carry'</Visibility>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T23:08:35"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="BadgeID" />
+<update>
+  <Hidden>false</Hidden>
+  <Visibility>[Location]== 'On-Duty Carry' | [Location] == 'Off-Duty Carry'</Visibility>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T23:09:22"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="BadgeID" />
+<update>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-24T23:10:46"><controller name="Weapons" />
+<field name="WeaponTypeID" />
+<update>
+  <Copy>WeaponTypemodel=Model | WeaponTypecaliber=Caliber</Copy>
+</update></c><c y="NodeSet" t="2017-04-24T23:12:27"><controller name="Weapons" />
+<field name="WeaponTypeID" />
+<update>
+  <Copy>WeaponTypemodel=Model 
+WeaponTypecaliber=Caliber</Copy>
+</update></c><c y="NodeSet" t="2017-04-24T23:16:06"><controller name="Weapons" />
+<field name="WeaponTypeID" />
+<update>
+  <Copy />
+</update></c><c y="NodeSet" t="2017-04-24T23:18:30"><controller name="Weapons" />
+<field name="WeaponTypeID" />
+<update>
+  <Copy>WeaponTypemodel=model
+WeaponTypecaliber=caliber</Copy>
+</update></c><c y="NodeSet" t="2017-04-24T23:20:22"><controller name="Weapons" />
+<field name="WeaponTypeID" />
+<update>
+  <Copy>WeaponTypemodel=Model
+WeaponTypecaliber=Caliber</Copy>
+</update></c><c y="NodeSet" t="2017-04-24T23:22:58"><controller name="Weapons" />
+<field name="WeaponTypeID" />
+<update>
+  <Copy>WeaponTypemodel=Model
+WeaponTypecaliber=Caliber</Copy>
+</update></c><c y="NodeSet" t="2017-04-24T23:30:29"><controller name="Weapons" />
+<field name="WeaponTypemodel" />
+<update>
+  <ItemsStyle>AutoComplete</ItemsStyle>
+  <ItemsDataController>WeaponType</ItemsDataController>
+  <ItemsDataView>grid1</ItemsDataView>
+  <ItemsDataValueField>Model</ItemsDataValueField>
+  <ItemsDataTextField>Model</ItemsDataTextField>
+</update></c><c y="NodeSet" t="2017-04-24T23:34:23"><controller name="Weapons" />
+<field name="WeaponTypemodel" />
+<update>
+  <Copy>model = WeaponTypemodel </Copy>
+</update></c><c y="NodeSet" t="2017-04-25T09:26:18"><controller name="WeaponType" />
+<field name="Model" />
+<update>
+  <Computed>false</Computed>
+</update></c><c y="NodeSet" t="2017-04-25T09:28:42"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="WeaponTypeID" />
+<update>
+  <Columns>15</Columns>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-25T09:32:51"><controller name="Weapons" />
+<field name="WeaponTypeweaponTypeID" />
+<update>
+  <ItemsStyle>Lookup</ItemsStyle>
+  <ItemsDataController>WeaponType</ItemsDataController>
+  <ItemsDataView>grid1</ItemsDataView>
+  <ItemsDataValueField>Make</ItemsDataValueField>
+  <ItemsDataTextField>Make</ItemsDataTextField>
+  <ItemsNewDataView>createForm1</ItemsNewDataView>
+</update></c><c y="NodeSet" t="2017-04-25T09:35:08"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="WeaponTypeweaponTypeID" />
+<update>
+  <Alias>WeaponTypemake</Alias>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
 </update></c></log><log type="Application" /></logs>
