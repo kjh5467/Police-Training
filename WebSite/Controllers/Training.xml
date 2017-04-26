@@ -5,16 +5,17 @@
       <text><![CDATA[
 select
 	"Training"."CourseID" "CourseID"
-	,"Courses"."CourseName" "CoursesCourseName"
-	,"Courses"."CourseLocation" "CoursesCourseLocation"
 	,"Training"."Score" "Score"
 	,"Training"."Date" "Date"
 	,"Officers_Badge"."FirstName" "OfficersBadgefirstname"
 	,"Officers_Badge"."LastName" "OfficersBadgelastname"
 	,"Training"."Officers_BadgeID" "OfficersBadgeid"
+	,"Training"."CoF_ID" "CofID"
+	,"CoF"."CourseName" "CofCoursename"
+	,"CoF"."CourseLocation" "CofCourselocation"
 from "dbo"."Training" "Training"
 	left join "dbo"."Officers" "Officers_Badge" on "Training"."Officers_BadgeID" = "Officers_Badge"."BadgeID"
-	left join "dbo"."Courses" "Courses" on "Training"."CourseID" = "Courses"."Training_CourseID"
+	left join "dbo"."Course_of_Fire" "CoF" on "Training"."CoF_ID" = "CoF"."CoF_ID"
 ]]></text>
     </command>
     <command id="CourseIDIdentityCommand" type="Text" event="Inserted">
@@ -25,11 +26,7 @@ from "dbo"."Training" "Training"
     </command>
   </commands>
   <fields>
-    <field name="CourseID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Course ID" readOnly="true" showInSummary="true">
-      <items style="Lookup" dataController="Courses" newDataView="createForm1" dataValueField="Training_CourseID" dataTextField="CourseName" copy="CoursesCourseLocation=CourseLocation" />
-    </field>
-    <field name="CoursesCourseName" type="String" readOnly="true" label="Courses Course Name" length="50" />
-    <field name="CoursesCourseLocation" type="String" readOnly="true" label="Courses Course Location" length="50" />
+    <field name="CourseID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Course ID" readOnly="true" />
     <field name="Score" type="Int32" label="Score" showInSummary="true" />
     <field name="Date" type="DateTime" dataFormatString="g" label="Date" showInSummary="true" />
     <field name="OfficersBadgeid" type="Int32" label="Officers Badgeid" showInSummary="true">
@@ -37,18 +34,23 @@ from "dbo"."Training" "Training"
     </field>
     <field name="OfficersBadgefirstname" type="String" readOnly="true" label="Officer First Name" length="50" />
     <field name="OfficersBadgelastname" type="String" readOnly="true" label="Officer Last Name" length="50" />
+    <field name="CofID" type="Int32" label="Cof ID" showInSummary="true">
+      <items style="Lookup" dataController="CourseOfFire" newDataView="createForm1" dataValueField="CofID" dataTextField="CourseName" copy="CofCourselocation=CourseLocation" />
+    </field>
+    <field name="CofCoursename" type="String" readOnly="true" label="Cof Coursename" length="50" />
+    <field name="CofCourselocation" type="String" readOnly="true" label="Cof Courselocation" length="50" />
   </fields>
   <views>
     <view id="grid1" type="Grid" commandId="command1" label="Training">
       <headerText>$DefaultGridViewDescription</headerText>
       <dataFields>
-        <dataField fieldName="CourseID" aliasFieldName="CoursesCourseName" />
-        <dataField fieldName="CoursesCourseLocation" columns="50" />
         <dataField fieldName="Score" columns="15" />
         <dataField fieldName="Date" columns="20" />
         <dataField fieldName="OfficersBadgefirstname" columns="50" />
         <dataField fieldName="OfficersBadgelastname" columns="50" />
         <dataField fieldName="OfficersBadgeid" columns="15" />
+        <dataField fieldName="CofID" aliasFieldName="CofCoursename" />
+        <dataField fieldName="CofCourselocation" columns="50" />
       </dataFields>
     </view>
     <view id="editForm1" type="Form" commandId="command1" label="Review Training">
@@ -57,13 +59,13 @@ from "dbo"."Training" "Training"
         <category id="c1" headerText="Training" flow="NewColumn">
           <description><![CDATA[$DefaultEditDescription]]></description>
           <dataFields>
-            <dataField fieldName="CourseID" aliasFieldName="CoursesCourseName" />
-            <dataField fieldName="CoursesCourseLocation" columns="50" />
             <dataField fieldName="Score" columns="15" />
             <dataField fieldName="Date" columns="20" />
             <dataField fieldName="OfficersBadgeid" columns="15" />
             <dataField fieldName="OfficersBadgefirstname" columns="50" />
             <dataField fieldName="OfficersBadgelastname" columns="50" />
+            <dataField fieldName="CofID" aliasFieldName="CofCoursename" />
+            <dataField fieldName="CofCourselocation" columns="50" />
           </dataFields>
         </category>
       </categories>
@@ -74,8 +76,6 @@ from "dbo"."Training" "Training"
         <category id="c1" headerText="New Training" flow="NewColumn">
           <description><![CDATA[$DefaultNewDescription]]></description>
           <dataFields>
-            <dataField fieldName="CourseID" aliasFieldName="CoursesCourseName" />
-            <dataField fieldName="CoursesCourseLocation" columns="50" />
             <dataField fieldName="Score" columns="15" />
             <dataField fieldName="Date" columns="20" />
             <dataField fieldName="OfficersBadgeid" columns="15" />
@@ -89,6 +89,8 @@ from "dbo"."Training" "Training"
                 <expression test="[OfficersBadgeid] != null" type="ClientScript" />
               </visibility>
             </dataField>
+            <dataField fieldName="CofID" aliasFieldName="CofCoursename" />
+            <dataField fieldName="CofCourselocation" columns="50" />
           </dataFields>
         </category>
       </categories>
@@ -129,10 +131,6 @@ from "dbo"."Training" "Training"
       <action id="a2" />
       <action id="a3" commandName="ExportRowset" />
       <action id="a4" commandName="ExportRss" />
-      <action id="a5" />
-      <action id="a6" commandName="Import" commandArgument="createForm1" />
-      <action id="a7" commandName="DataSheet" />
-      <action id="a8" commandName="Grid" />
     </actionGroup>
     <actionGroup id="ag6" scope="ActionBar" headerText="Record">
       <action id="a1" whenLastCommandName="Edit" commandName="Update" />

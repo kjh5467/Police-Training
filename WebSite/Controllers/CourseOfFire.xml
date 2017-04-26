@@ -1,62 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dataController name="WeaponType" conflictDetection="overwriteChanges" label="Weapon Type" xmlns="urn:schemas-codeontime-com:data-aquarium">
+<dataController name="CourseOfFire" conflictDetection="overwriteChanges" label="Course Of Fire" xmlns="urn:schemas-codeontime-com:data-aquarium">
   <commands>
     <command id="command1" type="Text">
       <text><![CDATA[
 select
-	"Weapon_Type"."Weapon_Type_ID" "WeaponTypeID"
-	,"Weapon_Type"."Make" "Make"
-	,"Weapon_Type"."Model" "Model"
-	,"Weapon_Type"."Caliber" "Caliber"
-from "dbo"."Weapon_Type" "Weapon_Type"
+	"Course_of_Fire"."CoF_ID" "CofID"
+	,"Course_of_Fire"."CourseName" "CourseName"
+	,"Course_of_Fire"."CourseLocation" "CourseLocation"
+from "dbo"."Course_of_Fire" "Course_of_Fire"
 ]]></text>
     </command>
-    <command id="Weapon_Type_IDIdentityCommand" type="Text" event="Inserted">
+    <command id="CoF_IDIdentityCommand" type="Text" event="Inserted">
       <text><![CDATA[select @@identity]]></text>
       <output>
-        <fieldOutput fieldName="Weapon_Type_ID" />
+        <fieldOutput fieldName="CoF_ID" />
       </output>
     </command>
   </commands>
   <fields>
-    <field name="WeaponTypeID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Weapon Type ID" readOnly="true" />
-    <field name="Make" type="String" label="Make" length="50" showInSummary="true" allowNulls="false" />
-    <field name="Model" type="String" label="Model" length="50" showInSummary="true" allowNulls="false">
-      <formula />
-    </field>
-    <field name="Caliber" type="Int32" label="Caliber" showInSummary="true" allowNulls="false" />
+    <field name="CofID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Co F ID" readOnly="true" />
+    <field name="CourseName" type="String" allowNulls="false" label="Course Name" length="50" showInSummary="true" />
+    <field name="CourseLocation" type="String" allowNulls="false" label="Course Location" length="50" showInSummary="true" />
   </fields>
   <views>
-    <view id="grid1" type="Grid" commandId="command1" label="Weapon Type">
+    <view id="grid1" type="Grid" commandId="command1" label="Course Of Fire">
       <headerText>$DefaultGridViewDescription</headerText>
       <dataFields>
-        <dataField fieldName="Make" columns="50" />
-        <dataField fieldName="Model" columns="50" />
-        <dataField fieldName="Caliber" columns="15" />
+        <dataField fieldName="CourseName" columns="50" />
+        <dataField fieldName="CourseLocation" columns="50" />
       </dataFields>
     </view>
-    <view id="editForm1" type="Form" commandId="command1" label="Review Weapon Type">
+    <view id="editForm1" type="Form" commandId="command1" label="Review Course Of Fire">
       <headerText>$DefaultEditViewDescription</headerText>
       <categories>
-        <category id="c1" headerText="Weapon Type" flow="NewColumn">
+        <category id="c1" headerText="Course Of Fire" flow="NewColumn">
           <description><![CDATA[$DefaultEditDescription]]></description>
           <dataFields>
-            <dataField fieldName="Make" columns="50" />
-            <dataField fieldName="Model" columns="50" />
-            <dataField fieldName="Caliber" columns="15" />
+            <dataField fieldName="CourseName" columns="50" />
+            <dataField fieldName="CourseLocation" columns="50" />
           </dataFields>
         </category>
       </categories>
     </view>
-    <view id="createForm1" type="Form" commandId="command1" label="New Weapon Type">
+    <view id="createForm1" type="Form" commandId="command1" label="New Course Of Fire">
       <headerText>$DefaultCreateViewDescription</headerText>
       <categories>
-        <category id="c1" headerText="New Weapon Type" flow="NewColumn">
+        <category id="c1" headerText="New Course Of Fire" flow="NewColumn">
           <description><![CDATA[$DefaultNewDescription]]></description>
           <dataFields>
-            <dataField fieldName="Make" columns="50" />
-            <dataField fieldName="Model" columns="50" />
-            <dataField fieldName="Caliber" columns="15" />
+            <dataField fieldName="CourseName" columns="50" />
+            <dataField fieldName="CourseLocation" columns="50" />
           </dataFields>
         </category>
       </categories>
