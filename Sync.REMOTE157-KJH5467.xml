@@ -838,4 +838,42 @@ WeaponTypecaliber=Caliber</Copy>
   <Alias>WeaponTypemake</Alias>
   <Hidden>false</Hidden>
   <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-25T09:39:10"><controller name="Weapons" />
+<field name="WeaponTypeweaponTypeID" />
+<update>
+  <ItemsDataValueField>WeaponTypeID</ItemsDataValueField>
+</update></c><c y="NodeSet" t="2017-04-26T17:43:51"><controller name="Courses" />
+<field name="TrainingCourseid" />
+<update>
+  <ReadOnly>true</ReadOnly>
+</update></c><c y="NodeSet" t="2017-04-26T17:44:01"><controller name="Courses" />
+<view id="createForm1" />
+<dataField fieldName="TrainingCourseid" />
+<update>
+  <Hidden>true</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-26T17:44:10"><controller name="Courses" />
+<view id="createForm1" />
+<dataField fieldName="OfficersBadgeid" />
+<update>
+  <Hidden>true</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-26T17:44:29"><controller name="Courses" />
+<field name="TrainingCourseid" />
+<update>
+  <ReadOnly>false</ReadOnly>
+</update></c><c y="NodeSet" t="2017-04-26T17:51:59"><controller name="Courses" />
+<field name="TrainingCourseid" />
+<update>
+  <AllowNulls>true</AllowNulls>
+</update></c><c y="NodeSet" t="2017-04-26T18:00:12"><controller name="Courses" />
+<field name="TrainingCourseid" />
+<update>
+  <ReadOnly>true</ReadOnly>
+</update></c><c y="NodeSet" t="2017-04-26T18:12:55"><controller name="Courses" />
+<view id="createForm1" />
+<dataField fieldName="TrainingCoursecourseid" />
+<update>
+  <Hidden>true</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
 </update></c></log><log type="Application" /></logs>
