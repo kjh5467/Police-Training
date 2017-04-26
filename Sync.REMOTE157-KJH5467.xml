@@ -876,4 +876,81 @@ WeaponTypecaliber=Caliber</Copy>
 <update>
   <Hidden>true</Hidden>
   <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-26T19:02:03"><controller name="Training" />
+<view id="createForm1" />
+<category id="c1" />
+<move>
+  <controller name="Training" />
+  <view id="createForm1" />
+  <category id="c1" />
+  <dataField fieldName="CofID" />
+</move></c><c y="NodeSet" t="2017-04-26T19:02:12"><controller name="Training" />
+<view id="createForm1" />
+<category id="c1" />
+<dataField fieldName="Score" />
+<move>
+  <controller name="Training" />
+  <view id="createForm1" />
+  <category id="c1" />
+  <dataField fieldName="CofCourselocation" />
+</move></c><c y="NodeSet" t="2017-04-26T19:02:16"><controller name="Training" />
+<view id="createForm1" />
+<category id="c1" />
+<dataField fieldName="CofCourselocation" />
+<move>
+  <controller name="Training" />
+  <view id="createForm1" />
+  <category id="c1" />
+  <dataField fieldName="Score" />
+</move></c><c y="NodeSet" t="2017-04-26T19:02:22"><controller name="Training" />
+<view id="createForm1" />
+<category id="c1" />
+<dataField fieldName="CofCourselocation" />
+<move>
+  <controller name="Training" />
+  <view id="createForm1" />
+  <category id="c1" />
+  <dataField fieldName="CofID" />
+</move></c><c y="NodeSet" t="2017-04-26T19:02:28"><controller name="Training" />
+<view id="createForm1" />
+<category id="c1" />
+<dataField fieldName="CofID" />
+<move>
+  <controller name="Training" />
+  <view id="createForm1" />
+  <category id="c1" />
+  <dataField fieldName="CofCourselocation" />
+</move></c><c y="NodeSet" t="2017-04-26T19:02:31"><controller name="Training" />
+<view id="createForm1" />
+<category id="c1" />
+<dataField fieldName="CofCourselocation" />
+<move>
+  <controller name="Training" />
+  <view id="createForm1" />
+  <category id="c1" />
+  <dataField fieldName="Score" />
+</move></c><c y="NodeSet" t="2017-04-26T19:02:36"><controller name="Training" />
+<view id="createForm1" />
+<category id="c1" />
+<dataField fieldName="CofID" />
+<move>
+  <controller name="Training" />
+  <view id="createForm1" />
+  <category id="c1" />
+  <dataField fieldName="Score" />
+</move></c><c y="NodeSet" t="2017-04-26T19:02:40"><controller name="Training" />
+<view id="createForm1" />
+<category id="c1" />
+<dataField fieldName="Score" />
+<move>
+  <controller name="Training" />
+  <view id="createForm1" />
+  <category id="c1" />
+  <dataField fieldName="Date" />
+</move></c><c y="NodeSet" t="2017-04-26T19:02:52"><controller name="Training" />
+<view id="createForm1" />
+<dataField fieldName="Date" />
+<update>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
 </update></c></log><log type="Application" /></logs>

@@ -8,6 +8,6 @@
     <siteMapNode title="Maintenance" description="View Maintenance" url="~/pages/maintenance" />
     <siteMapNode title="Maintenance Tech" description="View Maintenance Tech" url="~/pages/maintenance-tech" />
     <siteMapNode title="Weapon Type" description="View Weapon Type" url="~/pages/weapon-type" />
-    <siteMapNode title="Courses" description="View Courses" url="~/pages/courses" />
+    <siteMapNode title="Course Of Fire" description="View Course Of Fire" url="~/pages/course-of-fire" />
   </siteMapNode>
 </siteMap>

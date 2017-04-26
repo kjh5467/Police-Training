@@ -1,96 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dataController name="Training" conflictDetection="overwriteChanges" label="Training" xmlns="urn:schemas-codeontime-com:data-aquarium">
+<dataController name="CourseOfFire" conflictDetection="overwriteChanges" label="Course Of Fire" xmlns="urn:schemas-codeontime-com:data-aquarium">
   <commands>
     <command id="command1" type="Text">
       <text><![CDATA[
 select
-	"Training"."CourseID" "CourseID"
-	,"Training"."Score" "Score"
-	,"Training"."Date" "Date"
-	,"Officers_Badge"."FirstName" "OfficersBadgefirstname"
-	,"Officers_Badge"."LastName" "OfficersBadgelastname"
-	,"Training"."Officers_BadgeID" "OfficersBadgeid"
-	,"Training"."CoF_ID" "CofID"
-	,"CoF"."CourseName" "CofCoursename"
-	,"CoF"."CourseLocation" "CofCourselocation"
-from "dbo"."Training" "Training"
-	left join "dbo"."Officers" "Officers_Badge" on "Training"."Officers_BadgeID" = "Officers_Badge"."BadgeID"
-	left join "dbo"."Course_of_Fire" "CoF" on "Training"."CoF_ID" = "CoF"."CoF_ID"
+	"Course_of_Fire"."CoF_ID" "CofID"
+	,"Course_of_Fire"."CourseName" "CourseName"
+	,"Course_of_Fire"."CourseLocation" "CourseLocation"
+from "dbo"."Course_of_Fire" "Course_of_Fire"
 ]]></text>
     </command>
-    <command id="CourseIDIdentityCommand" type="Text" event="Inserted">
+    <command id="CoF_IDIdentityCommand" type="Text" event="Inserted">
       <text><![CDATA[select @@identity]]></text>
       <output>
-        <fieldOutput fieldName="CourseID" />
+        <fieldOutput fieldName="CoF_ID" />
       </output>
     </command>
   </commands>
   <fields>
-    <field name="CourseID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Course ID" readOnly="true" />
-    <field name="Score" type="Int32" label="Score" showInSummary="true" />
-    <field name="Date" type="DateTime" dataFormatString="g" label="Date" showInSummary="true" />
-    <field name="OfficersBadgeid" type="Int32" label="Officers Badgeid" showInSummary="true">
-      <items style="Lookup" dataController="Officers" newDataView="createForm1" dataValueField="BadgeID" dataTextField="BadgeID" copy="OfficersBadgefirstname=FirstName, OfficersBadgelastname=LastName" />
-    </field>
-    <field name="OfficersBadgefirstname" type="String" readOnly="true" label="Officer First Name" length="50" />
-    <field name="OfficersBadgelastname" type="String" readOnly="true" label="Officer Last Name" length="50" />
-    <field name="CofID" type="Int32" label="Cof ID" showInSummary="true">
-      <items style="Lookup" dataController="CourseOfFire" newDataView="createForm1" dataValueField="CofID" dataTextField="CourseName" copy="CofCourselocation=CourseLocation" />
-    </field>
-    <field name="CofCoursename" type="String" readOnly="true" label="Cof Coursename" length="50" />
-    <field name="CofCourselocation" type="String" readOnly="true" label="Cof Courselocation" length="50" />
+    <field name="CofID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Co F ID" readOnly="true" />
+    <field name="CourseName" type="String" allowNulls="false" label="Course Name" length="50" showInSummary="true" />
+    <field name="CourseLocation" type="String" allowNulls="false" label="Course Location" length="50" showInSummary="true" />
   </fields>
   <views>
-    <view id="grid1" type="Grid" commandId="command1" label="Training">
+    <view id="grid1" type="Grid" commandId="command1" label="Course Of Fire">
       <headerText>$DefaultGridViewDescription</headerText>
       <dataFields>
-        <dataField fieldName="Score" columns="15" />
-        <dataField fieldName="Date" columns="20" />
-        <dataField fieldName="OfficersBadgefirstname" columns="50" />
-        <dataField fieldName="OfficersBadgelastname" columns="50" />
-        <dataField fieldName="OfficersBadgeid" columns="15" />
-        <dataField fieldName="CofID" aliasFieldName="CofCoursename" />
-        <dataField fieldName="CofCourselocation" columns="50" />
+        <dataField fieldName="CourseName" columns="50" />
+        <dataField fieldName="CourseLocation" columns="50" />
       </dataFields>
     </view>
-    <view id="editForm1" type="Form" commandId="command1" label="Review Training">
+    <view id="editForm1" type="Form" commandId="command1" label="Review Course Of Fire">
       <headerText>$DefaultEditViewDescription</headerText>
       <categories>
-        <category id="c1" headerText="Training" flow="NewColumn">
+        <category id="c1" headerText="Course Of Fire" flow="NewColumn">
           <description><![CDATA[$DefaultEditDescription]]></description>
           <dataFields>
-            <dataField fieldName="Score" columns="15" />
-            <dataField fieldName="Date" columns="20" />
-            <dataField fieldName="OfficersBadgeid" columns="15" />
-            <dataField fieldName="OfficersBadgefirstname" columns="50" />
-            <dataField fieldName="OfficersBadgelastname" columns="50" />
-            <dataField fieldName="CofID" aliasFieldName="CofCoursename" />
-            <dataField fieldName="CofCourselocation" columns="50" />
+            <dataField fieldName="CourseName" columns="50" />
+            <dataField fieldName="CourseLocation" columns="50" />
           </dataFields>
         </category>
       </categories>
     </view>
-    <view id="createForm1" type="Form" commandId="command1" label="New Training">
+    <view id="createForm1" type="Form" commandId="command1" label="New Course Of Fire">
       <headerText>$DefaultCreateViewDescription</headerText>
       <categories>
-        <category id="c1" headerText="New Training" flow="NewColumn">
+        <category id="c1" headerText="New Course Of Fire" flow="NewColumn">
           <description><![CDATA[$DefaultNewDescription]]></description>
           <dataFields>
-            <dataField fieldName="CofID" aliasFieldName="CofCoursename" />
-            <dataField fieldName="Score" columns="15" />
-            <dataField fieldName="Date" columns="20" />
-            <dataField fieldName="CofCourselocation" columns="50" />
-            <dataField fieldName="OfficersBadgeid" columns="15" />
-            <dataField fieldName="OfficersBadgefirstname" columns="50">
-              <visibility>
-                <expression test="[OfficersBadgeid] != null" type="ClientScript" />
-              </visibility>
-            </dataField>
-            <dataField fieldName="OfficersBadgelastname" columns="50">
-              <visibility>
-                <expression test="[OfficersBadgeid] != null" type="ClientScript" />
-              </visibility>
-            </dataField>
+            <dataField fieldName="CourseName" columns="50" />
+            <dataField fieldName="CourseLocation" columns="50" />
           </dataFields>
         </category>
       </categories>
