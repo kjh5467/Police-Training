@@ -3,11 +3,14 @@
   <siteMapNode title="^SiteHome^Home^SiteHome^" description="" url="~/index.html">
     <siteMapNode title="^HomePath^Home^HomePath^" description="^HomeDesc^Application home page^HomeDesc^" url="~/pages/home" cssClass="Wide" />
     <siteMapNode title="Officers" description="View Officers" url="~/pages/officers" />
-    <siteMapNode title="Training" description="View Training" url="~/pages/training" />
-    <siteMapNode title="Weapons" description="View Weapons" url="~/pages/weapons" />
-    <siteMapNode title="Maintenance" description="View Maintenance" url="~/pages/maintenance" />
-    <siteMapNode title="Maintenance Tech" description="View Maintenance Tech" url="~/pages/maintenance-tech" />
-    <siteMapNode title="Weapon Type" description="View Weapon Type" url="~/pages/weapon-type" />
-    <siteMapNode title="Course Of Fire" description="View Course Of Fire" url="~/pages/course-of-fire" />
+    <siteMapNode title="Training" description="View Training" url="~/pages/training">
+      <siteMapNode title="Course Of Fire" description="View Course Of Fire" url="~/pages/course-of-fire" />
+    </siteMapNode>
+    <siteMapNode title="Weapons" description="View Weapons" url="~/pages/weapons">
+      <siteMapNode title="Weapon Type" description="View Weapon Type" url="~/pages/weapon-type" />
+    </siteMapNode>
+    <siteMapNode title="Maintenance" description="View Maintenance" url="~/pages/maintenance">
+      <siteMapNode title="Maintenance Tech" description="View Maintenance Tech" url="~/pages/maintenance-tech" />
+    </siteMapNode>
   </siteMapNode>
 </siteMap>

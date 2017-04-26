@@ -148,4 +148,23 @@
 <insert type="item">
   <Value>On-Duty-Carry</Value>
   <Text>On-Duty-Carry</Text>
-</insert></c></log><log type="Application"></log></logs>
+</insert></c></log><log type="Application"><c y="NodeSet" t="2017-04-26T19:06:16"><page name="Training" />
+<move>
+  <page name="CourseOfFire" />
+</move></c><c y="NodeSet" t="2017-04-26T19:06:38"><page name="Training" />
+<move>
+  <page name="CourseOfFire" />
+</move></c><c y="NodeSet" t="2017-04-26T19:06:47"><page name="CourseOfFire" />
+<update>
+  <UseExtenders>false</UseExtenders>
+</update></c><c y="NodeSet" t="2017-04-26T19:08:07"><page name="Maintenance" />
+<move>
+  <page name="MaintenanceTech" />
+</move></c><c y="NodeSet" t="2017-04-26T19:08:10"><page name="Weapons" />
+<move>
+  <page name="WeaponType" />
+</move></c><c y="NodeSet" t="2017-04-26T19:08:22"><page name="Weapons" />
+<move>
+  <page name="Weapons" />
+  <container id="container1" />
+</move></c></log></logs>
