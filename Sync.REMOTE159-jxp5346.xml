@@ -148,7 +148,34 @@
 <insert type="item">
   <Value>On-Duty-Carry</Value>
   <Text>On-Duty-Carry</Text>
-</insert></c></log><log type="Application"><c y="NodeSet" t="2017-04-26T19:06:16"><page name="Training" />
+</insert></c><c y="NodeSet" t="2017-04-26T21:09:23"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="WeaponTypeID" />
+<update>
+  <TextMode>Static</TextMode>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-26T21:09:39"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="WeaponTypeID" />
+<update>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-26T21:11:56"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="WeaponTypeID" />
+<update>
+  <TextMode>Text</TextMode>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-26T21:12:14"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="WeaponTypeID" />
+<update>
+  <Columns>10</Columns>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c></log><log type="Application"><c y="NodeSet" t="2017-04-26T19:06:16"><page name="Training" />
 <move>
   <page name="CourseOfFire" />
 </move></c><c y="NodeSet" t="2017-04-26T19:06:38"><page name="Training" />
