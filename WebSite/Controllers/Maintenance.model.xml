@@ -1,11 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dataModel baseSchema="dbo" baseTable="Maintenance" alias="Maintenance" created="2017-04-10T21:21:08" modified="2017-04-17T21:56:44" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+<dataModel baseSchema="dbo" baseTable="Maintenance" alias="Maintenance" created="2017-04-10T21:21:08" modified="2017-04-26T19:18:41" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
   <foreignKeys>
-    <foreignKey id="Weapons_Serial" parentTableSchema="dbo" parentTableName="Weapons" x="701" y="20">
+    <foreignKey id="Weapons_Serial" parentTableSchema="dbo" parentTableName="Weapons" x="261" y="36">
       <foreignKeyColumn columnName="Weapons_SerialID" parentColumnName="SerialID" />
     </foreignKey>
-    <foreignKey id="Weapon_Type" parentTableSchema="dbo" parentTableName="Weapon_Type" x="1021" y="20" baseForeignKey="Weapons_Serial">
+    <foreignKey id="Weapon_Type" parentTableSchema="dbo" parentTableName="Weapon_Type" x="690" y="33" baseForeignKey="Weapons_Serial">
       <foreignKeyColumn columnName="Weapon_Type_ID" parentColumnName="Weapon_Type_ID" />
+    </foreignKey>
+    <foreignKey id="Technician" parentTableSchema="dbo" parentTableName="Maintenance_Tech" x="245" y="305">
+      <foreignKeyColumn columnName="TechnicianID" parentColumnName="TechnicianID" />
     </foreignKey>
   </foreignKeys>
   <columns>
@@ -18,5 +21,8 @@
     <column name="Model" fieldName="WeaponTypemodel" label="Weapon Model" foreignKey="Weapon_Type" />
     <column name="Caliber" fieldName="WeaponTypecaliber" label="Weapon Caliber" foreignKey="Weapon_Type" />
     <column name="Maint_Performed" fieldName="MaintPerformed" label="Maintenance Performed" />
+    <column name="TechnicianID" fieldName="TechnicianID" label="Technician ID" aliasColumnName="TechFirst" aliasForeignKey="Technician" />
+    <column name="TechFirst" fieldName="TechnicianTechFirst" label="Technician Tech First" foreignKey="Technician" />
+    <column name="TechLast" fieldName="TechnicianTechLast" label="Technician Tech Last" foreignKey="Technician" />
   </columns>
 </dataModel>

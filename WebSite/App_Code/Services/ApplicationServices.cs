@@ -672,7 +672,7 @@ namespace MyCompany.Services
     {
     }
     
-    public partial class ApplicationServices : ApplicationServicesBase
+    public partial class ApplicationServices : EnterpriseApplicationServices
     {
         
         public static String HomePageUrl
@@ -935,7 +935,13 @@ namespace MyCompany.Services
         {
             get
             {
-                return true;
+                object isMobile = HttpContext.Current.Items["ApplicationServices_IsTouchClient"];
+                if (isMobile == null)
+                {
+                    isMobile = ClientIsUsingTouchUI();
+                    HttpContext.Current.Items["ApplicationServices_IsTouchClient"] = isMobile;
+                }
+                return ((bool)(isMobile));
             }
         }
         
@@ -1461,6 +1467,42 @@ namespace MyCompany.Services
                     	schedule = Convert.ToString(reader[scheduleField]);
                     if (!(String.IsNullOrEmpty(scheduleExceptionsField)))
                     	scheduleExceptions = Convert.ToString(reader[scheduleExceptionsField]);
+                    if (!(String.IsNullOrEmpty(schedule)) || !(String.IsNullOrEmpty(scheduleExceptions)))
+                    {
+                        string scheduleStatusKey = String.Format("ScheduleStatus|{0}|{1}", schedule, scheduleExceptions);
+                        ScheduleStatus status = ((ScheduleStatus)(context.Items[scheduleStatusKey]));
+                        if (status == null)
+                        	status = ((ScheduleStatus)(context.Cache[scheduleStatusKey]));
+                        bool scheduleStatusChanged = false;
+                        if (status == null)
+                        {
+                            if (!(String.IsNullOrEmpty(schedule)) && !(schedule.Contains("+")))
+                            	schedule = ReadSiteContentString(("sys/schedules%/" + schedule));
+                            if (!(String.IsNullOrEmpty(scheduleExceptions)) && !(scheduleExceptions.Contains("+")))
+                            	scheduleExceptions = ReadSiteContentString(("sys/schedules%/" + scheduleExceptions));
+                            if (!(String.IsNullOrEmpty(schedule)) || !(String.IsNullOrEmpty(scheduleExceptions)))
+                            	status = Scheduler.Test(schedule, scheduleExceptions);
+                            else
+                            {
+                                status = new ScheduleStatus();
+                                status.Success = true;
+                                status.NextTestDate = DateTime.MaxValue;
+                            }
+                            context.Items[scheduleStatusKey] = status;
+                            scheduleStatusChanged = true;
+                        }
+                        else
+                        	if (DateTime.Now > status.NextTestDate)
+                            {
+                                status = Scheduler.Test(status.Schedule, status.Exceptions);
+                                context.Items[scheduleStatusKey] = status;
+                                scheduleStatusChanged = true;
+                            }
+                        if (scheduleStatusChanged)
+                        	context.Cache.Add(scheduleStatusKey, status, null, DateTime.Now.AddSeconds(ScheduleCacheDuration), Cache.NoSlidingExpiration, CacheItemPriority.Normal, null);
+                        if (!(status.Success))
+                        	include = false;
+                    }
                 }
                 // create a file instance
                 if (include)
@@ -1807,6 +1849,7 @@ namespace MyCompany.Services
             }
             settings["ui"]["theme"]["name"] = UserTheme;
             settings["ui"]["theme"]["accent"] = UserAccent;
+            settings["defaultUI"] = "TouchUI";
             return settings;
         }
         
@@ -1939,48 +1982,77 @@ namespace MyCompany.Services
             }
         }
         
+        public static bool ClientIsUsingTouchUI()
+        {
+            if (!(EnableMobileClient))
+            	return false;
+            HttpRequest request = HttpContext.Current.Request;
+            HttpCookie mobileCookie = request.Cookies["appfactorytouchui"];
+            if (mobileCookie != null)
+            	return (mobileCookie.Value == "true");
+            return true;
+        }
+        
         public static void RegisterCssLinks(Page p)
         {
-            if (ApplicationServices.IsTouchClient)
-            {
-                HtmlLink l = new HtmlLink();
-                l.ID = "MyCompanyTheme";
-                l.Attributes.Add("type", "text/css");
-                l.Attributes.Add("rel", "stylesheet");
-                string jqmCss = String.Format("jquery.mobile-{0}.min.css", ApplicationServices.JqmVersion);
-                l.Href = ("~/touch/" + jqmCss);
-                HtmlMeta meta = new HtmlMeta();
-                meta.Attributes["name"] = "viewport";
-                meta.Attributes["content"] = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
-                p.Header.Controls.AddAt(0, meta);
-                p.Header.Controls.Add(((Control)(l)));
-                foreach (string stylesheet in TouchUIStylesheets())
-                	if (!(stylesheet.StartsWith("bootstrap")))
+            foreach (Control c in p.Header.Controls)
+            	if (c is HtmlLink)
+                {
+                    HtmlLink l = ((HtmlLink)(c));
+                    if (l.ID == "MyCompanyTheme")
+                    	return;
+                    if (l.Href.Contains("_Theme_Aquarium.css"))
                     {
-                        HtmlLink cssLink = new HtmlLink();
-                        if (stylesheet.StartsWith("touch-theme."))
+                        l.ID = "MyCompanyTheme";
+                        if (ApplicationServices.IsTouchClient)
                         {
-                            Match themeVars = ThemeStylesheetRegex.Match(stylesheet);
-                            cssLink.Href = String.Format("~/Theme.ashx?theme={0}&accent={1}&v={2}", themeVars.Groups["Theme"].Value, themeVars.Groups["Accent"].Value, ApplicationServices.Version);
-                            cssLink.Attributes["class"] = "app-theme";
+                            ApplicationServices services = ApplicationServices.Current;
+                            string jqmCss = String.Format("jquery.mobile-{0}.min.css", ApplicationServices.JqmVersion);
+                            l.Href = ("~/touch/" + jqmCss);
+                            HtmlMeta meta = new HtmlMeta();
+                            meta.Attributes["name"] = "viewport";
+                            meta.Attributes["content"] = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
+                            p.Header.Controls.AddAt(0, meta);
+                            bool allowCompression = true;
+                            if (ApplicationServices.EnableMinifiedCss && allowCompression)
+                            {
+                                l.Href = p.ResolveUrl(string.Format("~/appservices/stylesheet-{0}.min.css?_t={1}.{2}&_cf=", ApplicationServices.Version, services.UserTheme, services.UserAccent));
+                                l.Attributes["class"] = "app-theme";
+                            }
+                            else
+                            	foreach (string stylesheet in services.EnumerateTouchUIStylesheets())
+                                	if (!(stylesheet.StartsWith("jquery.mobile")) && !(stylesheet.StartsWith("bootstrap")))
+                                    {
+                                        HtmlLink cssLink = new HtmlLink();
+                                        if (stylesheet.StartsWith("touch-theme."))
+                                        {
+                                            cssLink.Href = String.Format("~/appservices/{0}?{1}", stylesheet, ApplicationServices.Version);
+                                            cssLink.Attributes["class"] = "app-theme";
+                                        }
+                                        else
+                                        	cssLink.Href = String.Format("~/touch/{0}?{1}", stylesheet, ApplicationServices.Version);
+                                        cssLink.Attributes["type"] = "text/css";
+                                        cssLink.Attributes["rel"] = "stylesheet";
+                                        p.Header.Controls.Add(cssLink);
+                                    }
+                            List<Control> removeList = new List<Control>();
+                            foreach (Control c2 in p.Header.Controls)
+                            	if (c2 is HtmlLink)
+                                {
+                                    l = ((HtmlLink)(c2));
+                                    if (l.Href.Contains("App_Themes/"))
+                                    	removeList.Add(l);
+                                }
+                            foreach (Control c2 in removeList)
+                            	p.Header.Controls.Remove(c2);
+                            return;
                         }
                         else
-                        	cssLink.Href = String.Format("~/touch/{0}?{1}", stylesheet, ApplicationServices.Version);
-                        cssLink.Attributes["type"] = "text/css";
-                        cssLink.Attributes["rel"] = "stylesheet";
-                        p.Header.Controls.Add(cssLink);
+                        	if (!(l.Href.Contains("?")))
+                            	l.Href = (l.Href + String.Format("?{0}", ApplicationServices.Version));
+                        return;
                     }
-                List<Control> removeList = new List<Control>();
-                foreach (Control c2 in p.Header.Controls)
-                	if (c2 is HtmlLink)
-                    {
-                        l = ((HtmlLink)(c2));
-                        if (l.Href.Contains("App_Themes/"))
-                        	removeList.Add(l);
-                    }
-                foreach (Control c2 in removeList)
-                	p.Header.Controls.Remove(c2);
-            }
+                }
         }
         
         private void LoadTheme()
@@ -2237,6 +2309,18 @@ namespace MyCompany.Services
                                             else
                                             	if (methodName == "Themes")
                                                 	result = service.Themes();
+                                                else
+                                                	if (methodName == "SavePermalink")
+                                                    	service.SavePermalink(((string)(args["link"])), ((string)(args["html"])));
+                                                    else
+                                                    	if (methodName == "EncodePermalink")
+                                                        	result = service.EncodePermalink(((string)(args["link"])), ((bool)(args["rooted"])));
+                                                        else
+                                                        	if (methodName == "ListAllPermalinks")
+                                                            	result = service.ListAllPermalinks();
+                                                            else
+                                                            	if (methodName == "ExecuteList")
+                                                                	result = service.ExecuteList(args["requests"].ToObject<ActionArgs[]>());
             }
             catch (Exception ex)
             {

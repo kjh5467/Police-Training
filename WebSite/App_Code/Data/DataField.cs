@@ -133,6 +133,9 @@ namespace MyCompany.Data
         private bool _allowSorting;
         
         [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.Never)]
+        private bool _allowLEV;
+        
+        [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.Never)]
         private string _dataFormatString;
         
         [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -333,6 +336,7 @@ namespace MyCompany.Data
             this._allowNulls = !((field.GetAttribute("allowNulls", String.Empty) == "false"));
             this._hidden = (field.GetAttribute("hidden", String.Empty) == "true");
             this._allowQBE = !((field.GetAttribute("allowQBE", String.Empty) == "false"));
+            this._allowLEV = (field.GetAttribute("allowLEV", String.Empty) == "true");
             this._allowSorting = !((field.GetAttribute("allowSorting", String.Empty) == "false"));
             this._sourceFields = field.GetAttribute("sourceFields", String.Empty);
             string onDemandStyle = field.GetAttribute("onDemandStyle", String.Empty);
@@ -400,6 +404,7 @@ namespace MyCompany.Data
             this._allowNulls = field.AllowNulls;
             this._allowQBE = field.AllowQBE;
             this._allowSorting = field.AllowSorting;
+            this._allowLEV = field.AllowLEV;
             this._dataFormatString = field.DataFormatString;
             this._aggregate = field.Aggregate;
             if (!(this._dataFormatString.Contains("{")))
@@ -606,6 +611,18 @@ namespace MyCompany.Data
             set
             {
                 this._allowSorting = value;
+            }
+        }
+        
+        public bool AllowLEV
+        {
+            get
+            {
+                return this._allowLEV;
+            }
+            set
+            {
+                this._allowLEV = value;
             }
         }
         

@@ -67,8 +67,8 @@ from "dbo"."Weapons" "Weapons"
     <field name="BadgeID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Badge ID">
       <items style="Lookup" dataController="Officers" dataView="grid1" dataTextField="BadgeID" dataValueField="BadgeID" copy="LastName=LastName&#xD;&#xA;FirstName=FirstName" />
     </field>
-    <field name="FirstName_2" type="String" allowNulls="false" label="First Name" length="50" showInSummary="true" />
     <field name="LastName_2" type="String" allowNulls="false" label="Last Name" length="50" showInSummary="true" />
+    <field name="FirstName_2" type="String" allowNulls="false" label="First Name" length="50" showInSummary="true" />
   </fields>
   <views>
     <view id="grid1" type="Grid" commandId="command1" label="Weapons">
@@ -125,14 +125,14 @@ from "dbo"."Weapons" "Weapons"
                 <expression test="[Location] == 'Vehicle'" type="ClientScript" />
               </visibility>
             </dataField>
+            <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypemake" textMode="Text" columns="10" />
+            <dataField fieldName="WeaponTypemodel" columns="50" />
+            <dataField fieldName="WeaponTypecaliber" columns="15" />
             <dataField fieldName="BadgeID" columns="15">
               <visibility>
                 <expression test="[Location]== 'On-Duty Carry' | [Location] == 'Off-Duty Carry'" type="ClientScript" />
               </visibility>
             </dataField>
-            <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypemake" textMode="Text" columns="15" />
-            <dataField fieldName="WeaponTypemodel" columns="50" />
-            <dataField fieldName="WeaponTypecaliber" columns="15" />
             <dataField fieldName="LastName" columns="50">
               <visibility>
                 <expression test="[Location] == 'On-Duty Carry' | [Location] == 'Off-Duty Carry'" type="ClientScript" />
@@ -183,6 +183,10 @@ from "dbo"."Weapons" "Weapons"
       <action id="a2" />
       <action id="a3" commandName="ExportRowset" />
       <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
     </actionGroup>
     <actionGroup id="ag6" scope="ActionBar" headerText="Record">
       <action id="a1" whenLastCommandName="Edit" commandName="Update" />

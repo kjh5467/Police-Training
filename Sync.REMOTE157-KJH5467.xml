@@ -953,4 +953,62 @@ WeaponTypecaliber=Caliber</Copy>
 <update>
   <Hidden>false</Hidden>
   <DataViewShowInSummary>false</DataViewShowInSummary>
-</update></c></log><log type="Application" /></logs>
+</update></c><c y="NodeSet" t="2017-04-26T21:09:55"><controller name="Weapons" />
+<view id="createForm1" />
+<category id="c1" />
+<dataField fieldName="WeaponTypecaliber" />
+<move>
+  <controller name="Weapons" />
+  <view id="createForm1" />
+  <category id="c1" />
+  <dataField fieldName="BadgeID" />
+</move></c><c y="NodeSet" t="2017-04-26T21:09:57"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="BadgeID" />
+<update>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-26T21:10:09"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="BadgeID" />
+<update>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-26T21:16:50"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="WeaponTypeID" />
+<update>
+  <Columns>10</Columns>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c></log><log type="Application" ><c y="NodeSet" t="2017-04-26T19:17:05"><page name="Training" />
+<move>
+  <page name="CourseOfFire" />
+</move></c><c y="NodeSet" t="2017-04-26T19:17:13"><page name="Weapons" />
+<move>
+  <page name="WeaponType" />
+</move></c><c y="NodeSet" t="2017-04-26T19:17:15"><page name="Maintenance" />
+<move>
+  <page name="MaintenanceTech" />
+</move></c><c y="NodeSet" t="2017-04-26T19:17:19"><page name="MaintenanceTech" />
+<update>
+  <UseExtenders>false</UseExtenders>
+</update></c><c y="NodeSet" t="2017-04-26T19:52:00"><page name="MaintenanceTech" />
+<update>
+  <Style>UsersPage</Style>
+</update></c><c y="NodeSet" t="2017-04-26T19:54:30"><page name="MaintenanceTech" />
+<update>
+  <Style />
+</update></c><c y="NodeSet" t="2017-04-26T19:55:09"><page name="MaintenanceTech" />
+<update>
+  <Template>Jumbotron</Template>
+</update></c><c y="NodeSet" t="2017-04-26T19:55:59"><page name="MaintenanceTech" />
+<update>
+  <Template>Carousel</Template>
+</update></c><c y="NodeSet" t="2017-04-26T19:56:53"><page name="MaintenanceTech" />
+<update>
+  <Template>(blank)</Template>
+</update></c><c y="NodeSet" t="2017-04-26T19:57:19"><page name="MaintenanceTech" />
+<update>
+  <Template />
+</update></c></log></logs>

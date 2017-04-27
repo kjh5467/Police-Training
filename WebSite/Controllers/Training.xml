@@ -76,8 +76,10 @@ from "dbo"."Training" "Training"
         <category id="c1" headerText="New Training" flow="NewColumn">
           <description><![CDATA[$DefaultNewDescription]]></description>
           <dataFields>
+            <dataField fieldName="CofID" aliasFieldName="CofCoursename" />
             <dataField fieldName="Score" columns="15" />
             <dataField fieldName="Date" columns="20" />
+            <dataField fieldName="CofCourselocation" columns="50" />
             <dataField fieldName="OfficersBadgeid" columns="15" />
             <dataField fieldName="OfficersBadgefirstname" columns="50">
               <visibility>
@@ -89,8 +91,6 @@ from "dbo"."Training" "Training"
                 <expression test="[OfficersBadgeid] != null" type="ClientScript" />
               </visibility>
             </dataField>
-            <dataField fieldName="CofID" aliasFieldName="CofCoursename" />
-            <dataField fieldName="CofCourselocation" columns="50" />
           </dataFields>
         </category>
       </categories>
@@ -131,6 +131,10 @@ from "dbo"."Training" "Training"
       <action id="a2" />
       <action id="a3" commandName="ExportRowset" />
       <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
     </actionGroup>
     <actionGroup id="ag6" scope="ActionBar" headerText="Record">
       <action id="a1" whenLastCommandName="Edit" commandName="Update" />

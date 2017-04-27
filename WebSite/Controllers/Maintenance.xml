@@ -13,9 +13,13 @@ select
 	,"Weapon_Type"."Model" "WeaponTypemodel"
 	,"Weapon_Type"."Caliber" "WeaponTypecaliber"
 	,"Maintenance"."Maint_Performed" "MaintPerformed"
+	,"Maintenance"."TechnicianID" "TechnicianID"
+	,"Technician"."TechFirst" "TechnicianTechFirst"
+	,"Technician"."TechLast" "TechnicianTechLast"
 from "dbo"."Maintenance" "Maintenance"
 	left join "dbo"."Weapons" "Weapons_Serial" on "Maintenance"."Weapons_SerialID" = "Weapons_Serial"."SerialID"
 	left join "dbo"."Weapon_Type" "Weapon_Type" on "Weapons_Serial"."Weapon_Type_ID" = "Weapon_Type"."Weapon_Type_ID"
+	left join "dbo"."Maintenance_Tech" "Technician" on "Maintenance"."TechnicianID" = "Technician"."TechnicianID"
 ]]></text>
     </command>
     <command id="RecordIDIdentityCommand" type="Text" event="Inserted">
@@ -37,6 +41,11 @@ from "dbo"."Maintenance" "Maintenance"
     <field name="WeaponTypemodel" type="String" readOnly="true" label="Weapon Model" length="50" />
     <field name="WeaponTypecaliber" type="Int32" readOnly="true" label="Weapon Caliber" />
     <field name="MaintPerformed" type="String" label="Maintenance Performed" length="250" showInSummary="true" />
+    <field name="TechnicianID" type="Int32" label="Technician ID" showInSummary="true">
+      <items style="Lookup" dataController="MaintenanceTech" newDataView="createForm1" dataValueField="TechnicianID" dataTextField="TechFirst" copy="TechnicianTechLast=TechLast" />
+    </field>
+    <field name="TechnicianTechFirst" type="String" readOnly="true" label="Technician Tech First" length="50" />
+    <field name="TechnicianTechLast" type="String" readOnly="true" label="Technician Tech Last" length="50" />
   </fields>
   <views>
     <view id="grid1" type="Grid" commandId="command1" label="Maintenance">
@@ -49,6 +58,8 @@ from "dbo"."Maintenance" "Maintenance"
         <dataField fieldName="WeaponTypemodel" columns="50" />
         <dataField fieldName="WeaponTypecaliber" columns="15" />
         <dataField fieldName="MaintPerformed" />
+        <dataField fieldName="TechnicianID" aliasFieldName="TechnicianTechFirst" />
+        <dataField fieldName="TechnicianTechLast" columns="50" />
       </dataFields>
     </view>
     <view id="editForm1" type="Form" commandId="command1" label="Review Maintenance">
@@ -64,6 +75,8 @@ from "dbo"."Maintenance" "Maintenance"
             <dataField fieldName="WeaponTypemodel" columns="50" />
             <dataField fieldName="WeaponTypecaliber" columns="15" />
             <dataField fieldName="MaintPerformed" />
+            <dataField fieldName="TechnicianID" aliasFieldName="TechnicianTechFirst" />
+            <dataField fieldName="TechnicianTechLast" columns="50" />
           </dataFields>
         </category>
       </categories>
@@ -81,6 +94,8 @@ from "dbo"."Maintenance" "Maintenance"
             <dataField fieldName="WeaponTypemodel" columns="50" />
             <dataField fieldName="WeaponTypecaliber" columns="15" />
             <dataField fieldName="MaintPerformed" />
+            <dataField fieldName="TechnicianID" aliasFieldName="TechnicianTechFirst" />
+            <dataField fieldName="TechnicianTechLast" columns="50" />
           </dataFields>
         </category>
       </categories>
@@ -121,6 +136,10 @@ from "dbo"."Maintenance" "Maintenance"
       <action id="a2" />
       <action id="a3" commandName="ExportRowset" />
       <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
     </actionGroup>
     <actionGroup id="ag6" scope="ActionBar" headerText="Record">
       <action id="a1" whenLastCommandName="Edit" commandName="Update" />
