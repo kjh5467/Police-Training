@@ -29,11 +29,11 @@ from "dbo"."Training" "Training"
     <field name="CourseID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Course ID" readOnly="true" />
     <field name="Score" type="Int32" label="Score" showInSummary="true" />
     <field name="Date" type="DateTime" dataFormatString="g" label="Date" showInSummary="true" />
+    <field name="OfficersBadgefirstname" type="String" readOnly="true" label="Officer First Name" length="50" />
+    <field name="OfficersBadgelastname" type="String" readOnly="true" label="Officer Last Name" length="50" />
     <field name="OfficersBadgeid" type="Int32" label="Officers Badgeid" showInSummary="true">
       <items style="Lookup" dataController="Officers" newDataView="createForm1" dataValueField="BadgeID" dataTextField="BadgeID" copy="OfficersBadgefirstname=FirstName, OfficersBadgelastname=LastName" />
     </field>
-    <field name="OfficersBadgefirstname" type="String" readOnly="true" label="Officer First Name" length="50" />
-    <field name="OfficersBadgelastname" type="String" readOnly="true" label="Officer Last Name" length="50" />
     <field name="CofID" type="Int32" label="Cof ID" showInSummary="true">
       <items style="Lookup" dataController="CourseOfFire" newDataView="createForm1" dataValueField="CofID" dataTextField="CourseName" copy="CofCourselocation=CourseLocation" />
     </field>
@@ -61,9 +61,9 @@ from "dbo"."Training" "Training"
           <dataFields>
             <dataField fieldName="Score" columns="15" />
             <dataField fieldName="Date" columns="20" />
-            <dataField fieldName="OfficersBadgeid" columns="15" />
             <dataField fieldName="OfficersBadgefirstname" columns="50" />
             <dataField fieldName="OfficersBadgelastname" columns="50" />
+            <dataField fieldName="OfficersBadgeid" columns="15" />
             <dataField fieldName="CofID" aliasFieldName="CofCoursename" />
             <dataField fieldName="CofCourselocation" columns="50" />
           </dataFields>
@@ -78,17 +78,9 @@ from "dbo"."Training" "Training"
           <dataFields>
             <dataField fieldName="Score" columns="15" />
             <dataField fieldName="Date" columns="20" />
+            <dataField fieldName="OfficersBadgefirstname" columns="50" />
+            <dataField fieldName="OfficersBadgelastname" columns="50" />
             <dataField fieldName="OfficersBadgeid" columns="15" />
-            <dataField fieldName="OfficersBadgefirstname" columns="50">
-              <visibility>
-                <expression test="[OfficersBadgeid] != null" type="ClientScript" />
-              </visibility>
-            </dataField>
-            <dataField fieldName="OfficersBadgelastname" columns="50">
-              <visibility>
-                <expression test="[OfficersBadgeid] != null" type="ClientScript" />
-              </visibility>
-            </dataField>
             <dataField fieldName="CofID" aliasFieldName="CofCoursename" />
             <dataField fieldName="CofCourselocation" columns="50" />
           </dataFields>
