@@ -125,7 +125,7 @@ from "dbo"."Weapons" "Weapons"
                 <expression test="[Location] == 'Vehicle'" type="ClientScript" />
               </visibility>
             </dataField>
-            <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypemake" textMode="Text" columns="10" />
+            <dataField fieldName="WeaponTypeID" aliasFieldName="WeaponTypemake" textMode="Text" columns="100" />
             <dataField fieldName="WeaponTypemodel" columns="50" />
             <dataField fieldName="WeaponTypecaliber" columns="15" />
             <dataField fieldName="BadgeID" columns="15">

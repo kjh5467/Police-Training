@@ -981,6 +981,20 @@ WeaponTypecaliber=Caliber</Copy>
   <Columns>10</Columns>
   <Hidden>false</Hidden>
   <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-26T21:21:27"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="WeaponTypeID" />
+<update>
+  <Columns>15</Columns>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2017-04-26T21:23:08"><controller name="Weapons" />
+<view id="createForm1" />
+<dataField fieldName="WeaponTypeID" />
+<update>
+  <Columns>100</Columns>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
 </update></c></log><log type="Application" ><c y="NodeSet" t="2017-04-26T19:17:05"><page name="Training" />
 <move>
   <page name="CourseOfFire" />
